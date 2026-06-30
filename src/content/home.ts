@@ -77,3 +77,9 @@ export const animalsSection = {
   headline: [[{ text: "Every animal teaches " }, { text: "a power.", em: true }]] as HeadlineLine[],
   allLink: { label: "Meet all of them", href: "#" } as Cta,
 };
+
+export const cta = {
+  headline: [[{ text: "Get well " }, { text: "together.", em: true }]] as HeadlineLine[],
+  body: "It starts with our boys' program, out on the Baylands. Spots are limited each season.",
+  primary: { label: "Find a place this season", href: "#" } as Cta,
+};

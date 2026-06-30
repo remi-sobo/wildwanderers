@@ -3,6 +3,7 @@ import Movement from "@/components/home/Movement";
 import Flagship from "@/components/home/Flagship";
 import Approach from "@/components/home/Approach";
 import Animals from "@/components/home/Animals";
+import CtaBand from "@/components/home/CtaBand";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Flagship />
       <Approach />
       <Animals />
+      <CtaBand />
     </>
   );
 }
