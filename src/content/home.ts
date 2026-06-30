@@ -83,3 +83,9 @@ export const cta = {
   body: "It starts with our boys' program, out on the Baylands. Spots are limited each season.",
   primary: { label: "Find a place this season", href: "#" } as Cta,
 };
+
+export const footer = {
+  wordmark: "Wild Wanderers",
+  meta: "Movement · nature · connection · on the Baylands",
+  credit: "A SOBO build",
+};
