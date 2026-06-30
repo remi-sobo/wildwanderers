@@ -123,3 +123,15 @@ export const agesStages = {
   ],
 };
 
+// GATED on whether the fellowship is live. Framed as forming, not running.
+export const forDads = {
+  eyebrow: "For Dads",
+  flag: "Fellowship forming",
+  headline: [
+    [{ text: "Walk beside him," }],
+    [{ text: "not ahead.", em: true }],
+  ] as HeadlineLine[],
+  body: "The boys do not do this alone, and neither do you. Dads walk the trail too, a few good men beside their sons. The fellowship is forming now.",
+  cta: { label: "Tell me when it opens", href: "#" } as Cta,
+};
+
