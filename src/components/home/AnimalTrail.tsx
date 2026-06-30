@@ -102,9 +102,9 @@ export default function AnimalTrail() {
             <div className="mt-1.5 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-deep">
               {animal.power}
             </div>
-            {/* The lesson. Holds its space, fades and rises in on hover/focus so
-                nothing reflows. */}
-            <p className="mt-3.5 max-w-[230px] translate-y-1 font-sans text-[13.5px] leading-[1.55] text-[#5A5142] opacity-0 transition-[opacity,transform] duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100">
+            {/* The lesson. On hover-capable devices it holds its space and
+                fades up on hover/focus; on touch it is always shown (.totem-lesson). */}
+            <p className="totem-lesson mt-3.5 max-w-[230px] font-sans text-[13.5px] leading-[1.55] text-[#5A5142]">
               {animal.line}
             </p>
           </article>

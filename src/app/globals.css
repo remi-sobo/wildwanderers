@@ -64,6 +64,42 @@ button:focus-visible {
   border-radius: 2px;
 }
 
+/* Quality floor (Phase 7). A hard safety net: when the user asks for reduced
+   motion, neutralize every CSS animation and transition site-wide. The GSAP
+   motion (ken-burns, parallax, sun travel, trail scrub, draw-ins) already gates
+   itself off in JS; this covers the CSS-driven pieces so the page is truly
+   still, with the full layout intact. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* The totem lesson. On devices that can hover (desktop) it stays hidden and
+   reveals on hover/focus. On touch, where there is no hover, it is always
+   visible so the lesson is never trapped behind an interaction. */
+.totem-lesson {
+  opacity: 1;
+  transform: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .totem-lesson {
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .group:hover .totem-lesson,
+  .group:focus-within .totem-lesson {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Text links draw their underline in from the left on hover/focus rather than
    snapping (Phase 6). Transform only. */
 .link-underline {

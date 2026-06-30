@@ -44,10 +44,10 @@ export default function Nav() {
   return (
     <nav
       className={clsx(
-        "fixed inset-x-0 top-0 z-50 flex items-center justify-between px-[60px] transition-all duration-300",
+        "fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 transition-all duration-300 sm:px-10 lg:px-[60px]",
         solid
           ? "border-b border-bark/15 bg-bone/95 py-4 backdrop-blur-sm"
-          : "border-b border-transparent py-[30px]",
+          : "border-b border-transparent py-[22px] sm:py-[30px]",
       )}
     >
       <Link
@@ -61,18 +61,22 @@ export default function Nav() {
       </Link>
 
       <div className="flex items-center gap-[34px]">
-        {LINKS.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            className={clsx(
-              "link-underline font-sans text-[13.5px] font-medium tracking-[0.02em] transition-colors",
-              solid ? "text-ink/80 hover:text-ink" : "text-bone/90 hover:text-bone",
-            )}
-          >
-            {link.label}
-          </a>
-        ))}
+        {/* Links collapse below md; the action stays so the way in is always
+            one tap away on mobile. */}
+        <div className="hidden items-center gap-[34px] md:flex">
+          {LINKS.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className={clsx(
+                "link-underline font-sans text-[13.5px] font-medium tracking-[0.02em] transition-colors",
+                solid ? "text-ink/80 hover:text-ink" : "text-bone/90 hover:text-bone",
+              )}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
         <a
           href="#"
           className={clsx(
