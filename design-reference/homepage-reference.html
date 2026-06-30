@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face{font-family:'Fraunces';src:url('fonts/fraunces-var.ttf') format('truetype');font-weight:300 900;font-style:normal;font-display:block;}
+@font-face{font-family:'Fraunces';src:url('fonts/fraunces-italic-var.ttf') format('truetype');font-weight:300 900;font-style:italic;font-display:block;}
+@font-face{font-family:'Jakarta';src:url('fonts/jakarta-var.ttf') format('truetype');font-weight:300 800;font-style:normal;font-display:block;}
+
+:root{
+  --bone:#F6F1E7; --bone-dim:#EDE4D3; --sand:#E7D9BF;
+  --bark:#6B4A2E; --ink:#2A2118;
+  --forest:#2E4A33; --forest-deep:#1E331F;
+  --fern:#5F9A4F; --amber:#D98A3A; --amber-deep:#BF6F1C;
+  --mist:#C4D3CC; --cream:#F2C879;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1440px;background:var(--bone);color:var(--ink);font-family:'Jakarta',sans-serif;-webkit-font-smoothing:antialiased;}
+.eyebrow{font-family:'Jakarta';font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:600;}
+em{font-style:italic;}
+
+/* ---------- NAV ---------- */
+nav{position:absolute;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:30px 60px;}
+nav .wm{font-family:'Fraunces';font-weight:500;font-size:25px;color:var(--bone);}
+nav .links{display:flex;gap:34px;align-items:center;}
+nav .links a{font-family:'Jakarta';font-size:13.5px;font-weight:500;color:rgba(246,241,231,.9);text-decoration:none;letter-spacing:.02em;}
+nav .navcta{font-family:'Jakarta';font-size:13px;font-weight:600;color:var(--ink);background:var(--bone);padding:11px 20px;border-radius:100px;}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;width:1440px;height:920px;overflow:hidden;}
+.hero .photo{position:absolute;inset:0;width:1440px;height:920px;object-fit:cover;object-position:center;}
+.hero .scrim{position:absolute;inset:0;z-index:5;pointer-events:none;}
+.hero .scrim.top{background:linear-gradient(180deg,rgba(18,28,20,.42) 0%,rgba(18,28,20,0) 16%);}
+.hero .scrim.left{background:linear-gradient(90deg,rgba(16,24,17,.66) 0%,rgba(16,24,17,.30) 32%,rgba(16,24,17,0) 58%);}
+.hero .scrim.bottom{background:linear-gradient(0deg,rgba(14,22,15,.50) 0%,rgba(14,22,15,0) 26%);}
+.herotext{position:absolute;z-index:10;left:60px;top:50%;transform:translateY(-46%);max-width:760px;}
+.herotext .eyebrow{color:var(--bone);opacity:.92;margin-bottom:24px;display:block;}
+.herotext h1{font-family:'Fraunces';font-weight:330;color:var(--bone);font-size:118px;line-height:.92;letter-spacing:-0.02em;text-shadow:0 2px 40px rgba(8,14,9,.4);}
+.herotext h1 em{font-weight:330;color:var(--cream);font-style:italic;}
+.herotext p.sub{font-family:'Jakarta';font-weight:400;color:rgba(246,241,231,.94);font-size:20px;line-height:1.5;margin-top:30px;max-width:540px;}
+.cta-row{display:flex;align-items:center;gap:26px;margin-top:40px;}
+.btn-primary{font-family:'Jakarta';font-weight:600;font-size:15px;color:#23170c;background:var(--amber);padding:16px 30px;border-radius:100px;box-shadow:0 12px 34px rgba(120,68,16,.34);}
+.btn-ghost{font-family:'Jakarta';font-weight:600;font-size:15px;color:var(--bone);text-decoration:none;border-bottom:1.5px solid rgba(246,241,231,.5);padding-bottom:3px;}
+.scrollcue{position:absolute;z-index:10;left:60px;bottom:40px;display:flex;align-items:center;gap:13px;}
+.scrollcue span{font-family:'Jakarta';font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:rgba(246,241,231,.74);}
+.scrollcue .ln{width:46px;height:1px;background:linear-gradient(90deg,rgba(246,241,231,.74),rgba(246,241,231,0));}
+
+/* ---------- SECTION SHELL ---------- */
+section.blk{padding:130px 60px;position:relative;}
+.seyebrow{margin-bottom:30px;display:flex;align-items:center;gap:14px;}
+.seyebrow::before{content:"";width:30px;height:1.5px;display:inline-block;background:currentColor;}
+
+/* ---------- MOVEMENT MANIFESTO ---------- */
+.movement{background:var(--bone);padding-bottom:0;}
+.movement .seyebrow{color:var(--amber-deep);}
+.movement h2{font-family:'Fraunces';font-weight:350;font-size:66px;line-height:1.02;letter-spacing:-0.02em;color:var(--forest-deep);max-width:1000px;}
+.movement h2 em{font-style:italic;color:var(--bark);}
+.movement p{font-family:'Jakarta';font-weight:400;font-size:20px;line-height:1.62;color:#4A4234;max-width:640px;margin-top:30px;}
+.ridgeband{display:block;width:1440px;height:150px;margin-top:74px;}
+
+/* ---------- FLAGSHIP ---------- */
+.flagship{background:var(--forest-deep);color:var(--bone);overflow:hidden;}
+.flagship .ridgebg{position:absolute;left:0;right:0;bottom:0;width:1440px;height:280px;opacity:.5;}
+.flagship .inner{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;}
+.flagship .seyebrow{color:var(--cream);}
+.flagship h2{font-family:'Fraunces';font-weight:350;font-size:62px;line-height:1.0;letter-spacing:-0.02em;color:var(--bone);}
+.flagship h2 em{font-style:italic;color:var(--cream);}
+.flagship p{font-family:'Jakarta';font-weight:400;font-size:19px;line-height:1.6;color:rgba(246,241,231,.85);margin:28px 0 36px;max-width:520px;}
+.flagship .badge{position:relative;justify-self:center;}
+.flagship .badge svg{width:300px;height:300px;}
+
+/* ---------- APPROACH (light) ---------- */
+.approach{background:var(--bone);}
+.approach .seyebrow{color:var(--amber-deep);}
+.approach h2{font-family:'Fraunces';font-weight:350;font-size:52px;line-height:1.04;letter-spacing:-0.018em;color:var(--forest-deep);max-width:840px;margin-bottom:78px;}
+.approach h2 em{font-style:italic;color:var(--bark);}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+.trail{position:absolute;top:23px;left:3%;right:3%;height:1.5px;background:repeating-linear-gradient(90deg,rgba(107,74,46,.5) 0 8px,transparent 8px 16px);z-index:0;}
+.step{position:relative;z-index:1;padding-right:34px;}
+.step .dot{width:13px;height:13px;border-radius:50%;background:var(--amber);margin-bottom:34px;box-shadow:0 0 0 6px var(--bone);}
+.step .n{font-family:'Fraunces';font-weight:500;font-style:italic;font-size:19px;color:var(--bark);margin-bottom:8px;}
+.step h3{font-family:'Fraunces';font-weight:600;font-size:29px;color:var(--forest-deep);margin-bottom:13px;letter-spacing:-0.01em;}
+.step p{font-family:'Jakarta';font-weight:400;font-size:14.5px;line-height:1.6;color:#5A5142;}
+
+/* ---------- ANIMALS ---------- */
+.animals{background:var(--sand);}
+.animals .seyebrow{color:var(--bark);}
+.animals .head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;}
+.animals h2{font-family:'Fraunces';font-weight:350;font-size:52px;line-height:1.04;letter-spacing:-0.018em;color:var(--forest-deep);max-width:560px;}
+.animals h2 em{font-style:italic;color:var(--amber-deep);}
+.animals .alllink{font-family:'Jakarta';font-weight:600;font-size:15px;color:var(--forest-deep);text-decoration:none;border-bottom:1.5px solid var(--forest-deep);padding-bottom:3px;white-space:nowrap;}
+.totems{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;}
+.totem{background:var(--bone);border-radius:18px;padding:34px 30px 30px;border:1px solid rgba(107,74,46,.14);}
+.totem .ic{height:54px;margin-bottom:26px;color:var(--forest);}
+.totem h4{font-family:'Fraunces';font-weight:600;font-size:24px;color:var(--ink);margin-bottom:6px;}
+.totem .pw{font-family:'Jakarta';font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--amber-deep);margin-bottom:14px;}
+.totem p{font-family:'Jakarta';font-size:13.5px;line-height:1.55;color:#5A5142;}
+
+/* ---------- CTA BAND ---------- */
+.ctaband{position:relative;height:540px;overflow:hidden;display:flex;align-items:center;}
+.ctaband svg.scene2{position:absolute;inset:0;width:1440px;height:540px;}
+.ctaband .scrim2{position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,28,20,.74) 0%,rgba(18,28,20,.42) 55%,rgba(18,28,20,.16) 100%);}
+.ctaband .inner{position:relative;z-index:3;padding:0 60px;max-width:800px;}
+.ctaband h2{font-family:'Fraunces';font-weight:330;font-size:66px;line-height:1.0;letter-spacing:-0.02em;color:var(--bone);}
+.ctaband h2 em{font-style:italic;color:var(--cream);}
+.ctaband p{font-family:'Jakarta';font-weight:400;font-size:18px;color:rgba(246,241,231,.9);margin:24px 0 34px;max-width:520px;line-height:1.55;}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--forest-deep);color:rgba(246,241,231,.7);padding:46px 60px;display:flex;justify-content:space-between;align-items:center;}
+footer .wm{font-family:'Fraunces';font-weight:500;font-size:22px;color:var(--bone);}
+footer .meta{font-family:'Jakarta';font-size:12.5px;letter-spacing:.04em;}
+footer .credit{font-family:'Jakarta';font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;opacity:.6;}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<div class="hero">
+  <img class="photo" src="hero.png" alt="A father and son standing on a ridge at golden hour, looking out over rolling hills">
+  <div class="scrim top"></div>
+  <div class="scrim left"></div>
+  <div class="scrim bottom"></div>
+
+  <nav>
+    <div class="wm">Wild Wanderers</div>
+    <div class="links">
+      <a>The Movement</a><a>The Program</a><a>For Dads</a><a>About</a>
+      <span class="navcta">Find a place</span>
+    </div>
+  </nav>
+
+  <div class="herotext">
+    <span class="eyebrow">Wild Wanderers · movement, nature, connection</span>
+    <h1>Born to <em>move.</em></h1>
+    <p class="sub">Whole-person wellness for the whole family, built on movement, nature, and real connection, in a world that forgot all three.</p>
+    <div class="cta-row">
+      <span class="btn-primary">Find a place this season</span>
+      <a class="btn-ghost">See how a day unfolds &rarr;</a>
+    </div>
+  </div>
+
+  <div class="scrollcue"><div class="ln"></div><span>Scroll</span></div>
+</div>
+
+<!-- ===================== MOVEMENT MANIFESTO ===================== -->
+<section class="blk movement">
+  <span class="eyebrow seyebrow">The movement</span>
+  <h2>The world went still.<br><em>We were built to move.</em></h2>
+  <p>Kids today move less, connect less, and spend less time outside. Wild Wanderers is the other way. Bodies in motion, families in nature, real connection in a distracted age. This is wellness you do together, outdoors, and it is open to the whole family.</p>
+  <!-- ridgeline motif bridging into the dark flagship -->
+  <svg class="ridgeband" viewBox="0 0 1440 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,96 L240,80 L470,52 L700,86 L960,60 L1200,88 L1440,70 L1440,150 L0,150 Z" fill="#688A62"/>
+    <path d="M0,120 L300,104 L620,124 L900,100 L1180,122 L1440,108 L1440,150 L0,150 Z" fill="#3C5A37"/>
+    <path d="M0,140 L360,130 L760,142 L1080,128 L1440,140 L1440,150 L0,150 Z" fill="#1E331F"/>
+  </svg>
+</section>
+
+<!-- ===================== FLAGSHIP ===================== -->
+<section class="blk flagship">
+  <svg class="ridgebg" viewBox="0 0 1440 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,150 L300,120 L620,150 L900,112 L1180,150 L1440,122 L1440,280 L0,280 Z" fill="#2A4430"/>
+    <path d="M0,210 L360,182 L760,214 L1080,180 L1440,210 L1440,280 L0,280 Z" fill="#16291A"/>
+  </svg>
+  <div class="inner">
+    <div>
+      <span class="eyebrow seyebrow">The flagship program</span>
+      <h2>It starts with <em>the boys.</em></h2>
+      <p>Our first trail is a boys' program built on movement, nature, and the kind of brotherhood that makes a kid brave. Out on the Baylands, every week, with the dads right beside them.</p>
+      <div class="cta-row">
+        <span class="btn-primary">Find a place this season</span>
+        <a class="btn-ghost">See how a day unfolds &rarr;</a>
+      </div>
+    </div>
+    <div class="badge">
+      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <circle cx="150" cy="150" r="132" stroke="#F2C879" stroke-width="1.5" opacity=".6"/>
+        <circle cx="150" cy="150" r="116" stroke="#F2C879" stroke-width="1" opacity=".3"/>
+        <!-- simple peak -->
+        <path d="M70,196 L126,108 L160,152 L196,96 L240,196 Z" stroke="#F2C879" stroke-width="2" stroke-linejoin="round" fill="none"/>
+        <path d="M70,196 L240,196" stroke="#F2C879" stroke-width="2"/>
+        <circle cx="196" cy="80" r="11" fill="#F2C879" opacity=".8"/>
+        <text x="150" y="244" text-anchor="middle" font-family="Jakarta" font-size="13" letter-spacing="3" fill="#F2C879" opacity=".85">EST. ON THE BAYLANDS</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== APPROACH ===================== -->
+<section class="blk approach">
+  <span class="eyebrow seyebrow">How a day moves</span>
+  <h2>Four steps, every time.<br><em>Observe. Breathe. Explore. Reflect.</em></h2>
+  <div class="steps">
+    <div class="trail"></div>
+    <div class="step"><div class="dot"></div><div class="n">01</div><h3>Observe</h3><p>Notice one true thing. A bird, a track, the turning tide, a feeling moving through the body.</p></div>
+    <div class="step"><div class="dot"></div><div class="n">02</div><h3>Breathe</h3><p>Settle with animal breath. Heron tall, lizard long. Calm is a skill, and it can be practiced.</p></div>
+    <div class="step"><div class="dot"></div><div class="n">03</div><h3>Explore</h3><p>Run, climb, build, wander. The body leads and the curriculum stays quietly in the background.</p></div>
+    <div class="step"><div class="dot"></div><div class="n">04</div><h3>Reflect</h3><p>Sit, share, journal. Meaning is found in the looking back, not handed down in a lesson.</p></div>
+  </div>
+</section>
+
+<!-- ===================== ANIMALS ===================== -->
+<section class="blk animals">
+  <span class="eyebrow seyebrow">The Baylands animals</span>
+  <div class="head">
+    <h2>Every animal teaches <em>a power.</em></h2>
+    <a class="alllink">Meet all of them &rarr;</a>
+  </div>
+  <div class="totems">
+    <div class="totem">
+      <svg class="ic" viewBox="0 0 48 54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6 C18 14 18 22 24 30 C30 22 30 14 24 6Z"/><path d="M24 30 L24 48"/><path d="M16 40 L24 44 L32 40"/></svg>
+      <h4>Heron</h4><div class="pw">Calm</div>
+      <p>Stand tall, breathe slow. Patience and self-control, learned at the water's edge.</p>
+    </div>
+    <div class="totem">
+      <svg class="ic" viewBox="0 0 48 54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 10 L8 22 L20 22 L12 38"/><path d="M24 10 L40 22 L28 22 L36 38"/><path d="M24 10 L24 46"/></svg>
+      <h4>Hawk</h4><div class="pw">Perspective</div>
+      <p>See the whole valley. Awareness, observation, the wider picture others miss.</p>
+    </div>
+    <div class="totem">
+      <svg class="ic" viewBox="0 0 48 54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 20 L16 8 L22 20"/><path d="M38 20 L32 8 L26 20"/><path d="M10 20 C8 34 16 46 24 46 C32 46 40 34 38 20"/><path d="M20 30 L28 30"/></svg>
+      <h4>Coyote</h4><div class="pw">Adaptability</div>
+      <p>Plans change, we adjust. Problem solving, resilience, a quick and creative mind.</p>
+    </div>
+    <div class="totem">
+      <svg class="ic" viewBox="0 0 48 54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16 L10 8 L18 14"/><path d="M34 16 L38 8 L30 14"/><path d="M12 18 C10 32 16 44 24 44 C32 44 38 32 36 18 C30 12 18 12 12 18Z"/><path d="M20 28 L20 30 M28 28 L28 30"/></svg>
+      <h4>Mountain Lion</h4><div class="pw">Courage</div>
+      <p>Healthy risk, real responsibility. The inner strength to do the hard, good thing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA BAND ===================== -->
+<div class="ctaband">
+  <svg class="scene2" viewBox="0 0 1440 540" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#2E4A37"/><stop offset="60%" stop-color="#5C6F44"/><stop offset="100%" stop-color="#A98E54"/>
+      </linearGradient>
+    </defs>
+    <rect width="1440" height="540" fill="url(#sky2)"/>
+    <path d="M0,300 L300,270 L620,300 L900,262 L1180,298 L1440,272 L1440,540 L0,540 Z" fill="#33503C"/>
+    <path d="M0,392 L360,364 L760,396 L1080,360 L1440,392 L1440,540 L0,540 Z" fill="#21351F"/>
+  </svg>
+  <div class="scrim2"></div>
+  <div class="inner">
+    <h2>Get well <em>together.</em></h2>
+    <p>Whole-family wellness starts with our boys' program, out on the Baylands. Spots are limited each season.</p>
+    <span class="btn-primary">Find a place this season</span>
+  </div>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wm">Wild Wanderers</div>
+  <div class="meta">Movement · nature · connection · on the Baylands</div>
+  <div class="credit">A SOBO build</div>
+</footer>
+
+</body>
+</html>
