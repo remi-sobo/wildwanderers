@@ -67,7 +67,7 @@ export default function CtaBand() {
           <p className="mb-[34px] mt-6 max-w-[520px] font-sans text-[clamp(1rem,1.3vw,18px)] leading-[1.55] text-bone/90">
             {cta.body}
           </p>
-          <Button variant="primary" href={cta.primary.href}>
+          <Button variant="primary" href={cta.primary.href} arrow>
             {cta.primary.label}
           </Button>
         </Reveal>

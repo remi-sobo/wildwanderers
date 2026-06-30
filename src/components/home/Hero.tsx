@@ -73,6 +73,7 @@ export default function Hero() {
   return (
     <section
       ref={root}
+      id="hero"
       className="relative flex h-[100svh] min-h-[620px] w-full flex-col justify-center overflow-hidden"
     >
       {/* Photo: overscan wrapper -> scroll drift -> ken-burns -> image, so the
@@ -141,11 +142,11 @@ export default function Hero() {
             {hero.sub}
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4">
-            <Button variant="primary" href={hero.primary.href}>
+            <Button variant="primary" href={hero.primary.href} arrow>
               {hero.primary.label}
             </Button>
-            <Button variant="ghost" href={hero.secondary.href} className="text-bone">
-              {hero.secondary.label} &rarr;
+            <Button variant="ghost" href={hero.secondary.href} arrow className="text-bone">
+              {hero.secondary.label}
             </Button>
           </div>
         </Reveal>

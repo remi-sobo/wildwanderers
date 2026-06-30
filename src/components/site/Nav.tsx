@@ -13,16 +13,28 @@ const LINKS = [
 
 /**
  * Site nav. Transparent over the hero (bone text on the photo, per the mock),
- * solidifying into a bone bar with ink text once the user scrolls past the top.
+ * condensing into a bone bar with ink text and a quiet backing once the hero
+ * has left the viewport (Phase 6), not at an arbitrary scroll offset.
  *
- * Note: the mock only draws the transparent state. The solid state is inferred
- * from the spec ("solidifies on scroll") and uses a bone bar, ink text, a thin
- * hairline, and an amber CTA so the action stays visible off the photo.
+ * It watches the hero with an IntersectionObserver so the change lands exactly
+ * as the photo goes. Falls back to a scroll threshold if the hero is absent.
  */
 export default function Nav() {
   const [solid, setSolid] = useState(false);
 
   useEffect(() => {
+    const hero = document.getElementById("hero");
+
+    if (hero && "IntersectionObserver" in window) {
+      // Flip once the hero is all but gone (a nav-height sliver still showing).
+      const io = new IntersectionObserver(
+        ([entry]) => setSolid(!entry.isIntersecting),
+        { rootMargin: "-72px 0px 0px 0px", threshold: 0 },
+      );
+      io.observe(hero);
+      return () => io.disconnect();
+    }
+
     const onScroll = () => setSolid(window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -54,7 +66,7 @@ export default function Nav() {
             key={link.label}
             href={link.href}
             className={clsx(
-              "font-sans text-[13.5px] font-medium tracking-[0.02em] transition-colors hover:opacity-100",
+              "link-underline font-sans text-[13.5px] font-medium tracking-[0.02em] transition-colors",
               solid ? "text-ink/80 hover:text-ink" : "text-bone/90 hover:text-bone",
             )}
           >

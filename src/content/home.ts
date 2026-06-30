@@ -37,7 +37,7 @@ export const flagship = {
   eyebrow: "The flagship program",
   headline: [[{ text: "It starts with " }, { text: "the boys.", em: true }]] as HeadlineLine[],
   body: "Our first trail is a boys' program built on movement, nature, and the kind of brotherhood that makes a kid brave. Out on the Baylands, every week, with the dads right beside them.",
-  primary: { label: "Find a place this season", href: "#" } as Cta,
+  primary: { label: "Meet the boys' program", href: "#" } as Cta,
   secondary: { label: "See how a day unfolds", href: "#" } as Cta,
   badge: "EST. ON THE BAYLANDS",
 };
@@ -81,7 +81,7 @@ export const animalsSection = {
 export const cta = {
   headline: [[{ text: "Get well " }, { text: "together.", em: true }]] as HeadlineLine[],
   body: "It starts with our boys' program, out on the Baylands. Spots are limited each season.",
-  primary: { label: "Find a place this season", href: "#" } as Cta,
+  primary: { label: "Start the conversation", href: "#" } as Cta,
 };
 
 export const footer = {

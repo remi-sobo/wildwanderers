@@ -42,11 +42,11 @@ export default function Flagship() {
               {flagship.body}
             </p>
             <div className="flex flex-wrap items-center gap-x-7 gap-y-4">
-              <Button variant="primary" href={flagship.primary.href}>
+              <Button variant="primary" href={flagship.primary.href} arrow>
                 {flagship.primary.label}
               </Button>
-              <Button variant="ghost" href={flagship.secondary.href} className="text-bone">
-                {flagship.secondary.label} &rarr;
+              <Button variant="ghost" href={flagship.secondary.href} arrow className="text-bone">
+                {flagship.secondary.label}
               </Button>
             </div>
           </Reveal>

@@ -82,7 +82,7 @@ export default function AnimalTrail() {
           <article
             key={animal.name}
             tabIndex={0}
-            className="group flex flex-col items-center rounded-2xl px-3 pt-2 text-center outline-none transition-transform duration-300 focus-visible:ring-2 focus-visible:ring-amber"
+            className="group flex flex-col items-center rounded-2xl px-3 pt-2 text-center outline-none transition-transform duration-300 hover:-translate-y-1.5 focus-within:-translate-y-1.5 focus-visible:ring-2 focus-visible:ring-amber"
           >
             <svg
               viewBox="0 0 48 54"

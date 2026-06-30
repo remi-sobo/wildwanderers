@@ -29,8 +29,8 @@ export default function ForDads() {
           <p className="mb-9 mt-7 font-sans text-[clamp(1rem,1.35vw,19px)] leading-[1.6] text-bone/85">
             {forDads.body}
           </p>
-          <Button variant="ghost" href={forDads.cta.href} className="text-bone">
-            {forDads.cta.label} &rarr;
+          <Button variant="ghost" href={forDads.cta.href} arrow className="text-bone">
+            {forDads.cta.label}
           </Button>
         </Reveal>
       </Container>

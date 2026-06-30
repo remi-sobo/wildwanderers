@@ -64,6 +64,28 @@ button:focus-visible {
   border-radius: 2px;
 }
 
+/* Text links draw their underline in from the left on hover/focus rather than
+   snapping (Phase 6). Transform only. */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1.5px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  transform: scaleX(1);
+}
+
 /* Totem breathe: a slow scale pulse while a totem is hovered or focused, so the
    animal feels alive when you rest on it (Animals, Phase 5). Gated to
    no-preference so reduced-motion gets a still totem. */

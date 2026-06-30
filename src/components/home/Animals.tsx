@@ -25,9 +25,15 @@ export default function Animals() {
           </div>
           <a
             href={animalsSection.allLink.href}
-            className="shrink-0 self-start whitespace-nowrap border-b-[1.5px] border-forest-deep pb-[3px] font-sans text-[15px] font-semibold text-forest-deep transition-opacity hover:opacity-70 sm:self-auto"
+            className="group/btn link-underline shrink-0 self-start whitespace-nowrap font-sans text-[15px] font-semibold text-forest-deep sm:self-auto"
           >
-            {animalsSection.allLink.label} &rarr;
+            {animalsSection.allLink.label}{" "}
+            <span
+              aria-hidden="true"
+              className="inline-block transition-transform duration-300 ease-out group-hover/btn:translate-x-1"
+            >
+              &rarr;
+            </span>
           </a>
         </div>
 
