@@ -2,6 +2,7 @@ import { agesStages } from "@/content/home";
 import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
 import RichText from "@/components/ui/RichText";
+import Contours from "@/components/ui/Contours";
 import Reveal from "@/components/motion/Reveal";
 
 /**
@@ -12,8 +13,15 @@ import Reveal from "@/components/motion/Reveal";
  */
 export default function AgesStages() {
   return (
-    <section className="bg-bone py-[clamp(72px,12vw,130px)]">
-      <Container>
+    <section className="relative overflow-hidden bg-bone py-[clamp(72px,12vw,130px)]">
+      {/* Quiet contour divider easing in from the sand section above. */}
+      <Contours
+        color="#6B4A2E"
+        opacity={0.05}
+        rings={6}
+        className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[42%] w-full"
+      />
+      <Container className="relative z-[1]">
         <Reveal stagger>
           <Eyebrow rule className="mb-7">
             {agesStages.eyebrow}

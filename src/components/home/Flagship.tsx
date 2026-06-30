@@ -4,6 +4,7 @@ import Eyebrow from "@/components/ui/Eyebrow";
 import Button from "@/components/ui/Button";
 import RichText from "@/components/ui/RichText";
 import Ridgeline from "@/components/ui/Ridgeline";
+import Contours from "@/components/ui/Contours";
 import Reveal from "@/components/motion/Reveal";
 import Parallax from "@/components/motion/Parallax";
 
@@ -15,6 +16,12 @@ import Parallax from "@/components/motion/Parallax";
 export default function Flagship() {
   return (
     <section className="relative overflow-hidden bg-forest-deep py-[clamp(72px,12vw,130px)] text-bone">
+      {/* Contour watermark, faint cream behind the copy (concept: terrain). */}
+      <Contours
+        color="#F2C879"
+        opacity={0.1}
+        className="pointer-events-none absolute -right-[6%] top-0 z-0 h-[78%] w-[58%]"
+      />
       <Parallax
         y={16}
         className="pointer-events-none absolute inset-x-0 bottom-0 z-0"

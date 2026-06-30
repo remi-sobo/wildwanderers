@@ -2,6 +2,7 @@ import { cta } from "@/content/home";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import RichText from "@/components/ui/RichText";
+import Contours from "@/components/ui/Contours";
 import Reveal from "@/components/motion/Reveal";
 import Parallax from "@/components/motion/Parallax";
 
@@ -41,6 +42,13 @@ export default function CtaBand() {
           />
         </svg>
       </Parallax>
+
+      {/* Contour watermark over the scrim, under the copy. */}
+      <Contours
+        color="#F2C879"
+        opacity={0.08}
+        className="pointer-events-none absolute -left-[8%] top-[6%] z-[2] h-[88%] w-[52%]"
+      />
 
       {/* Scrim keeps the bone headline readable across the lit sky. */}
       <div
