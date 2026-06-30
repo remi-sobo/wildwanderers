@@ -32,3 +32,12 @@ export const movement = {
   ] as HeadlineLine[],
   body: "Kids today move less, connect less, and spend less time outside. Wild Wanderers runs the other way. Bodies in motion, families in nature, real connection in a distracted age. You do it together, outdoors, and the whole family is welcome.",
 };
+
+export const flagship = {
+  eyebrow: "The flagship program",
+  headline: [[{ text: "It starts with " }, { text: "the boys.", em: true }]] as HeadlineLine[],
+  body: "Our first trail is a boys' program built on movement, nature, and the kind of brotherhood that makes a kid brave. Out on the Baylands, every week, with the dads right beside them.",
+  primary: { label: "Find a place this season", href: "#" } as Cta,
+  secondary: { label: "See how a day unfolds", href: "#" } as Cta,
+  badge: "EST. ON THE BAYLANDS",
+};
