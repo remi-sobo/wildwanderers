@@ -71,3 +71,9 @@ export const approach = {
     },
   ],
 };
+
+export const animalsSection = {
+  eyebrow: "The Baylands animals",
+  headline: [[{ text: "Every animal teaches " }, { text: "a power.", em: true }]] as HeadlineLine[],
+  allLink: { label: "Meet all of them", href: "#" } as Cta,
+};
