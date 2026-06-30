@@ -17,8 +17,8 @@ export const hero = {
   eyebrow: "Wild Wanderers · movement, nature, connection",
   headline: [[{ text: "Born to " }, { text: "move.", em: true }]] as HeadlineLine[],
   sub: "Wellness for the whole family, built on movement, nature, and real connection. The three things a screen-heavy world keeps crowding out.",
-  primary: { label: "Find a place this season", href: "#" } as Cta,
-  secondary: { label: "See how a day unfolds", href: "#" } as Cta,
+  primary: { label: "Find a place this season", href: "/join" } as Cta,
+  secondary: { label: "See how a day unfolds", href: "/the-program" } as Cta,
   scrollCue: "Scroll",
   photoAlt:
     "A father and son on a ridge at golden hour, looking out over rolling hills",
@@ -37,8 +37,8 @@ export const flagship = {
   eyebrow: "The flagship program",
   headline: [[{ text: "It starts with " }, { text: "the boys.", em: true }]] as HeadlineLine[],
   body: "Our first trail is a boys' program built on movement, nature, and the kind of brotherhood that makes a kid brave. Out on the Baylands, every week, with the dads right beside them.",
-  primary: { label: "Meet the boys' program", href: "#" } as Cta,
-  secondary: { label: "See how a day unfolds", href: "#" } as Cta,
+  primary: { label: "Meet the boys' program", href: "/the-program" } as Cta,
+  secondary: { label: "See how a day unfolds", href: "/the-program" } as Cta,
   badge: "EST. ON THE BAYLANDS",
 };
 
@@ -75,13 +75,13 @@ export const approach = {
 export const animalsSection = {
   eyebrow: "The Baylands animals",
   headline: [[{ text: "Every animal teaches " }, { text: "a power.", em: true }]] as HeadlineLine[],
-  allLink: { label: "Meet all of them", href: "#" } as Cta,
+  allLink: { label: "Meet all of them", href: "/the-movement" } as Cta,
 };
 
 export const cta = {
   headline: [[{ text: "Get well " }, { text: "together.", em: true }]] as HeadlineLine[],
   body: "It starts with our boys' program, out on the Baylands. Spots are limited each season.",
-  primary: { label: "Start the conversation", href: "#" } as Cta,
+  primary: { label: "Start the conversation", href: "/join" } as Cta,
 };
 
 export const footer = {
@@ -132,7 +132,7 @@ export const forDads = {
     [{ text: "not ahead.", em: true }],
   ] as HeadlineLine[],
   body: "The boys do not do this alone, and neither do you. Dads walk the trail too, a few good men beside their sons. The fellowship is forming now.",
-  cta: { label: "Tell me when it opens", href: "#" } as Cta,
+  cta: { label: "Tell me when it opens", href: "/for-dads" } as Cta,
 };
 
 // GATED on Gabe's real bio and a real portrait. Placeholder copy stays honest:

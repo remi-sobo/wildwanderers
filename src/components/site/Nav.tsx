@@ -5,10 +5,10 @@ import Link from "next/link";
 import { clsx } from "@/lib/clsx";
 
 const LINKS = [
-  { label: "The Movement", href: "#" },
-  { label: "The Program", href: "#" },
-  { label: "For Dads", href: "#" },
-  { label: "About", href: "#" },
+  { label: "The Movement", href: "/the-movement" },
+  { label: "The Program", href: "/the-program" },
+  { label: "For Dads", href: "/for-dads" },
+  { label: "About", href: "/about" },
 ];
 
 /**
@@ -78,7 +78,7 @@ export default function Nav() {
           ))}
         </div>
         <a
-          href="#"
+          href="/join"
           className={clsx(
             "rounded-full px-5 py-[11px] font-sans text-[13px] font-semibold transition-colors",
             solid ? "bg-amber text-ink hover:bg-amber-deep" : "bg-bone text-ink hover:bg-bone-dim",
