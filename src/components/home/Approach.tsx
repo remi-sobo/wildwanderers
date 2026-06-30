@@ -31,8 +31,12 @@ export default function Approach() {
       mm.add(
         "(min-width: 1024px) and (prefers-reduced-motion: no-preference)",
         () => {
+          const steps = gsap.utils.toArray<HTMLElement>(".ap-step");
+          const dots = gsap.utils.toArray<HTMLElement>(".ap-dot");
+
           gsap.set(".ap-trail", { scaleX: 0, transformOrigin: "left center" });
-          gsap.set(".ap-step", { opacity: 0, y: 24 });
+          gsap.set(steps, { opacity: 0, y: 24 });
+          gsap.set(dots, { scale: 0.4, opacity: 0.35, transformOrigin: "center" });
 
           const tl = gsap.timeline({
             scrollTrigger: {
@@ -43,14 +47,19 @@ export default function Approach() {
               pin: true,
               anticipatePin: 1,
             },
+            defaults: { ease: "none" },
           });
 
-          tl.to(".ap-trail", { scaleX: 1, ease: "none", duration: 0.6 }, 0);
-          tl.to(
-            ".ap-step",
-            { opacity: 1, y: 0, duration: 0.4, stagger: 0.18, ease: "power2.out" },
-            0.1,
-          );
+          // The trail draws left to right across the whole pinned scroll.
+          tl.to(".ap-trail", { scaleX: 1, duration: 1 }, 0);
+
+          // Each step lights up as the leading edge of the trail reaches its
+          // column: the dot pops on, then the step rises in just behind it.
+          steps.forEach((step, i) => {
+            const reach = i / steps.length; // trail edge arrives at this column
+            tl.to(dots[i], { scale: 1, opacity: 1, duration: 0.12, ease: "back.out(2)" }, reach);
+            tl.to(step, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, reach + 0.02);
+          });
         },
       );
     },
@@ -80,7 +89,7 @@ export default function Approach() {
 
           {approach.steps.map((step) => (
             <div key={step.n} className="ap-step relative z-[1] pr-0 lg:pr-[34px]">
-              <div className="mb-[34px] h-[13px] w-[13px] rounded-full bg-amber shadow-[0_0_0_6px_var(--color-bone)]" />
+              <div className="ap-dot mb-[34px] h-[13px] w-[13px] rounded-full bg-amber shadow-[0_0_0_6px_var(--color-bone)]" />
               <div className="mb-2 font-display text-[19px] font-medium italic text-bark">
                 {step.n}
               </div>
