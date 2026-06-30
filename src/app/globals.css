@@ -63,3 +63,22 @@ button:focus-visible {
   outline-offset: 3px;
   border-radius: 2px;
 }
+
+/* Totem breathe: a slow scale pulse while a totem is hovered or focused, so the
+   animal feels alive when you rest on it (Animals, Phase 5). Gated to
+   no-preference so reduced-motion gets a still totem. */
+@keyframes ww-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.045);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .group:hover .totem-breathe,
+  .group:focus-within .totem-breathe {
+    animation: ww-breathe 2.8s ease-in-out infinite;
+  }
+}
