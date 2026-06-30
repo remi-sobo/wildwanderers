@@ -23,3 +23,12 @@ export const hero = {
   photoAlt:
     "A father and son on a ridge at golden hour, looking out over rolling hills",
 };
+
+export const movement = {
+  eyebrow: "The movement",
+  headline: [
+    [{ text: "The world went still." }],
+    [{ text: "We were built to move.", em: true }],
+  ] as HeadlineLine[],
+  body: "Kids today move less, connect less, and spend less time outside. Wild Wanderers runs the other way. Bodies in motion, families in nature, real connection in a distracted age. You do it together, outdoors, and the whole family is welcome.",
+};
