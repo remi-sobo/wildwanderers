@@ -14,6 +14,12 @@ type SplitRevealProps = {
   /** Heading level / element to render. Defaults to h2. */
   as?: React.ElementType;
   className?: string;
+  /**
+   * Settle the variable-font weight on reveal, arriving from this weight to the
+   * element's set weight. Hero-only flourish (spec section 5). Animates the
+   * `wght` axis, not a transform, so use it sparingly and only on load.
+   */
+  weightFrom?: number;
 };
 
 /**
@@ -28,6 +34,7 @@ export default function SplitReveal({
   children,
   as: Tag = "h2",
   className,
+  weightFrom,
 }: SplitRevealProps) {
   const ref = useRef<HTMLHeadingElement>(null);
 
@@ -48,6 +55,22 @@ export default function SplitReveal({
           stagger: STAGGER,
           scrollTrigger: { trigger: el, start: "top 85%", once: true },
         });
+
+        // Weight settle: the type arrives a hair lighter and firms up as it
+        // rises, on the same trigger. Variable-font `wght` axis only.
+        if (weightFrom != null) {
+          const setWeight = gsap.getProperty(el, "fontWeight");
+          gsap.fromTo(
+            el,
+            { fontWeight: weightFrom },
+            {
+              fontWeight: Number(setWeight) || 360,
+              duration: DURATION.reveal,
+              ease: EASE,
+              scrollTrigger: { trigger: el, start: "top 85%", once: true },
+            },
+          );
+        }
       };
 
       if (typeof document !== "undefined" && document.fonts?.ready) {
