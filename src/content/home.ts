@@ -89,3 +89,37 @@ export const footer = {
   meta: "Movement · nature · connection · on the Baylands",
   credit: "A SOBO build",
 };
+
+// ---------------------------------------------------------------------------
+// Ring 2. These sections are not in the mock and several are GATED on Gabe's
+// transcript. Copy is on-voice placeholder; no fabricated specifics (exact
+// ages, real bio claims, testimonials). Swap his truth in when it lands.
+// ---------------------------------------------------------------------------
+
+// Exact ages are GATED. Bands are descriptive until Gabe sets the numbers.
+export const agesStages = {
+  eyebrow: "Who it's for",
+  headline: [
+    [{ text: "Start where he is." }],
+    [{ text: "Grow from there.", em: true }],
+  ] as HeadlineLine[],
+  lead: "Three stages on one trail. He steps in where he fits and moves on when he is ready.",
+  stages: [
+    {
+      label: "The early years",
+      name: "Notice",
+      body: "First taste of the trail. Low stakes, plenty of wonder. He learns to slow down and pay attention to one true thing at a time.",
+    },
+    {
+      label: "The middle years",
+      name: "Practice",
+      body: "The four steps become habit. He builds skill, takes small risks, and finds his footing with the group.",
+    },
+    {
+      label: "The older boys",
+      name: "Belong",
+      body: "He carries some of the load. He looks out for the younger ones, leads a stretch of trail, and learns what it is to show up for the others.",
+    },
+  ],
+};
+
