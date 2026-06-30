@@ -135,3 +135,14 @@ export const forDads = {
   cta: { label: "Tell me when it opens", href: "#" } as Cta,
 };
 
+// GATED on Gabe's real bio and a real portrait. Placeholder copy stays honest:
+// no invented credentials. The ridgeline fallback stands in for the photo.
+export const meetGabe = {
+  eyebrow: "Meet Gabe",
+  headline: [
+    [{ text: "He's doing this" }],
+    [{ text: "with his own sons.", em: true }],
+  ] as HeadlineLine[],
+  body: "Gabe built Wild Wanderers for his own boys first, then opened the trail to other families. He coaches toward the whole picture: movement, time outside, food that fuels, a steadier mind. Not as fixes. As the way you live when you live well.",
+  photoCaption: "A portrait from the Baylands is on the way.",
+};
