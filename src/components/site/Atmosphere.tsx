@@ -12,9 +12,11 @@
  *  - a faint paper grain over the light sections, a static SVG noise tile.
  *
  * Both are static, so there is nothing here to gate behind reduced motion.
- * Phase 3 will add the horizon line and the travelling sun into this same
- * layer, where they belong with the rest of the atmosphere.
+ * Phase 3 adds the horizon line and the travelling sun (the Horizon island)
+ * into this same layer, where they belong with the rest of the atmosphere.
  */
+
+import Horizon from "@/components/motion/Horizon";
 
 // Greyscale fractal-noise tile for the paper grain. Built once on the server.
 const GRAIN_SVG =
@@ -26,7 +28,8 @@ const GRAIN_URL = `url("data:image/svg+xml,${encodeURIComponent(GRAIN_SVG)}")`;
 
 export default function Atmosphere() {
   return (
-    <div className="pointer-events-none absolute inset-0 z-30 overflow-hidden" aria-hidden="true">
+    <>
+      <div className="pointer-events-none absolute inset-0 z-30 overflow-hidden" aria-hidden="true">
       {/* Dawn-cool to golden-dusk tint, mapped to page progress. Neutral through
           the middle so the light sections keep their true color. */}
       <div
@@ -54,6 +57,10 @@ export default function Atmosphere() {
           opacity: 0.35,
         }}
       />
-    </div>
+      </div>
+
+      {/* Horizon line + travelling sun, fixed across the page (Phase 3). */}
+      <Horizon />
+    </>
   );
 }
