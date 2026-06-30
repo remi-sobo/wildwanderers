@@ -41,3 +41,33 @@ export const flagship = {
   secondary: { label: "See how a day unfolds", href: "#" } as Cta,
   badge: "EST. ON THE BAYLANDS",
 };
+
+export const approach = {
+  eyebrow: "How a day moves",
+  headline: [
+    [{ text: "Four steps, every time." }],
+    [{ text: "Observe. Breathe. Explore. Reflect.", em: true }],
+  ] as HeadlineLine[],
+  steps: [
+    {
+      n: "01",
+      title: "Observe",
+      body: "Notice one true thing. A bird, a track, the turning tide, a feeling moving through the body.",
+    },
+    {
+      n: "02",
+      title: "Breathe",
+      body: "Settle with animal breath. Heron tall, lizard long. Calm is a skill, and it can be practiced.",
+    },
+    {
+      n: "03",
+      title: "Explore",
+      body: "Run, climb, build, wander. The body leads and the curriculum stays quietly in the background.",
+    },
+    {
+      n: "04",
+      title: "Reflect",
+      body: "Sit, share, journal. Meaning is found in the looking back, not handed down in a lesson.",
+    },
+  ],
+};
