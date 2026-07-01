@@ -33,8 +33,21 @@ export const movement = {
   body: "Kids today move less, connect less, and spend less time outside. Wild Wanderers runs the other way. Bodies in motion, families in nature, real connection in a distracted age. You do it together, outdoors, and the whole family is welcome.",
 };
 
+// The chapter model on the homepage. Leads with the movement, presents the
+// Baylands as Chapter One, teases the horizon. Sits between Movement and
+// Flagship. Motto strip carries "Run · Jump · Climb · Tumble · Wander · Become".
+export const chaptersSection = {
+  eyebrow: "The bigger picture",
+  headline: [
+    [{ text: "The Baylands is " }, { text: "chapter one.", em: true }],
+  ] as HeadlineLine[],
+  body: "Wild Wanderers is not about one marsh. It is about the wild places that sit inside every community, and the childhoods they are waiting to shape. We begin on the Baylands because it is the ground that shaped us. Someday, other chapters, each rooted in its own ground, led by its own mentors, carrying the same philosophy.",
+  horizonLabel: "On the horizon",
+  motto: ["Run", "Jump", "Climb", "Tumble", "Wander", "Become"],
+};
+
 export const flagship = {
-  eyebrow: "The flagship program",
+  eyebrow: "Chapter one · the boys' program",
   headline: [[{ text: "It starts with " }, { text: "the boys.", em: true }]] as HeadlineLine[],
   body: "Our first trail is a boys' program built on movement, nature, and the kind of brotherhood that makes a kid brave. Out on the Baylands, every week, with the dads right beside them.",
   primary: { label: "Meet the boys' program", href: "/the-program" } as Cta,

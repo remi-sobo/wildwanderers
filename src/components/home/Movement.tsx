@@ -2,18 +2,17 @@ import { movement } from "@/content/home";
 import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
 import RichText from "@/components/ui/RichText";
-import Ridgeline from "@/components/ui/Ridgeline";
 import Reveal from "@/components/motion/Reveal";
 
 /**
  * Movement manifesto (the thesis). The world went still; we were built to move.
- * Reveals on enter, then the layered ridge band bridges down into the dark
- * flagship section. The band's deepest layer is forest-deep, so it meets the
- * flagship background as one continuous ridge.
+ * Reveals on enter, then flows into the Chapters section (both bone, so the seam
+ * reads as one continuous ground). The layered ridge band that bridges down into
+ * the dark flagship now lives at the foot of Chapters, past the place-vision.
  */
 export default function Movement() {
   return (
-    <section className="bg-bone pt-[clamp(72px,12vw,130px)]">
+    <section className="bg-bone py-[clamp(72px,12vw,130px)]">
       <Container>
         <Reveal stagger>
           <Eyebrow rule className="mb-7 text-amber-deep">
@@ -27,8 +26,6 @@ export default function Movement() {
           </p>
         </Reveal>
       </Container>
-
-      <Ridgeline preset="band" className="mt-[clamp(48px,6vw,74px)] h-[clamp(96px,10vw,150px)]" />
     </section>
   );
 }
