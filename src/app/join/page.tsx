@@ -9,9 +9,9 @@ import Reveal from "@/components/motion/Reveal";
 import JoinForm from "./JoinForm";
 
 export const metadata: Metadata = {
-  title: "Find a place — Wild Wanderers",
+  title: "Start the conversation — Wild Wanderers",
   description:
-    "Tell us about your boy and what you are hoping for. Spots are limited each season, out on the Baylands.",
+    "Tell us about your boy and what you are hoping for. This begins as a conversation, not a form. Out on the Baylands at Bedwell Bayfront Park.",
 };
 
 export default function JoinPage() {

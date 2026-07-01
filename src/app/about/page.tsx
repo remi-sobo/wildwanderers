@@ -67,6 +67,23 @@ export default function AboutPage() {
         </Container>
       </Section>
 
+      {/* How we build — the careful-builder block, first person. */}
+      <Section tone="bone">
+        <Container>
+          <Reveal stagger className="max-w-[820px]">
+            <Eyebrow rule className="mb-7 text-amber-deep">
+              {A.careful.eyebrow}
+            </Eyebrow>
+            <h2 className={`${h2} text-forest-deep [&_em]:text-bark`}>
+              <RichText lines={A.careful.headline} />
+            </h2>
+            <p className="mt-7 font-sans text-[clamp(1rem,1.4vw,20px)] leading-[1.62] text-[#4A4234]">
+              {A.careful.body}
+            </p>
+          </Reveal>
+        </Container>
+      </Section>
+
       {/* What he coaches toward */}
       <Section tone="sand">
         <Container>

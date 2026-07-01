@@ -17,7 +17,7 @@ export const hero = {
   eyebrow: "Wild Wanderers · movement, nature, connection",
   headline: [[{ text: "Born to " }, { text: "move.", em: true }]] as HeadlineLine[],
   sub: "Wellness for the whole family, built on movement, nature, and real connection. The three things a screen-heavy world keeps crowding out.",
-  primary: { label: "Find a place this season", href: "/join" } as Cta,
+  primary: { label: "Start the conversation", href: "/join" } as Cta,
   secondary: { label: "See how a day unfolds", href: "/the-program" } as Cta,
   scrollCue: "Scroll",
   photoAlt:
@@ -86,7 +86,7 @@ export const cta = {
 
 export const footer = {
   wordmark: "Wild Wanderers",
-  meta: "Movement · nature · connection · on the Baylands",
+  meta: "Strong hands · soft hearts · on the Baylands",
   credit: "A SOBO build",
 };
 
@@ -123,16 +123,15 @@ export const agesStages = {
   ],
 };
 
-// GATED on whether the fellowship is live. Framed as forming, not running.
+// The fellowship is live. Gabe is inviting the first fathers and mentors now.
 export const forDads = {
   eyebrow: "For Dads",
-  flag: "Fellowship forming",
+  flag: "Now gathering",
   headline: [
-    [{ text: "Walk beside him," }],
-    [{ text: "not ahead.", em: true }],
+    [{ text: "The first circle is " }, { text: "gathering now.", em: true }],
   ] as HeadlineLine[],
-  body: "The boys do not do this alone, and neither do you. Dads walk the trail too, a few good men beside their sons. The fellowship is forming now.",
-  cta: { label: "Tell me when it opens", href: "/for-dads" } as Cta,
+  body: "The boys do not do this alone, and neither do you. We are inviting the first fathers and mentors this season, men who believe boys deserve real relationships, honest challenge, and encouragement. If that is you, walk with us.",
+  cta: { label: "Join the first circle", href: "/for-dads" } as Cta,
 };
 
 // GATED on Gabe's real bio and a real portrait. Placeholder copy stays honest:
