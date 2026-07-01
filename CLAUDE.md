@@ -8,7 +8,9 @@ connection. For-profit. The boys program is the flagship.
 ## Source of truth, in order
 1. design-reference/homepage-reference.html — the approved homepage. Match it.
 2. design-reference/WildWanderers_Site_Spec.md — tokens, type, motion, IA, rings.
-3. This file.
+3. WildWanderers_Upgrade_Spec_v2.md — Gabe's voice-memo upgrade (chapters,
+   conversation-first, real facts, safety, About in his voice).
+4. This file.
 Where these conflict, the higher one wins. Never restyle away from the mock.
 
 ## Stack
@@ -33,6 +35,24 @@ prefers-reduced-motion. Animate transform and opacity only.
 ## Voice (strict)
 No em dashes. No AI-giveaway words (transformative, holistic, leverage, unlock,
 seamless, robust, pivotal). Warm, direct, clear. Never frame a child as broken.
+Gabe's first-person voice leads on the public site.
+
+## Wild Wanderers guardrails (transcript, June 2026)
+- Chapter model: Wild Wanderers is the movement. The Baylands is Chapter One.
+  Future chapters (Redwoods, coast, Sierra, desert) are aspirational, never
+  announced with dates or as commitments.
+- Conversation first: the primary CTA is starting a conversation, not
+  registering. Scarcity stays in body copy, never on the button.
+- Legal line, hard: the boys focus is framed as Gabe's calling and lived
+  experience, never as a vetted or compliant admissions policy. No eligibility
+  or legal claims. A girls' program is an aspiration, not a dated commitment.
+  Gabe has not yet consulted a youth-program attorney; the site must not imply
+  otherwise.
+- Facts: publish only what Gabe confirmed (ages 6 to 13, groups of 8 to 10,
+  about one adult per six boys, Bedwell Bayfront Park, weekly by season). No
+  hard price yet. No fabricated stats, quotes, or testimonials.
+- Family: referenced as the roots of the story, never featured as the face.
+  No prominent imagery of Gabe's wife or sons.
 
 ## Build discipline
 Spec or plan before code. Phase the work. One change per commit, reversible.
