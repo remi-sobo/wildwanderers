@@ -1,5 +1,6 @@
 import Hero from "@/components/home/Hero";
 import Movement from "@/components/home/Movement";
+import Chapters from "@/components/home/Chapters";
 import Flagship from "@/components/home/Flagship";
 import Approach from "@/components/home/Approach";
 import Animals from "@/components/home/Animals";
@@ -13,6 +14,7 @@ export default function Home() {
     <>
       <Hero />
       <Movement />
+      <Chapters />
       <Flagship />
       <Approach />
       <Animals />
