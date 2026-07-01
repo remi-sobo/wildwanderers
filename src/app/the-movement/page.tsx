@@ -98,6 +98,24 @@ export default function TheMovementPage() {
         </Container>
       </Section>
 
+      {/* The manifesto — the emotional centerpiece, dark and quiet. */}
+      <Section tone="forest">
+        <Contours color="#F2C879" opacity={0.07} className="pointer-events-none absolute -right-[8%] top-[10%] z-0 h-[86%] w-[52%]" />
+        <Container className="relative z-[1]">
+          <Reveal stagger className="mx-auto max-w-[900px] text-center">
+            <Eyebrow className="mb-8 justify-center text-cream">
+              {M.manifesto.eyebrow}
+            </Eyebrow>
+            <p className="font-display text-[clamp(1.5rem,3.2vw,36px)] font-[350] italic leading-[1.32] tracking-[-0.01em] text-bone">
+              {M.manifesto.body}
+            </p>
+            <p className="mt-10 font-display text-[clamp(1.5rem,2.8vw,32px)] font-medium text-cream">
+              {M.manifesto.motto}
+            </p>
+          </Reveal>
+        </Container>
+      </Section>
+
       {/* Animals — the signature, reusing the trail island */}
       <Section tone="sand">
         <Container>

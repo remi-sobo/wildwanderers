@@ -69,6 +69,13 @@ export const movementPage = {
       { name: "Connection", body: "A circle of boys and a few good men beside them. Belonging he can feel, not just be told about." },
     ],
   },
+  // The manifesto, in Gabe's words, lightly tightened. Its home is here, as a
+  // centerpiece moment. "Strong hands, soft hearts" recurs as the tagline.
+  manifesto: {
+    eyebrow: "The manifesto",
+    body: "Wild Wanderers is a fellowship of boys, fathers, and mentors who believe childhood is a season of becoming. Through movement, meaningful relationships, and deep connection with the natural world, we make space for boys to run, jump, climb, tumble, wander, and discover who they are. The Baylands is our first chapter, but the vision reaches far beyond one place. We are cultivating strong hands, soft hearts, curious minds, and a lifelong commitment to caring for one another in the wild places that shape us.",
+    motto: "Strong hands, soft hearts.",
+  },
   animals: {
     eyebrow: "The Baylands animals",
     headline: [[{ text: "Every animal teaches " }, { text: "a power.", em: true }]] as HeadlineLine[],
