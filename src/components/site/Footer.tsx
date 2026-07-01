@@ -13,7 +13,7 @@ const LINKS = [
   { label: "The Program", href: routes.program },
   { label: "For Dads", href: routes.forDads },
   { label: "About", href: routes.about },
-  { label: "Find a place", href: routes.join },
+  { label: "Reach out", href: routes.join },
 ];
 
 export default function Footer() {

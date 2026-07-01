@@ -119,7 +119,7 @@ export default function Styleguide() {
               Primary · on light
             </div>
             <Button variant="primary" href="#">
-              Find a place this season
+              Start the conversation
             </Button>
           </div>
           <div className="rounded-2xl bg-forest-deep p-10 text-bone">

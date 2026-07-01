@@ -76,6 +76,24 @@ export default function TheProgramPage() {
         </Container>
       </Section>
 
+      {/* Why boys — Gabe's calling, first person. Framed as lived experience,
+          never as an admissions policy (CLAUDE.md guardrails). */}
+      <Section tone="bone">
+        <Container>
+          <Reveal stagger className="max-w-[820px]">
+            <Eyebrow rule className="mb-7 text-amber-deep">
+              {P.whyBoys.eyebrow}
+            </Eyebrow>
+            <h2 className={`${h2} text-forest-deep [&_em]:text-bark`}>
+              <RichText lines={P.whyBoys.headline} />
+            </h2>
+            <p className="mt-7 font-sans text-[clamp(1rem,1.4vw,20px)] leading-[1.62] text-[#4A4234]">
+              {P.whyBoys.body}
+            </p>
+          </Reveal>
+        </Container>
+      </Section>
+
       {/* Ages and stages */}
       <Section tone="sand">
         <Container>
@@ -103,6 +121,13 @@ export default function TheProgramPage() {
                 <p className="mt-3 font-sans text-[14.5px] leading-[1.6] text-[#5A5142]">{s.body}</p>
               </div>
             ))}
+          </Reveal>
+
+          {/* Trail log — a quiet teaser for the named future ring. */}
+          <Reveal className="mt-[clamp(40px,6vw,56px)] border-t border-bark/20 pt-6">
+            <p className="font-sans text-[13.5px] italic leading-[1.6] text-[#5A5142]">
+              {P.trailLog}
+            </p>
           </Reveal>
         </Container>
       </Section>

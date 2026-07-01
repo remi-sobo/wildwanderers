@@ -73,7 +73,7 @@ export const movementPage = {
     eyebrow: "The Baylands animals",
     headline: [[{ text: "Every animal teaches " }, { text: "a power.", em: true }]] as HeadlineLine[],
     body: "Heron for calm, Hawk for perspective, Coyote for adaptability, Mountain Lion for courage. Each totem is a handle on a hard idea, sized for a kid. The full system has more, and it grows with him.",
-    cta: { label: "Find a place this season", href: "/join" } as Cta,
+    cta: { label: "Start the conversation", href: "/join" } as Cta,
   },
 };
 
@@ -87,12 +87,13 @@ export const programPage = {
     headline: [[{ text: "A boys' program," }], [{ text: "out on the Baylands.", em: true }]] as HeadlineLine[],
     sub: "Our first trail is built on movement, nature, and the kind of brotherhood that makes a kid brave. Every week, with the dads right beside them.",
   },
-  // GATED: the actual offer (ages, what a gathering is, where, how often, when).
+  // Confirmed facts. Ages, group size, ratio, and the park are publishable.
+  // No hard price yet; day and dates still landing.
   wayIn: {
     eyebrow: "The way in",
     headline: [[{ text: "What a gathering " }, { text: "actually is.", em: true }]] as HeadlineLine[],
-    body: "A small group of boys, a stretch of the Baylands, and a few hours that move through the four steps from start to finish. They arrive, they settle, they head out, and they come back changed in a small way they can name. The exact ages, days, and meeting spot are being set now and land here the moment they are final.",
-    flag: "Details landing soon",
+    body: "A small group of boys, six to thirteen years old, eight to ten at a time, out on a stretch of the Baylands we know by heart at Bedwell Bayfront Park. We keep the ratio close, around one adult for every six boys, so no one wanders alone. A gathering runs a few hours and moves through the four steps from start to finish. We meet weekly, by season.",
+    flag: "Day and dates landing soon",
   },
   day: {
     eyebrow: "A day on the trail",
@@ -107,37 +108,48 @@ export const programPage = {
   stages: {
     eyebrow: "Ages and stages",
     headline: [[{ text: "Start where he is. " }, { text: "Grow from there.", em: true }]] as HeadlineLine[],
-    lead: "Three stages on one trail. He steps in where he fits and moves on when he is ready. Exact ages land with the rest of the details.",
+    lead: "Three stages on one trail. He steps in where he fits and moves on when he is ready.",
     items: [
-      { label: "The early years", name: "Notice", body: "First taste of the trail. Low stakes, plenty of wonder. He learns to slow down and pay attention to one true thing at a time." },
-      { label: "The middle years", name: "Practice", body: "The four steps become habit. He builds skill, takes small risks, and finds his footing with the group." },
-      { label: "The older boys", name: "Belong", body: "He carries some of the load, looks out for the younger ones, and learns what it is to show up for the others." },
+      { label: "Ages 6 to 7", name: "Notice", body: "First taste of the trail. Low stakes, plenty of wonder. He learns to slow down and pay attention to one true thing at a time." },
+      { label: "Ages 8 to 10", name: "Practice", body: "The four steps become habit. He builds skill, takes small risks, and finds his footing with the group." },
+      { label: "Ages 11 to 13", name: "Belong", body: "He carries some of the load, looks out for the younger ones, and learns what it is to show up for the others." },
     ],
+  },
+  // Why-boys: framed as Gabe's calling and lived experience. Never as an
+  // admissions policy or legal claim (see CLAUDE.md guardrails).
+  whyBoys: {
+    eyebrow: "Why boys",
+    headline: [[{ text: "Where I feel " }, { text: "called to begin.", em: true }]] as HeadlineLine[],
+    body: "Wild Wanderers begins with boys, not because boys matter more than girls, but because this is where my own experience and relationships have led me. I believe boys thrive where they can move, explore, and feel real emotion without shame, and discover who they are without the pressure to fit someone else's mold. My hope is that every child has a place like this. This is simply where I feel called to begin. If it grows, a girls' program would not be a copy of this one. It would be shaped by women leaders, built around girls' own experiences.",
   },
   safety: {
     eyebrow: "Safe ground",
     headline: [[{ text: "Brave is not " }, { text: "reckless.", em: true }]] as HeadlineLine[],
     points: [
-      { title: "Known ground", body: "We work a stretch of the Baylands we know by heart, in weather we read before we set out." },
-      { title: "A few good men", body: "Real adults beside the boys the whole way, kneeling to a kid's level, never barking from the side." },
-      { title: "Risk, sized right", body: "Healthy risk is the point. We scale it to the boy and the day so the stretch is real and the floor is solid." },
+      { title: "Vetted mentors", body: "Every man on the trail clears a background check, references, and a walking interview out on the ground before he is ever with the boys." },
+      { title: "Trained and covered", body: "CPR, first aid, and child-safety training, with general liability and accident coverage built for outdoor youth programs." },
+      { title: "Clear consent", body: "Signed waivers and informed consent, plain about the risks. Nothing hidden, nothing assumed." },
+      { title: "Known ground, risk sized right", body: "We work a stretch of the Baylands we read before we set out, and we scale the challenge to the boy and the day. Healthy risk is the point. Recklessness is not." },
     ],
   },
-  // GATED: said plainly when Gabe sets it.
+  // Price not set yet. Say it plainly in a real conversation, with the access
+  // mission stated. No number.
   cost: {
     eyebrow: "Cost",
     headline: [[{ text: "Said plainly, " }, { text: "when you reach out.", em: true }]] as HeadlineLine[],
-    body: "This is a for-profit program, priced to run well and last. We would rather tell you the number in a real conversation than bury it in fine print, and we are working on the ways in for families it should not lock out. Reach out and we will be straight with you.",
+    body: "This is a for-profit program, and tuition keeps it running well. We would rather tell you the number in a real conversation than bury it in fine print. Scholarships and sliding-scale spots are part of the plan, because no boy should miss the trail over his family's finances. Reach out and we will be straight with you.",
   },
+  // Named future ring (the trail log). Teaser only; not built this round.
+  trailLog: "Every wanderer gets his own trail log, coming as the program grows.",
   cta: {
     headline: [[{ text: "Find him " }, { text: "a place.", em: true }]] as HeadlineLine[],
     body: "Spots are limited each season, out on the Baylands. Tell us about your boy and we will take it from there.",
-    primary: { label: "Find a place this season", href: "/join" } as Cta,
+    primary: { label: "Start the conversation", href: "/join" } as Cta,
   },
 };
 
 // ---------------------------------------------------------------------------
-// For Dads — GATED on whether the fellowship is live. Framed as forming.
+// For Dads — the fellowship is live. Gabe is inviting the first circle now.
 // ---------------------------------------------------------------------------
 export const dadsPage = {
   hero: {
@@ -159,12 +171,19 @@ export const dadsPage = {
       { title: "Find your own circle", body: "Fathering can be lonely. A few good men on the same trail turns out to be good for the men too." },
     ],
   },
+  // How mentors are chosen. Reuses the "Vetted mentors" language so a father
+  // sees the bar before he applies.
+  mentors: {
+    eyebrow: "How we choose mentors",
+    headline: [[{ text: "Vetted before " }, { text: "the trail.", em: true }]] as HeadlineLine[],
+    body: "Every man on the trail clears a background check, references, and a walking interview out on the ground before he is ever with the boys. CPR, first aid, and child-safety training on top, with coverage built for outdoor youth programs. We hold the bar high, because you are trusting us with your son.",
+  },
   invite: {
     eyebrow: "The fellowship",
-    flag: "Forming now",
-    headline: [[{ text: "It is " }, { text: "forming now.", em: true }]] as HeadlineLine[],
-    body: "We are gathering the first circle of dads this season. If walking beside your son, and beside a few good men, sounds like something you have been missing, leave your name and we will tell you the moment it opens.",
-    cta: { label: "Tell me when it opens", href: "/join" } as Cta,
+    flag: "Now gathering",
+    headline: [[{ text: "It is " }, { text: "gathering now.", em: true }]] as HeadlineLine[],
+    body: "We are forming the first circle of fathers and mentors this season. If walking beside your son, and beside a few good men, is something you have been missing, reach out. This begins as a conversation.",
+    cta: { label: "Join the first circle", href: "/join" } as Cta,
   },
 };
 
@@ -177,11 +196,19 @@ export const aboutPage = {
     headline: [[{ text: "A dad, " }, { text: "and a trail.", em: true }]] as HeadlineLine[],
     sub: "Wild Wanderers started the way the best things do. One father, his own boys, and a hunch that the way out was outside.",
   },
+  // First person, Gabe's voice. Softened origin: keeps the fatherhood turn and
+  // the shift toward his own dad, holds the explicit forgiveness for later.
   story: {
-    eyebrow: "Meet Gabe",
-    headline: [[{ text: "He is doing this" }], [{ text: "with his own sons.", em: true }]] as HeadlineLine[],
-    body: "Gabe built Wild Wanderers for his own boys first, then opened the trail to other families. He coaches toward the whole picture: movement, time outside, food that fuels, a steadier mind. Not as fixes for something wrong. As the way you live when you live well. The fuller story, and a real portrait from the Baylands, are on the way.",
+    eyebrow: "From Gabe",
+    headline: [[{ text: "For my own " }, { text: "boys, first.", em: true }]] as HeadlineLine[],
+    body: "I built Wild Wanderers for my own two boys first. Becoming a father cracked something open in me. It showed me how hard the job really is, and it softened how I think about my own dad. The Baylands is home. I watched my dad play baseball out here. I learned the outdoors out here, and I had the space to just be a kid. I proposed to my wife at the marsh. I have walked my dog thousands of miles on these trails, and a lot of this program was built on those walks. My sons are learning here now.",
     caption: "A portrait from the Baylands is on the way.",
+  },
+  // The careful-builder block. Reframes "new at this" as patience and care.
+  careful: {
+    eyebrow: "How we build",
+    headline: [[{ text: "Slowly, " }, { text: "and on purpose.", em: true }]] as HeadlineLine[],
+    body: "Before I invite a single family, I am building the curriculum, the mentor training, the risk management, the permits, and the partnerships. I take a parent's trust seriously, so I am taking my time. I am new at some of this, and that is fine. This is for the community, and the community is worth building slowly.",
   },
   why: {
     eyebrow: "The why",
@@ -210,9 +237,9 @@ export const aboutPage = {
 // ---------------------------------------------------------------------------
 export const joinPage = {
   hero: {
-    eyebrow: "Find a place",
-    headline: [[{ text: "Find a place " }, { text: "this season.", em: true }]] as HeadlineLine[],
-    sub: "Tell us about your boy and what you are hoping for. We read every note, and we will write back like humans, because we are.",
+    eyebrow: "Reach out",
+    headline: [[{ text: "Start the " }, { text: "conversation.", em: true }]] as HeadlineLine[],
+    sub: "Tell us about your boy and what you are hoping for. This begins as a conversation, not a form. We read every note and we write back like humans, because we are.",
   },
   reasons: [
     { title: "Limited each season", body: "Small groups are the point, so spots are few. The list is how we keep it fair." },
@@ -229,7 +256,7 @@ export const joinPage = {
     },
   },
   practical: {
-    where: { label: "Where", value: "On the Baylands" },
+    where: { label: "Where", value: "Bedwell Bayfront Park, on the Baylands" },
     when: { label: "When", value: "Weekly, by season" },
     who: { label: "Who", value: "Boys, with their dads beside them" },
   },

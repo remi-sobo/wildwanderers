@@ -11,7 +11,7 @@ import Reveal from "@/components/motion/Reveal";
 export const metadata: Metadata = {
   title: "For Dads — Wild Wanderers",
   description:
-    "The fellowship: a few good men walking the same trail as their sons. Beside, not above. Forming now.",
+    "The fellowship: a few good men walking the same trail as their sons. Beside, not above. Now gathering the first circle.",
 };
 
 const h2 = "font-display text-[clamp(2rem,4.4vw,52px)] font-[350] leading-[1.04] tracking-[-0.018em]";
@@ -60,7 +60,24 @@ export default function ForDadsPage() {
         </Container>
       </Section>
 
-      {/* The fellowship invite (gated, forming) */}
+      {/* How we choose mentors — the bar a father sees before he applies. */}
+      <Section tone="bone">
+        <Container>
+          <Reveal stagger className="max-w-[820px]">
+            <Eyebrow rule className="mb-7 text-amber-deep">
+              {D.mentors.eyebrow}
+            </Eyebrow>
+            <h2 className={`${h2} text-forest-deep [&_em]:text-bark`}>
+              <RichText lines={D.mentors.headline} />
+            </h2>
+            <p className="mt-7 font-sans text-[clamp(1rem,1.4vw,20px)] leading-[1.62] text-[#4A4234]">
+              {D.mentors.body}
+            </p>
+          </Reveal>
+        </Container>
+      </Section>
+
+      {/* The fellowship invite (now gathering) */}
       <Section tone="sand">
         <Container>
           <Reveal stagger className="max-w-[720px]">
@@ -82,7 +99,7 @@ export default function ForDadsPage() {
 
       <ClosingCta
         headline={[[{ text: "Walk it " }, { text: "with him.", em: true }]]}
-        body="Leave your name for the fellowship and we will tell you the moment the first circle opens."
+        body="The first circle is gathering now. Reach out and we will start the conversation."
         cta={D.invite.cta}
       />
     </>
