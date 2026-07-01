@@ -16,7 +16,7 @@ export type Cta = { label: string; href: string };
 export const hero = {
   eyebrow: "Wild Wanderers · movement, nature, connection",
   headline: [[{ text: "Born to " }, { text: "move.", em: true }]] as HeadlineLine[],
-  sub: "Wellness for the whole family, built on movement, nature, and real connection. The three things a screen-heavy world keeps crowding out.",
+  sub: "Wellness for the whole family, built on movement, time outside, and staying close. The things a screen-heavy world keeps crowding out.",
   primary: { label: "Start the conversation", href: "/join" } as Cta,
   secondary: { label: "See how a day unfolds", href: "/the-program" } as Cta,
   scrollCue: "Scroll",
@@ -30,7 +30,7 @@ export const movement = {
     [{ text: "The world went still." }],
     [{ text: "We were built to move.", em: true }],
   ] as HeadlineLine[],
-  body: "Kids today move less, connect less, and spend less time outside. Wild Wanderers runs the other way. Bodies in motion, families in nature, real connection in a distracted age. You do it together, outdoors, and the whole family is welcome.",
+  body: "Kids today move less, connect less, and spend less time outside. Wild Wanderers goes the other way. We get the whole family moving and outdoors together, and everyone is welcome.",
 };
 
 // The chapter model on the homepage. Leads with the movement, presents the
@@ -41,7 +41,7 @@ export const chaptersSection = {
   headline: [
     [{ text: "The Baylands is " }, { text: "chapter one.", em: true }],
   ] as HeadlineLine[],
-  body: "Wild Wanderers is not about one marsh. It is about the wild places that sit inside every community, and the childhoods they are waiting to shape. We begin on the Baylands because it is the ground that shaped us. Someday, other chapters, each rooted in its own ground, led by its own mentors, carrying the same philosophy.",
+  body: "Wild Wanderers is not about one marsh. It is about the wild places inside every community, and what they can do for a childhood. We start on the Baylands because it is home. Someday there may be other chapters, each with its own ground and its own mentors, all built the same way.",
   horizonLabel: "On the horizon",
   motto: ["Run", "Jump", "Climb", "Tumble", "Wander", "Become"],
 };
@@ -49,7 +49,7 @@ export const chaptersSection = {
 export const flagship = {
   eyebrow: "Chapter one · the boys' program",
   headline: [[{ text: "It starts with " }, { text: "the boys.", em: true }]] as HeadlineLine[],
-  body: "Our first trail is a boys' program built on movement, nature, and the kind of brotherhood that makes a kid brave. Out on the Baylands, every week, with the dads right beside them.",
+  body: "Our first program is for boys, out on the Baylands, learning to move, explore, and look out for each other. Every week, with the dads beside them.",
   primary: { label: "Meet the boys' program", href: "/the-program" } as Cta,
   secondary: { label: "See how a day unfolds", href: "/the-program" } as Cta,
   badge: "EST. ON THE BAYLANDS",
@@ -70,7 +70,7 @@ export const approach = {
     {
       n: "02",
       title: "Breathe",
-      body: "Settle with animal breath. Heron tall, lizard long. Calm is a skill, and it can be practiced.",
+      body: "Settle with animal breath. Heron tall, lizard long. Getting calm is something you can practice.",
     },
     {
       n: "03",
@@ -80,7 +80,7 @@ export const approach = {
     {
       n: "04",
       title: "Reflect",
-      body: "Sit, share, journal. Meaning is found in the looking back, not handed down in a lesson.",
+      body: "Sit, share, journal. He works out what the day meant by looking back on it.",
     },
   ],
 };
@@ -121,7 +121,7 @@ export const agesStages = {
     {
       label: "The early years",
       name: "Notice",
-      body: "First taste of the trail. Low stakes, plenty of wonder. He learns to slow down and pay attention to one true thing at a time.",
+      body: "First taste of the trail. Low stakes, plenty of wonder. He learns to slow down and notice what is in front of him.",
     },
     {
       label: "The middle years",
@@ -143,7 +143,7 @@ export const forDads = {
   headline: [
     [{ text: "The first circle is " }, { text: "gathering now.", em: true }],
   ] as HeadlineLine[],
-  body: "The boys do not do this alone, and neither do you. We are inviting the first fathers and mentors this season, men who believe boys deserve real relationships, honest challenge, and encouragement. If that is you, walk with us.",
+  body: "The boys do not do this alone, and neither do you. We are inviting the first fathers and mentors this season, men who believe boys deserve good relationships, honest challenge, and encouragement. If that is you, walk with us.",
   cta: { label: "Join the first circle", href: "/for-dads" } as Cta,
 };
 
@@ -155,6 +155,6 @@ export const meetGabe = {
     [{ text: "He's doing this" }],
     [{ text: "with his own sons.", em: true }],
   ] as HeadlineLine[],
-  body: "Gabe built Wild Wanderers for his own boys first, then opened the trail to other families. He coaches toward the whole picture: movement, time outside, food that fuels, a steadier mind. Not as fixes. As the way you live when you live well.",
+  body: "Gabe built Wild Wanderers for his own boys first, then opened the trail to other families. He coaches the whole picture: moving your body, getting outside, eating well, keeping a steady mind. Not to fix anything, just how you live when you are living well.",
   photoCaption: "A portrait from the Baylands is on the way.",
 };
