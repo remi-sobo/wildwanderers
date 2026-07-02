@@ -98,29 +98,30 @@ export const approach = {
     {
       n: "01",
       title: "Observe",
-      body: "Notice one thing at a time. A bird, a track, the turning tide, a feeling moving through the body.",
+      body: "Notice the world, the body, and the moment. A bird, a track, the turning tide, a feeling moving through.",
     },
     {
       n: "02",
       title: "Breathe",
-      body: "Settle with animal breath. Heron tall, lizard long. Getting calm is something you can practice.",
+      body: "Practice calm with animal breath. Heron tall, lizard long. Getting steady is a skill, and he can train it.",
     },
     {
       n: "03",
       title: "Explore",
-      body: "Run, climb, build, wander. The body leads, and the learning comes along with it.",
+      body: "Run, climb, build, wander. Move with purpose over real ground, and the learning comes along with it.",
     },
     {
       n: "04",
       title: "Reflect",
-      body: "Sit, share, journal. He works out what the day meant by looking back on it.",
+      body: "Sit, share, journal. He names what the day taught him, and carries it home.",
     },
   ],
 };
 
 export const animalsSection = {
-  eyebrow: "The Baylands animals",
+  eyebrow: "The field guide",
   headline: [[{ text: "Every animal teaches " }, { text: "a power.", em: true }]] as HeadlineLine[],
+  note: "The animals are memory anchors. Each one gives a boy a handle on character, movement, and staying steady when a day gets hard.",
   allLink: { label: "Meet all of them", href: "/the-movement" } as Cta,
 };
 

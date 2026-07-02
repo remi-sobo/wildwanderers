@@ -8,7 +8,7 @@ import Button from "@/components/ui/Button";
 import Contours from "@/components/ui/Contours";
 import PageHero from "@/components/site/PageHero";
 import Reveal from "@/components/motion/Reveal";
-import AnimalTrail from "@/components/home/AnimalTrail";
+import FieldGuide from "@/components/home/FieldGuide";
 
 export const metadata: Metadata = {
   title: "The Movement — Wild Wanderers",
@@ -132,7 +132,7 @@ export default function TheMovementPage() {
               </p>
             </div>
           </div>
-          <AnimalTrail />
+          <FieldGuide />
           <Reveal className="mt-[clamp(48px,7vw,72px)]">
             <Button variant="primary" href={M.animals.cta.href} arrow>
               {M.animals.cta.label}

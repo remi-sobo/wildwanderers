@@ -80,26 +80,6 @@ button:focus-visible {
   }
 }
 
-/* The totem lesson. On devices that can hover (desktop) it stays hidden and
-   reveals on hover/focus. On touch, where there is no hover, it is always
-   visible so the lesson is never trapped behind an interaction. */
-.totem-lesson {
-  opacity: 1;
-  transform: none;
-}
-@media (hover: hover) and (pointer: fine) {
-  .totem-lesson {
-    opacity: 0;
-    transform: translateY(4px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-  .group:hover .totem-lesson,
-  .group:focus-within .totem-lesson {
-    opacity: 1;
-    transform: none;
-  }
-}
-
 /* Text links draw their underline in from the left on hover/focus rather than
    snapping (Phase 6). Transform only. */
 .link-underline {

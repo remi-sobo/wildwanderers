@@ -2,13 +2,13 @@ import { animalsSection } from "@/content/home";
 import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
 import RichText from "@/components/ui/RichText";
-import AnimalTrail from "@/components/home/AnimalTrail";
+import FieldGuide from "@/components/home/FieldGuide";
 
 /**
- * The Baylands animals. The signature no other program has, so it gets real
- * space and real craft: the four totems sit along a continuous ridgeline (the
- * AnimalTrail island) rather than in flat cards. Background is sand, the warm
- * alternate section.
+ * The Baylands animals. The signature no other program has, presented as a
+ * field guide: four specimen cards (the FieldGuide island) with the
+ * memory-anchor line naming what the system is for. Sand, the warm alternate
+ * section.
  */
 export default function Animals() {
   return (
@@ -22,6 +22,9 @@ export default function Animals() {
             <h2 className="max-w-[560px] font-display text-[clamp(2rem,4.4vw,52px)] font-[350] leading-[1.04] tracking-[-0.018em] text-forest-deep [&_em]:text-amber-deep">
               <RichText lines={animalsSection.headline} />
             </h2>
+            <p className="mt-6 max-w-[560px] font-sans text-[clamp(1rem,1.35vw,18px)] leading-[1.6] text-[#4A4234]">
+              {animalsSection.note}
+            </p>
           </div>
           <a
             href={animalsSection.allLink.href}
@@ -37,7 +40,7 @@ export default function Animals() {
           </a>
         </div>
 
-        <AnimalTrail />
+        <FieldGuide />
       </Container>
     </section>
   );
