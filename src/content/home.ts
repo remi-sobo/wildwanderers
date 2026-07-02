@@ -170,15 +170,53 @@ export const agesStages = {
   ],
 };
 
-// The fellowship is live. Gabe is inviting the first fathers and mentors now.
+// What a season gives a boy. Outcomes, not features, and never deficit talk:
+// nothing here frames a boy as broken, only as growing.
+export const forBoys = {
+  eyebrow: "For boys",
+  headline: [
+    [{ text: "Strong bodies. Soft hearts." }],
+    [{ text: "Wide eyes.", em: true }],
+  ] as HeadlineLine[],
+  lead: "A boy who walks with us is working on the same few things every week, until they belong to him.",
+  outcomes: [
+    {
+      title: "Confidence in his body",
+      body: "He learns what he can lift, climb, and outrun, and starts to trust it.",
+    },
+    {
+      title: "Comfort outdoors",
+      body: "Weather, mud, and open sky stop being a big deal.",
+    },
+    {
+      title: "A steady inside",
+      body: "Breath he can reach for when the day gets loud.",
+    },
+    {
+      title: "Courage and healthy risk",
+      body: "The hard, good thing, sized to the boy and the day.",
+    },
+    {
+      title: "Belonging with other boys",
+      body: "Friendship built on shared miles, not shared screens.",
+    },
+    {
+      title: "Respect for nature and others",
+      body: "He learns to read the marsh, and to look out for the boy beside him.",
+    },
+  ],
+};
+
+// The fellowship is live. Dads and mentors are participants, never spectators,
+// and the invitation stays warm, not guilt-heavy.
 export const forDads = {
-  eyebrow: "For Dads",
+  eyebrow: "For dads and mentors",
   flag: "Now gathering",
   headline: [
-    [{ text: "The first circle is " }, { text: "gathering now.", em: true }],
+    [{ text: "He does not do this " }, { text: "alone.", em: true }],
   ] as HeadlineLine[],
-  body: "The boys do not do this alone, and neither do you. We are inviting the first fathers and mentors this season, men who believe boys deserve good relationships, honest challenge, and encouragement. If that is you, walk with us.",
-  cta: { label: "Join the first circle", href: "/for-dads" } as Cta,
+  body: "Fathers and mentors are not spectators here. You walk the same trail, try the same breath, take the same wrong turns, and let him watch you handle it. No wilderness resume required. Presence is the work, and most men find the circle is good for them too.",
+  cta: { label: "Walk with us", href: "/for-dads" } as Cta,
 };
 
 // GATED on Gabe's real bio and a real portrait. Placeholder copy stays honest:

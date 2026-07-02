@@ -6,9 +6,9 @@ import RichText from "@/components/ui/RichText";
 import Reveal from "@/components/motion/Reveal";
 
 /**
- * For Dads. The walk-beside ethos. GATED on whether the fellowship is live, so
- * this is framed as forming, with a low-commitment way in, not a claim that it
- * is running. Dark section to carry the "the men" theme. Built in-system.
+ * For dads and mentors. The walk-beside ethos: participants, never spectators,
+ * and the invitation stays warm rather than guilt-heavy. Dark section to carry
+ * the "the men" theme, directly after the boy's own section.
  */
 export default function ForDads() {
   return (
