@@ -16,10 +16,12 @@ export default function ClosingCta({
   headline,
   body,
   cta,
+  secondary,
 }: {
   headline: HeadlineLine[];
   body: string;
   cta: Cta;
+  secondary?: Cta;
 }) {
   return (
     <section className="relative flex min-h-[clamp(440px,62vh,540px)] items-center overflow-hidden">
@@ -69,9 +71,16 @@ export default function ClosingCta({
           <p className="mb-[34px] mt-6 max-w-[520px] font-sans text-[clamp(1rem,1.3vw,18px)] leading-[1.55] text-bone/90">
             {body}
           </p>
-          <Button variant="primary" href={cta.href} arrow>
-            {cta.label}
-          </Button>
+          <div className="flex flex-wrap items-center gap-x-7 gap-y-4">
+            <Button variant="primary" href={cta.href} arrow>
+              {cta.label}
+            </Button>
+            {secondary && (
+              <Button variant="ghost" href={secondary.href} arrow className="text-bone">
+                {secondary.label}
+              </Button>
+            )}
+          </div>
         </Reveal>
       </Container>
     </section>

@@ -80,7 +80,7 @@ export const movementPage = {
     eyebrow: "The Baylands animals",
     headline: [[{ text: "Every animal teaches " }, { text: "a power.", em: true }]] as HeadlineLine[],
     body: "Heron for calm, Hawk for perspective, Coyote for adaptability, Mountain Lion for courage. Each totem is a handle on a hard idea, sized for a kid. The full system has more, and it grows with him.",
-    cta: { label: "Start the conversation", href: "/join" } as Cta,
+    cta: { label: "Join the first Baylands circle", href: "/join" } as Cta,
   },
 };
 
@@ -151,7 +151,7 @@ export const programPage = {
   cta: {
     headline: [[{ text: "Find him " }, { text: "a place.", em: true }]] as HeadlineLine[],
     body: "Spots are limited each season, out on the Baylands. Tell us about your boy and we will take it from there.",
-    primary: { label: "Start the conversation", href: "/join" } as Cta,
+    primary: { label: "Join the first Baylands circle", href: "/join" } as Cta,
   },
 };
 
@@ -190,7 +190,7 @@ export const dadsPage = {
     flag: "Now gathering",
     headline: [[{ text: "It is " }, { text: "gathering now.", em: true }]] as HeadlineLine[],
     body: "We are forming the first circle of fathers and mentors this season. If walking beside your son, alongside a few other dads, is something you have been missing, reach out. This begins as a conversation.",
-    cta: { label: "Join the first circle", href: "/join" } as Cta,
+    cta: { label: "Join the first Baylands circle", href: "/join" } as Cta,
   },
 };
 
@@ -235,7 +235,7 @@ export const aboutPage = {
   cta: {
     headline: [[{ text: "Come meet " }, { text: "the trail.", em: true }]] as HeadlineLine[],
     body: "The fastest way to understand Wild Wanderers is to stand on the Baylands at golden hour. Start a conversation and we will find a time.",
-    primary: { label: "Start the conversation", href: "/join" } as Cta,
+    primary: { label: "Join the first Baylands circle", href: "/join" } as Cta,
   },
 };
 

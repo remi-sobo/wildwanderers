@@ -126,13 +126,20 @@ export const animalsSection = {
 };
 
 export const cta = {
-  headline: [[{ text: "Get well " }, { text: "together.", em: true }]] as HeadlineLine[],
-  body: "It starts with our boys' program, out on the Baylands. Spots are limited each season.",
-  primary: { label: "Start the conversation", href: "/join" } as Cta,
+  headline: [
+    [{ text: "Join the first" }],
+    [{ text: "Baylands " }, { text: "circle.", em: true }],
+  ] as HeadlineLine[],
+  body: "The first group is gathering now, and it stays small on purpose. If you want your son to move more, get outside, grow in courage, and build real connection with you beside him, start the conversation.",
+  primary: { label: "Join the first Baylands circle", href: "/join" } as Cta,
+  secondary: { label: "Talk with Gabe", href: "/join" } as Cta,
 };
 
 export const footer = {
   wordmark: "Wild Wanderers",
+  mission:
+    "An outdoor movement and mentorship program for boys and their dads and mentors. Chapter One gathers on the Baylands.",
+  facts: ["Bedwell Bayfront Park", "Weekly, by season", "Boys 6 to 13"],
   meta: "Strong hands · soft hearts · on the Baylands",
   credit: "A SOBO build",
 };
