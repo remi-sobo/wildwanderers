@@ -125,6 +125,9 @@ export default function Hero() {
             "linear-gradient(0deg,rgba(14,22,15,.50) 0%,rgba(14,22,15,0) 26%)",
         }}
       />
+      {/* Mobile-only veil: the left-edge scrim is too narrow on small screens,
+          so the copy sits on the photo's bright sky without it. */}
+      <div className="pointer-events-none absolute inset-0 z-[5] bg-[rgba(16,24,17,0.32)] sm:hidden" />
 
       {/* Copy. Larger and bolder than the mock, sitting nearer the edge. */}
       <div className="relative z-10 max-w-[880px] px-6 sm:px-10 lg:px-[60px]">

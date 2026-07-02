@@ -60,8 +60,10 @@ export const whyNow = {
 export const whatItIs = {
   eyebrow: "What it is",
   headline: [
-    [{ text: "A weekly trail rhythm for boys" }],
-    [{ text: "becoming " }, { text: "strong, calm, and connected.", em: true }],
+    [
+      { text: "A weekly trail rhythm for boys becoming " },
+      { text: "strong, calm, and connected.", em: true },
+    ],
   ] as HeadlineLine[],
   body: "Every week, a small circle of boys gathers outdoors with their dads and mentors and moves through the Baylands together. They run and climb, practice animal breath, track what the marsh is doing, build, wander, and sit down at the end to make sense of it all. Simple on purpose, and it adds up.",
   facts: [
