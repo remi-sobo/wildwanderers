@@ -79,12 +79,12 @@ export const whatItIs = {
 // Baylands as Chapter One, teases the horizon. Sits between Movement and
 // Flagship. Motto strip carries "Run · Jump · Climb · Tumble · Wander · Become".
 export const chaptersSection = {
-  eyebrow: "The bigger picture",
+  eyebrow: "The movement",
   headline: [
-    [{ text: "The Baylands is " }, { text: "chapter one.", em: true }],
+    [{ text: "The Baylands is " }, { text: "Chapter One.", em: true }],
   ] as HeadlineLine[],
-  body: "Wild Wanderers is not about one marsh. It is about the wild places inside every community, and what they can do for a childhood. We start on the Baylands because it is home. Someday there may be other chapters, each with its own ground and its own mentors, all built the same way.",
-  horizonLabel: "On the horizon",
+  body: "Wild Wanderers is bigger than one marsh. It is a movement of families raising boys outdoors, and every movement starts on some particular piece of ground. Ours starts on the Baylands, the ground Gabe knows best. When the first circle is strong, new chapters can follow, each with its own wild place and its own mentors.",
+  horizonLabel: "Chapters on the horizon",
   motto: ["Run", "Jump", "Climb", "Tumble", "Wander", "Become"],
 };
 
@@ -143,7 +143,7 @@ export const footer = {
 // ages, real bio claims, testimonials). Swap his truth in when it lands.
 // ---------------------------------------------------------------------------
 
-// Exact ages are GATED. Bands are descriptive until Gabe sets the numbers.
+// Ages are the confirmed bands from the program page (6 to 13 overall).
 export const agesStages = {
   eyebrow: "Who it's for",
   headline: [
@@ -153,17 +153,17 @@ export const agesStages = {
   lead: "Three stages on one trail. He steps in where he fits and moves on when he is ready.",
   stages: [
     {
-      label: "The early years",
+      label: "Ages 6 to 7",
       name: "Notice",
       body: "First taste of the trail. Low stakes, plenty of wonder. He learns to slow down and notice what is in front of him.",
     },
     {
-      label: "The middle years",
+      label: "Ages 8 to 10",
       name: "Practice",
       body: "The four steps become habit. He builds skill, takes small risks, and finds his footing with the group.",
     },
     {
-      label: "The older boys",
+      label: "Ages 11 to 13",
       name: "Belong",
       body: "He carries some of the load. He looks out for the younger ones, leads a stretch of trail, and learns what it is to show up for the others.",
     },
@@ -219,14 +219,15 @@ export const forDads = {
   cta: { label: "Walk with us", href: "/for-dads" } as Cta,
 };
 
-// GATED on Gabe's real bio and a real portrait. Placeholder copy stays honest:
-// no invented credentials. The ridgeline fallback stands in for the photo.
+// Portrait still GATED on a real photo; the ridgeline fallback stands in. Bio
+// stays honest: no invented credentials, family as roots and never the face.
 export const meetGabe = {
   eyebrow: "Meet Gabe",
   headline: [
-    [{ text: "He's doing this" }],
-    [{ text: "with his own sons.", em: true }],
+    [{ text: "Built by a father" }],
+    [{ text: "on the trail.", em: true }],
   ] as HeadlineLine[],
-  body: "Gabe built Wild Wanderers for his own boys first, then opened the trail to other families. He coaches the whole picture: moving your body, getting outside, eating well, keeping a steady mind. Not to fix anything, just how you live when you are living well.",
+  body: "Gabe built Wild Wanderers with his own sons first, on the same Baylands trails where he grew up. The program brings together what he has spent years living: movement, real food, breath, time outside, and the daily work of being a dad. Now he is inviting a first circle of families to walk it with him.",
+  more: { label: "Read his story", href: "/about" } as Cta,
   photoCaption: "A portrait from the Baylands is on the way.",
 };

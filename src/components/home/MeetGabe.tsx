@@ -1,6 +1,7 @@
 import { meetGabe } from "@/content/home";
 import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
+import Button from "@/components/ui/Button";
 import RichText from "@/components/ui/RichText";
 import Ridgeline from "@/components/ui/Ridgeline";
 import Reveal from "@/components/motion/Reveal";
@@ -40,6 +41,11 @@ export default function MeetGabe() {
             <p className="mt-7 max-w-[560px] font-sans text-[clamp(1rem,1.35vw,19px)] leading-[1.62] text-[#4A4234]">
               {meetGabe.body}
             </p>
+            <div className="mt-8">
+              <Button variant="ghost" href={meetGabe.more.href} arrow className="text-forest-deep">
+                {meetGabe.more.label}
+              </Button>
+            </div>
           </Reveal>
         </div>
       </Container>
