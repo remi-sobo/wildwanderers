@@ -7,9 +7,9 @@ import Nav from "@/components/site/Nav";
 import Footer from "@/components/site/Footer";
 
 export const metadata: Metadata = {
-  title: "Wild Wanderers — movement, nature, connection",
+  title: "Wild Wanderers · outdoor movement and mentorship for boys",
   description:
-    "Whole-person wellness for the whole family, built on movement, nature, and real connection. Our flagship is a boys' program out on the Baylands.",
+    "Boys were born to move. Wild Wanderers is a weekly outdoor movement and mentorship program for boys and their dads and mentors, starting on the Baylands.",
 };
 
 export default function RootLayout({

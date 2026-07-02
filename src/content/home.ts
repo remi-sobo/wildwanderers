@@ -14,23 +14,65 @@ export type HeadlineLine = Segment[];
 export type Cta = { label: string; href: string };
 
 export const hero = {
-  eyebrow: "Wild Wanderers · movement, nature, connection",
-  headline: [[{ text: "Born to " }, { text: "move.", em: true }]] as HeadlineLine[],
-  sub: "Wellness for the whole family, built on movement, time outside, and staying close. The things a screen-heavy world keeps crowding out.",
-  primary: { label: "Start the conversation", href: "/join" } as Cta,
-  secondary: { label: "See how a day unfolds", href: "/the-program" } as Cta,
+  eyebrow: "Wild Wanderers · Baylands Chapter One",
+  headline: [
+    [{ text: "Boys were born" }],
+    [{ text: "to " }, { text: "move.", em: true }],
+  ] as HeadlineLine[],
+  sub: "An outdoor movement and mentorship program for boys and their dads and mentors. A weekly rhythm of nature, breath, courage, and connection, out on the Baylands.",
+  primary: { label: "Join the first Baylands circle", href: "/join" } as Cta,
+  secondary: { label: "See how it works", href: "#how-it-works" } as Cta,
   scrollCue: "Scroll",
   photoAlt:
     "A father and son on a ridge at golden hour, looking out over rolling hills",
 };
 
-export const movement = {
-  eyebrow: "The movement",
+// Why now. The strongest argument for the program, made concrete: what a
+// screen-heavy, sat-down childhood costs, and the trade we offer instead.
+export const whyNow = {
+  eyebrow: "Why now",
   headline: [
-    [{ text: "The world went still." }],
-    [{ text: "We were built to move.", em: true }],
+    [{ text: "Childhood has gotten" }],
+    [{ text: "too " }, { text: "still.", em: true }],
   ] as HeadlineLine[],
-  body: "Kids today move less, connect less, and spend less time outside. Wild Wanderers goes the other way. We get the whole family moving and outdoors together, and everyone is welcome.",
+  body: "Kids spend more time inside, more time on screens, and less time moving through the real world with people who know them. Boys feel it in the body and in the mind. Wild Wanderers goes the other direction.",
+  trades: [
+    {
+      less: "Less screen.",
+      more: "More sky.",
+      body: "Trade the feed for weather, tide, and mud that is actually cold.",
+    },
+    {
+      less: "Less sitting.",
+      more: "More strength.",
+      body: "Run, climb, carry, tumble. A body used the way it was built to be used.",
+    },
+    {
+      less: "Less isolation.",
+      more: "More belonging.",
+      body: "A circle of boys and men who know his name and expect him back.",
+    },
+  ],
+};
+
+// What it is, said plainly, with the confirmed facts as a spec row. Facts are
+// GATED: publish only what Gabe confirmed (CLAUDE.md). No price, no dates.
+export const whatItIs = {
+  eyebrow: "What it is",
+  headline: [
+    [{ text: "A weekly trail rhythm for boys" }],
+    [{ text: "becoming " }, { text: "strong, calm, and connected.", em: true }],
+  ] as HeadlineLine[],
+  body: "Every week, a small circle of boys gathers outdoors with their dads and mentors and moves through the Baylands together. They run and climb, practice animal breath, track what the marsh is doing, build, wander, and sit down at the end to make sense of it all. Simple on purpose, and it adds up.",
+  facts: [
+    { label: "Who", value: "Boys 6 to 13, with dads and mentors beside them" },
+    { label: "Group", value: "8 to 10 boys, about one adult per six" },
+    { label: "Where", value: "Bedwell Bayfront Park, on the Baylands" },
+    { label: "When", value: "Weekly, by season" },
+  ],
+  primary: { label: "Join the first Baylands circle", href: "/join" } as Cta,
+  secondary: { label: "See a full gathering", href: "/the-program" } as Cta,
+  badge: "EST. ON THE BAYLANDS",
 };
 
 // The chapter model on the homepage. Leads with the movement, presents the
@@ -44,15 +86,6 @@ export const chaptersSection = {
   body: "Wild Wanderers is not about one marsh. It is about the wild places inside every community, and what they can do for a childhood. We start on the Baylands because it is home. Someday there may be other chapters, each with its own ground and its own mentors, all built the same way.",
   horizonLabel: "On the horizon",
   motto: ["Run", "Jump", "Climb", "Tumble", "Wander", "Become"],
-};
-
-export const flagship = {
-  eyebrow: "Chapter one · the boys' program",
-  headline: [[{ text: "It starts with " }, { text: "the boys.", em: true }]] as HeadlineLine[],
-  body: "Our first program is for boys, out on the Baylands, learning to move, explore, and look out for each other. Every week, with the dads beside them.",
-  primary: { label: "Meet the boys' program", href: "/the-program" } as Cta,
-  secondary: { label: "See how a day unfolds", href: "/the-program" } as Cta,
-  badge: "EST. ON THE BAYLANDS",
 };
 
 export const approach = {

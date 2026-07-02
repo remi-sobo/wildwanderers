@@ -84,7 +84,7 @@ export default function Nav() {
             solid ? "bg-amber text-ink hover:bg-amber-deep" : "bg-bone text-ink hover:bg-bone-dim",
           )}
         >
-          Reach out
+          Join the circle
         </a>
       </div>
     </nav>

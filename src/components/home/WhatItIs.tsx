@@ -1,0 +1,111 @@
+import { whatItIs } from "@/content/home";
+import Container from "@/components/ui/Container";
+import Eyebrow from "@/components/ui/Eyebrow";
+import Button from "@/components/ui/Button";
+import RichText from "@/components/ui/RichText";
+import Ridgeline from "@/components/ui/Ridgeline";
+import Contours from "@/components/ui/Contours";
+import Reveal from "@/components/motion/Reveal";
+import Parallax from "@/components/motion/Parallax";
+
+/**
+ * What it is. The offer said plainly, on the dark forest ground: copy and the
+ * Baylands badge up top, then the confirmed facts as a spec row. The facts are
+ * the premium move here; concreteness is what earns a parent's trust. Only
+ * Gabe-confirmed facts appear (CLAUDE.md), no price and no dates.
+ *
+ * Carries id="how-it-works" so the hero's secondary CTA lands here and reads
+ * straight down into the four steps.
+ */
+export default function WhatItIs() {
+  return (
+    <section
+      id="how-it-works"
+      className="relative -mt-px scroll-mt-20 overflow-hidden bg-forest-deep pb-[clamp(72px,12vw,130px)] pt-[clamp(56px,9vw,100px)] text-bone"
+    >
+      <Contours
+        color="#F2C879"
+        opacity={0.1}
+        className="pointer-events-none absolute -right-[6%] top-0 z-0 h-[78%] w-[58%]"
+      />
+      <Parallax y={16} className="pointer-events-none absolute inset-x-0 bottom-0 z-0">
+        <Ridgeline preset="flagship" opacity={0.4} className="h-[clamp(160px,20vw,280px)]" />
+      </Parallax>
+
+      <Container className="relative z-[2]">
+        <div className="grid items-center gap-[clamp(40px,6vw,60px)] lg:grid-cols-[1.15fr_0.85fr]">
+          <Reveal stagger>
+            <Eyebrow rule className="mb-7 text-cream">
+              {whatItIs.eyebrow}
+            </Eyebrow>
+            <h2 className="font-display text-[clamp(2rem,4.2vw,54px)] font-[350] leading-[1.05] tracking-[-0.018em] text-bone [&_em]:text-cream">
+              <RichText lines={whatItIs.headline} />
+            </h2>
+            <p className="mb-9 mt-7 max-w-[560px] font-sans text-[clamp(1rem,1.35vw,19px)] leading-[1.62] text-bone/85">
+              {whatItIs.body}
+            </p>
+            <div className="flex flex-wrap items-center gap-x-7 gap-y-4">
+              <Button variant="primary" href={whatItIs.primary.href} arrow>
+                {whatItIs.primary.label}
+              </Button>
+              <Button variant="ghost" href={whatItIs.secondary.href} arrow className="text-bone">
+                {whatItIs.secondary.label}
+              </Button>
+            </div>
+          </Reveal>
+
+          <Reveal className="hidden justify-self-center lg:block" delay={0.2}>
+            <svg
+              viewBox="0 0 300 300"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-[clamp(208px,26vw,280px)]"
+              role="img"
+              aria-label="Wild Wanderers badge, established on the Baylands"
+            >
+              <circle cx="150" cy="150" r="132" stroke="#F2C879" strokeWidth="1.5" opacity="0.6" />
+              <circle cx="150" cy="150" r="116" stroke="#F2C879" strokeWidth="1" opacity="0.3" />
+              <path
+                d="M70,196 L126,108 L160,152 L196,96 L240,196 Z"
+                stroke="#F2C879"
+                strokeWidth="2"
+                strokeLinejoin="round"
+              />
+              <path d="M70,196 L240,196" stroke="#F2C879" strokeWidth="2" />
+              <circle cx="196" cy="80" r="11" fill="#F2C879" opacity="0.8" />
+              <text
+                x="150"
+                y="244"
+                textAnchor="middle"
+                fontSize="13"
+                letterSpacing="3"
+                fill="#F2C879"
+                opacity="0.85"
+                style={{ fontFamily: "var(--font-jakarta)" }}
+              >
+                {whatItIs.badge}
+              </text>
+            </svg>
+          </Reveal>
+        </div>
+
+        {/* The confirmed facts, laid out like a field spec. */}
+        <Reveal
+          stagger
+          className="mt-[clamp(48px,7vw,76px)] grid grid-cols-1 gap-x-[26px] gap-y-7 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {whatItIs.facts.map((fact) => (
+            <div key={fact.label} className="border-t border-cream/25 pt-5">
+              <div className="font-sans text-[11px] font-semibold uppercase tracking-[0.24em] text-cream/85">
+                {fact.label}
+              </div>
+              <div className="mt-2.5 font-sans text-[15px] leading-[1.5] text-bone/90">
+                {fact.value}
+              </div>
+            </div>
+          ))}
+        </Reveal>
+      </Container>
+    </section>
+  );
+}

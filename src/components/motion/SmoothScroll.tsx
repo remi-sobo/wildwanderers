@@ -32,7 +32,11 @@ export default function SmoothScroll({
   useGSAP(() => {
     if (prefersReducedMotion()) return;
 
-    const lenis = new Lenis({ autoRaf: false });
+    // `anchors` makes in-page CTA links (e.g. the hero's "See how it works")
+    // glide instead of jump; the offset clears the fixed nav. Reduced motion
+    // never reaches here, so those links fall back to a native jump, where the
+    // target's scroll-mt handles the nav.
+    const lenis = new Lenis({ autoRaf: false, anchors: { offset: -72 } });
 
     // Keep ScrollTrigger in step with Lenis' virtual scroll position.
     lenis.on("scroll", ScrollTrigger.update);

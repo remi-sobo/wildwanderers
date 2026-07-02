@@ -4,25 +4,23 @@ import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
 import RichText from "@/components/ui/RichText";
 import Contours from "@/components/ui/Contours";
-import Ridgeline from "@/components/ui/Ridgeline";
 import Reveal from "@/components/motion/Reveal";
 
 /**
  * The chapter model. Wild Wanderers is the movement; the Baylands is Chapter
- * One. Sits between Movement and Flagship so it carries the place-vision and
- * the Flagship can stay about the program.
+ * One. Sits after the two audiences, once the visitor knows exactly what
+ * chapter one is, so the wider vision reads as a beginning, not a vagueness.
  *
  * Light section, in-system: the contour watermark reads like a quiet map, the
  * Baylands is the one open chapter, and the rest sit in an "on the horizon" row,
- * clearly aspirational (never dated, never a commitment, per CLAUDE.md). It ends
- * on the layered ridge band, the bone-to-dark bridge into the flagship section.
+ * clearly aspirational (never dated, never a commitment, per CLAUDE.md).
  */
 export default function Chapters() {
   const open = chapters.find((c) => c.status === "open");
   const horizon = chapters.filter((c) => c.status === "horizon");
 
   return (
-    <section className="relative overflow-hidden bg-bone pt-[clamp(72px,12vw,130px)]">
+    <section className="relative overflow-hidden bg-bone py-[clamp(72px,12vw,130px)]">
       {/* Contour watermark, faint bark, read as a map behind the copy. */}
       <Contours
         color="#6B4A2E"
@@ -102,9 +100,6 @@ export default function Chapters() {
           </ul>
         </Reveal>
       </Container>
-
-      {/* The bone-to-dark ridge bridge into the flagship section. */}
-      <Ridgeline preset="band" className="mt-[clamp(48px,6vw,74px)] h-[clamp(96px,10vw,150px)]" />
     </section>
   );
 }
