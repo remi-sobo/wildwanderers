@@ -4,7 +4,7 @@ import Button from "@/components/ui/Button";
 import Ridgeline from "@/components/ui/Ridgeline";
 
 export const metadata: Metadata = {
-  title: "Design System — Wild Wanderers",
+  title: "Design System · Wild Wanderers",
 };
 
 // Color tokens with explicit utility classes (Tailwind needs literal class

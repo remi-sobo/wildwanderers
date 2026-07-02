@@ -10,7 +10,7 @@ import ClosingCta from "@/components/site/ClosingCta";
 import Reveal from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
-  title: "The Program — Wild Wanderers",
+  title: "The Program · Wild Wanderers",
   description:
     "Our flagship boys' program out on the Baylands: how a day moves, ages and stages, safe ground, and the way in.",
 };

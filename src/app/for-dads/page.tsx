@@ -9,7 +9,7 @@ import ClosingCta from "@/components/site/ClosingCta";
 import Reveal from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
-  title: "For Dads — Wild Wanderers",
+  title: "For Dads · Wild Wanderers",
   description:
     "The fellowship: a few good men walking the same trail as their sons. Beside, not above. Now gathering the first circle.",
 };

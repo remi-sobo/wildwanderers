@@ -9,7 +9,7 @@ import Reveal from "@/components/motion/Reveal";
 import JoinForm from "./JoinForm";
 
 export const metadata: Metadata = {
-  title: "Start the conversation — Wild Wanderers",
+  title: "Start the conversation · Wild Wanderers",
   description:
     "Tell us about your boy and what you are hoping for. This begins as a conversation, not a form. Out on the Baylands at Bedwell Bayfront Park.",
 };

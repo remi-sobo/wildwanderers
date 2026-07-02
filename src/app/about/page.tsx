@@ -10,7 +10,7 @@ import ClosingCta from "@/components/site/ClosingCta";
 import Reveal from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
-  title: "About — Wild Wanderers",
+  title: "About · Wild Wanderers",
   description:
     "One father, his own boys, and a hunch that the way out was outside. The why behind Wild Wanderers, honestly.",
 };

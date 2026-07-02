@@ -11,7 +11,7 @@ import Reveal from "@/components/motion/Reveal";
 import FieldGuide from "@/components/home/FieldGuide";
 
 export const metadata: Metadata = {
-  title: "The Movement — Wild Wanderers",
+  title: "The Movement · Wild Wanderers",
   description:
     "The why behind Wild Wanderers: room to roam, the four-step approach, the three pillars, and the Baylands animals.",
 };
