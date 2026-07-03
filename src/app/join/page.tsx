@@ -11,7 +11,7 @@ import JoinForm from "./JoinForm";
 export const metadata: Metadata = {
   title: "Start the conversation · Wild Wanderers",
   description:
-    "Tell us about your boy and what you are hoping for. This begins as a conversation, not a form. Out on the Baylands at Bedwell Bayfront Park.",
+    "Tell us about your boy and what you are hoping for. This begins as a conversation, not a form. Out on the Baylands Nature Preserve in Palo Alto.",
 };
 
 export default function JoinPage() {

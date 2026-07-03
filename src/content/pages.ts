@@ -94,13 +94,11 @@ export const programPage = {
     headline: [[{ text: "A boys' program," }], [{ text: "out on the Baylands.", em: true }]] as HeadlineLine[],
     sub: "Our first program is for boys, out on the trail, learning to move, explore, and look out for each other. Every week, with the dads beside them.",
   },
-  // Confirmed facts. Ages, group size, ratio, and the park are publishable.
-  // No hard price yet; day and dates still landing.
+  // Confirmed facts, all publishable: ages, group size, the park, the days.
   wayIn: {
     eyebrow: "The way in",
     headline: [[{ text: "What a gathering " }, { text: "looks like.", em: true }]] as HeadlineLine[],
-    body: "A small group of boys, six to thirteen years old, eight to ten at a time, out on a stretch of the Baylands we know well at Bedwell Bayfront Park. We keep the ratio close, around one adult for every six boys, so we can keep an eye on everyone. A gathering runs a few hours and moves through the four steps from start to finish. We meet weekly, by season.",
-    flag: "Day and dates landing soon",
+    body: "A small group of boys, five to thirteen years old, around ten at a time, out on the Baylands Nature Preserve in Palo Alto. We keep the group small so every boy is known, encouraged, challenged, and mentored at his own level. We meet Monday, Wednesday, and Friday for three hours a day, and the day moves through the four steps from start to finish. Over time we will roam other Bay Area and peninsula wild places too.",
   },
   day: {
     eyebrow: "A day on the trail",
@@ -117,7 +115,7 @@ export const programPage = {
     headline: [[{ text: "Start where he is. " }, { text: "Grow from there.", em: true }]] as HeadlineLine[],
     lead: "Three stages on one trail. He steps in where he fits and moves on when he is ready.",
     items: [
-      { label: "Ages 6 to 7", name: "Notice", body: "First taste of the trail. Low stakes, plenty of wonder. He learns to slow down and notice what is in front of him." },
+      { label: "Ages 5 to 7", name: "Notice", body: "First taste of the trail. Low stakes, plenty of wonder. He learns to slow down and notice what is in front of him." },
       { label: "Ages 8 to 10", name: "Practice", body: "The four steps become habit. He builds skill, takes small risks, and finds his footing with the group." },
       { label: "Ages 11 to 13", name: "Belong", body: "He carries some of the load, looks out for the younger ones, and learns what it is to show up for the others." },
     ],
@@ -139,12 +137,11 @@ export const programPage = {
       { title: "Known ground, risk sized right", body: "We work a stretch of the Baylands we read before we set out, and we scale the challenge to the boy and the day. Healthy risk is part of it. We just keep it from tipping into reckless." },
     ],
   },
-  // Price not set yet. Say it plainly in a real conversation, with the access
-  // mission stated. No number.
+  // Fall session rate, published. Access mission stays; ends on the invitation.
   cost: {
     eyebrow: "Cost",
-    headline: [[{ text: "Said plainly, " }, { text: "when you reach out.", em: true }]] as HeadlineLine[],
-    body: "This is a for-profit program, and tuition keeps it running well. We would rather tell you the number in a conversation than bury it in fine print. Scholarships and sliding-scale spots are part of the plan, because no boy should miss the trail over his family's money. Reach out and we will be straight with you.",
+    headline: [[{ text: "What it costs, " }, { text: "for the fall.", em: true }]] as HeadlineLine[],
+    body: "For the fall session, tuition is $60 a day, or $180 a week for all three days. That covers the mentors, the gear, and the mornings out on the Baylands. Scholarships and sliding-scale spots are part of the plan, because no boy should miss the trail over his family's money. If you have a question about the cost, reach out and we will talk it through.",
   },
   // Named future ring (the trail log). Teaser only; not built this round.
   trailLog: "Every wanderer gets his own trail log, coming as the program grows.",
@@ -263,8 +260,8 @@ export const joinPage = {
     },
   },
   practical: {
-    where: { label: "Where", value: "Bedwell Bayfront Park, on the Baylands" },
-    when: { label: "When", value: "Weekly, by season" },
+    where: { label: "Where", value: "Baylands Nature Preserve, Palo Alto" },
+    when: { label: "When", value: "Mon, Wed, Fri mornings, by season" },
     who: { label: "Who", value: "Boys, with their dads beside them" },
   },
 };

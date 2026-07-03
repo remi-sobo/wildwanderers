@@ -22,18 +22,13 @@ export default function TheProgramPage() {
     <>
       <PageHero eyebrow={P.hero.eyebrow} headline={P.hero.headline} sub={P.hero.sub} />
 
-      {/* The way in (gated) */}
+      {/* The way in */}
       <Section tone="bone">
         <Container>
           <Reveal stagger className="max-w-[760px]">
-            <div className="mb-7 flex flex-wrap items-center gap-4">
-              <Eyebrow rule className="text-amber-deep">
-                {P.wayIn.eyebrow}
-              </Eyebrow>
-              <span className="rounded-full border border-bark/30 px-3 py-1 font-sans text-[10.5px] font-semibold uppercase tracking-[0.2em] text-bark">
-                {P.wayIn.flag}
-              </span>
-            </div>
+            <Eyebrow rule className="mb-7 text-amber-deep">
+              {P.wayIn.eyebrow}
+            </Eyebrow>
             <h2 className={`${h2} max-w-[840px] text-forest-deep [&_em]:text-bark`}>
               <RichText lines={P.wayIn.headline} />
             </h2>
