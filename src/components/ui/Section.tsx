@@ -18,13 +18,16 @@ export default function Section({
   children,
   tone = "bone",
   className,
+  id,
 }: {
   children: React.ReactNode;
   tone?: Tone;
   className?: string;
+  /** Anchor id, so in-page links (e.g. "See the plans") can target a section. */
+  id?: string;
 }) {
   return (
-    <section className={clsx("relative overflow-hidden py-[clamp(72px,12vw,130px)]", TONES[tone], className)}>
+    <section id={id} className={clsx("relative overflow-hidden py-[clamp(72px,12vw,130px)]", TONES[tone], className)}>
       {children}
     </section>
   );
