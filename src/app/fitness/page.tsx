@@ -6,6 +6,7 @@ import RichText from "@/components/ui/RichText";
 import Section from "@/components/ui/Section";
 import Contours from "@/components/ui/Contours";
 import Button from "@/components/ui/Button";
+import ClosingCta from "@/components/site/ClosingCta";
 import Reveal from "@/components/motion/Reveal";
 import FitnessHero from "@/components/fitness/FitnessHero";
 import PhotoSlot from "@/components/fitness/PhotoSlot";
@@ -231,7 +232,7 @@ export default function FitnessPage() {
       </Section>
 
       {/* Investment — provisional tiers, premium framing, free consult front door */}
-      <Section tone="sand" id={anchors.plans}>
+      <Section tone="sand" id={anchors.plans} className="scroll-mt-24">
         <Container>
           <Reveal stagger className="max-w-[760px]">
             <Eyebrow rule className="mb-7">
@@ -336,6 +337,12 @@ export default function FitnessPage() {
           </Reveal>
         </Container>
       </Section>
+
+      {/* CTA band — "Book a consult" front door, target of the hero and investment
+          CTAs (#consult). Reuses the shared closing-band pattern. */}
+      <div id={anchors.consult} className="scroll-mt-24">
+        <ClosingCta headline={F.cta.headline} body={F.cta.body} cta={F.cta.primary} />
+      </div>
     </>
   );
 }
