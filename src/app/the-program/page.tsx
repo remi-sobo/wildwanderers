@@ -22,18 +22,13 @@ export default function TheProgramPage() {
     <>
       <PageHero eyebrow={P.hero.eyebrow} headline={P.hero.headline} sub={P.hero.sub} />
 
-      {/* The way in (gated) */}
+      {/* The way in */}
       <Section tone="bone">
         <Container>
           <Reveal stagger className="max-w-[760px]">
-            <div className="mb-7 flex flex-wrap items-center gap-4">
-              <Eyebrow rule className="text-amber-deep">
-                {P.wayIn.eyebrow}
-              </Eyebrow>
-              <span className="rounded-full border border-bark/30 px-3 py-1 font-sans text-[10.5px] font-semibold uppercase tracking-[0.2em] text-bark">
-                {P.wayIn.flag}
-              </span>
-            </div>
+            <Eyebrow rule className="mb-7 text-amber-deep">
+              {P.wayIn.eyebrow}
+            </Eyebrow>
             <h2 className={`${h2} max-w-[840px] text-forest-deep [&_em]:text-bark`}>
               <RichText lines={P.wayIn.headline} />
             </h2>
@@ -72,6 +67,71 @@ export default function TheProgramPage() {
                 </p>
               </div>
             ))}
+          </Reveal>
+        </Container>
+      </Section>
+
+      {/* What the adventures include — emergent curriculum lead, then buckets */}
+      <Section tone="bone">
+        <Container>
+          <Reveal stagger className="max-w-[820px]">
+            <Eyebrow rule className="mb-7 text-amber-deep">
+              {P.adventures.eyebrow}
+            </Eyebrow>
+            <h2 className={`${h2} text-forest-deep [&_em]:text-bark`}>
+              <RichText lines={P.adventures.headline} />
+            </h2>
+            <p className="mt-7 font-sans text-[clamp(1rem,1.4vw,20px)] leading-[1.62] text-[#4A4234]">
+              {P.curriculum}
+            </p>
+          </Reveal>
+
+          <Reveal stagger className="mt-[clamp(48px,7vw,72px)] grid grid-cols-1 gap-x-[26px] gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {P.adventures.items.map((b) => (
+              <div key={b.name} className="border-t border-bark/25 pt-6">
+                <h3 className="font-display text-[clamp(1.375rem,2.2vw,26px)] font-medium text-forest-deep">
+                  {b.name}
+                </h3>
+                <p className="mt-2.5 font-sans text-[14.5px] leading-[1.6] text-[#5A5142]">{b.body}</p>
+              </div>
+            ))}
+          </Reveal>
+        </Container>
+      </Section>
+
+      {/* The shape of the year — three sessions at a glance */}
+      <Section tone="sand">
+        <Container>
+          <Reveal stagger className="max-w-[760px]">
+            <Eyebrow rule className="mb-7">
+              {P.year.eyebrow}
+            </Eyebrow>
+            <h2 className={`${h2} text-forest-deep [&_em]:text-amber-deep`}>
+              <RichText lines={P.year.headline} />
+            </h2>
+            <p className="mt-6 max-w-[560px] font-sans text-[clamp(1rem,1.35vw,19px)] leading-[1.6] text-[#4A4234]">
+              {P.year.lead}
+            </p>
+          </Reveal>
+
+          <Reveal stagger className="mt-[clamp(48px,7vw,72px)] grid grid-cols-1 gap-x-[26px] gap-y-12 sm:grid-cols-3">
+            {P.year.items.map((s) => (
+              <div key={s.season} className="border-t border-bark/25 pt-7">
+                <h3 className="font-display text-[clamp(1.75rem,2.6vw,32px)] font-medium text-forest-deep">
+                  {s.season}
+                </h3>
+                <div className="mt-2 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-deep">
+                  {s.span}
+                </div>
+                <p className="mt-3 font-sans text-[14.5px] leading-[1.6] text-[#5A5142]">{s.body}</p>
+              </div>
+            ))}
+          </Reveal>
+
+          <Reveal className="mt-[clamp(40px,6vw,56px)] border-t border-bark/20 pt-6">
+            <p className="max-w-[560px] font-sans text-[15px] leading-[1.6] text-[#4A4234]">
+              {P.year.close}
+            </p>
           </Reveal>
         </Container>
       </Section>

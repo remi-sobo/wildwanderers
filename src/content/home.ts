@@ -67,9 +67,9 @@ export const whatItIs = {
   ] as HeadlineLine[],
   body: "Every week, a small circle of boys gathers outdoors with their dads and mentors and moves through the Baylands together. They run and climb, practice animal breath, track what the marsh is doing, build, wander, and sit down at the end to make sense of it all. Simple on purpose, and it adds up.",
   facts: [
-    { label: "Who", value: "Boys 6 to 13, with dads and mentors beside them" },
-    { label: "Group", value: "8 to 10 boys, about one adult per six" },
-    { label: "Where", value: "Bedwell Bayfront Park, on the Baylands" },
+    { label: "Who", value: "Boys 5 to 13, with dads and mentors beside them" },
+    { label: "Group", value: "Around 10 boys, about one adult per six" },
+    { label: "Where", value: "Baylands Nature Preserve, Palo Alto" },
     { label: "When", value: "Weekly, by season" },
   ],
   primary: { label: "Join the first Baylands circle", href: "/join" } as Cta,
@@ -141,7 +141,7 @@ export const footer = {
   wordmark: "Wild Wanderers",
   mission:
     "An outdoor movement and mentorship program for boys and their dads and mentors. Chapter One gathers on the Baylands.",
-  facts: ["Bedwell Bayfront Park", "Weekly, by season", "Boys 6 to 13"],
+  facts: ["Baylands Nature Preserve, Palo Alto", "Weekly, by season", "Boys 5 to 13"],
   meta: "Strong hands · soft hearts · on the Baylands",
   credit: "A SOBO build",
 };
@@ -152,7 +152,7 @@ export const footer = {
 // ages, real bio claims, testimonials). Swap his truth in when it lands.
 // ---------------------------------------------------------------------------
 
-// Ages are the confirmed bands from the program page (6 to 13 overall).
+// Ages are the confirmed bands from the program page (5 to 13 overall).
 export const agesStages = {
   eyebrow: "Who it's for",
   headline: [
@@ -162,7 +162,7 @@ export const agesStages = {
   lead: "Three stages on one trail. He steps in where he fits and moves on when he is ready.",
   stages: [
     {
-      label: "Ages 6 to 7",
+      label: "Ages 5 to 7",
       name: "Notice",
       body: "First taste of the trail. Low stakes, plenty of wonder. He learns to slow down and notice what is in front of him.",
     },

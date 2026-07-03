@@ -17,7 +17,7 @@ export type Chapter = {
 export const chapters: Chapter[] = [
   {
     name: "The Baylands",
-    place: "Bedwell Bayfront Park",
+    place: "Baylands Nature Preserve, Palo Alto",
     status: "open",
     blurb:
       "Chapter one. Home ground. Where Gabe learned the outdoors, walked thousands of miles, and started building this on the trail.",

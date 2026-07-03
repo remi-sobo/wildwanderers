@@ -94,30 +94,56 @@ export const programPage = {
     headline: [[{ text: "A boys' program," }], [{ text: "out on the Baylands.", em: true }]] as HeadlineLine[],
     sub: "Our first program is for boys, out on the trail, learning to move, explore, and look out for each other. Every week, with the dads beside them.",
   },
-  // Confirmed facts. Ages, group size, ratio, and the park are publishable.
-  // No hard price yet; day and dates still landing.
+  // Confirmed facts, all publishable: ages, group size, the park, the days.
   wayIn: {
     eyebrow: "The way in",
     headline: [[{ text: "What a gathering " }, { text: "looks like.", em: true }]] as HeadlineLine[],
-    body: "A small group of boys, six to thirteen years old, eight to ten at a time, out on a stretch of the Baylands we know well at Bedwell Bayfront Park. We keep the ratio close, around one adult for every six boys, so we can keep an eye on everyone. A gathering runs a few hours and moves through the four steps from start to finish. We meet weekly, by season.",
-    flag: "Day and dates landing soon",
+    body: "A small group of boys, five to thirteen years old, around ten at a time, out on the Baylands Nature Preserve in Palo Alto. We keep the group small so every boy is known, encouraged, challenged, and mentored at his own level. We meet Monday, Wednesday, and Friday for three hours a day, and the day moves through the four steps from start to finish. Over time we will roam other Bay Area and peninsula wild places too.",
   },
   day: {
     eyebrow: "A day on the trail",
     headline: [[{ text: "Start to finish." }]] as HeadlineLine[],
     items: [
-      { time: "Arrive", title: "Leave the week behind", body: "Boots on and phones away. We circle up, settle in, and look at where we are headed." },
-      { time: "Settle", title: "Find calm", body: "Animal breath, and noticing one thing to start. We let the body settle before it gets going." },
-      { time: "Out", title: "Head out", body: "Run, climb, wade, build. Rough ground and some risk, sized to the boy and the day." },
-      { time: "Back", title: "Look back", body: "Sit, share, journal. He names what he found, and carries it home." },
+      { time: "Arrive", title: "Check in", body: "An emotional check-in and a welcome circle. Each boy sets an intention for the day." },
+      { time: "Out", title: "Head out", body: "Free play, hiking, and climbing where it is safe. Tracking, and whatever wild things the day turns up." },
+      { time: "Along the way", title: "Learn as we go", body: "Hands-on lessons, sparked by whatever the day serves up." },
+      { time: "Back", title: "Reflect", body: "Stories, journals, and gratitude. We share what we saw before heading home." },
     ],
+  },
+  // Emergent curriculum: lessons follow the boys, not a worksheet. Reads as the
+  // lead into the adventures list below.
+  curriculum: "The curriculum follows the boys' questions. Lessons in ecology, communication, problem solving, and confidence arrive through what they meet on the trail, not off a worksheet. The goal is simple: a lifelong love of learning.",
+  // What the days hold, curated to a handful of buckets. Plain nouns.
+  adventures: {
+    eyebrow: "On the trail",
+    headline: [[{ text: "What the adventures " }, { text: "include.", em: true }]] as HeadlineLine[],
+    items: [
+      { name: "Wild play and exploration", body: "Free play, hikes, tree climbing, forts and shelters, treasure hunts." },
+      { name: "Knowing the land", body: "Wildlife tracking, plants, insects, birds, weather and tides, nature journaling and sketching." },
+      { name: "A strong body", body: "Fitness through play, how the body works, food, water, energy, breath work." },
+      { name: "The group", body: "Team games, emotional check-ins, leadership, and boys inventing their own games." },
+      { name: "Caring for the place", body: "Stewardship of the Baylands." },
+    ],
+  },
+  // The whole year at a glance. Session language only; the next one opens soon,
+  // and the conversation is still the way in (guardrails).
+  year: {
+    eyebrow: "The year",
+    headline: [[{ text: "The shape of " }, { text: "the year.", em: true }]] as HeadlineLine[],
+    lead: "We run the year in three sessions. A boy can come for one or grow across all three.",
+    items: [
+      { season: "Fall session", span: "September through December", body: "The main season on the Baylands, three mornings a week as the marsh turns toward winter." },
+      { season: "Spring session", span: "January through May", body: "Back on the trail as the marsh comes alive, from the first warm weeks through late spring." },
+      { season: "Summer camp", span: "June through August", body: "Camp through the summer, with longer mornings and more time outside." },
+    ],
+    close: "The next session opens soon. Starting a conversation is the way in.",
   },
   stages: {
     eyebrow: "Ages and stages",
     headline: [[{ text: "Start where he is. " }, { text: "Grow from there.", em: true }]] as HeadlineLine[],
     lead: "Three stages on one trail. He steps in where he fits and moves on when he is ready.",
     items: [
-      { label: "Ages 6 to 7", name: "Notice", body: "First taste of the trail. Low stakes, plenty of wonder. He learns to slow down and notice what is in front of him." },
+      { label: "Ages 5 to 7", name: "Notice", body: "First taste of the trail. Low stakes, plenty of wonder. He learns to slow down and notice what is in front of him." },
       { label: "Ages 8 to 10", name: "Practice", body: "The four steps become habit. He builds skill, takes small risks, and finds his footing with the group." },
       { label: "Ages 11 to 13", name: "Belong", body: "He carries some of the load, looks out for the younger ones, and learns what it is to show up for the others." },
     ],
@@ -139,12 +165,11 @@ export const programPage = {
       { title: "Known ground, risk sized right", body: "We work a stretch of the Baylands we read before we set out, and we scale the challenge to the boy and the day. Healthy risk is part of it. We just keep it from tipping into reckless." },
     ],
   },
-  // Price not set yet. Say it plainly in a real conversation, with the access
-  // mission stated. No number.
+  // Fall session rate, published. Access mission stays; ends on the invitation.
   cost: {
     eyebrow: "Cost",
-    headline: [[{ text: "Said plainly, " }, { text: "when you reach out.", em: true }]] as HeadlineLine[],
-    body: "This is a for-profit program, and tuition keeps it running well. We would rather tell you the number in a conversation than bury it in fine print. Scholarships and sliding-scale spots are part of the plan, because no boy should miss the trail over his family's money. Reach out and we will be straight with you.",
+    headline: [[{ text: "What it costs, " }, { text: "for the fall.", em: true }]] as HeadlineLine[],
+    body: "For the fall session, tuition is $60 a day, or $180 a week for all three days. That covers the mentors, the gear, and the mornings out on the Baylands. Scholarships and sliding-scale spots are part of the plan, because no boy should miss the trail over his family's money. If you have a question about the cost, reach out and we will talk it through.",
   },
   // Named future ring (the trail log). Teaser only; not built this round.
   trailLog: "Every wanderer gets his own trail log, coming as the program grows.",
@@ -263,8 +288,8 @@ export const joinPage = {
     },
   },
   practical: {
-    where: { label: "Where", value: "Bedwell Bayfront Park, on the Baylands" },
-    when: { label: "When", value: "Weekly, by season" },
+    where: { label: "Where", value: "Baylands Nature Preserve, Palo Alto" },
+    when: { label: "When", value: "Mon, Wed, Fri mornings, by season" },
     who: { label: "Who", value: "Boys, with their dads beside them" },
   },
 };
