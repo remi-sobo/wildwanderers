@@ -104,10 +104,25 @@ export const programPage = {
     eyebrow: "A day on the trail",
     headline: [[{ text: "Start to finish." }]] as HeadlineLine[],
     items: [
-      { time: "Arrive", title: "Leave the week behind", body: "Boots on and phones away. We circle up, settle in, and look at where we are headed." },
-      { time: "Settle", title: "Find calm", body: "Animal breath, and noticing one thing to start. We let the body settle before it gets going." },
-      { time: "Out", title: "Head out", body: "Run, climb, wade, build. Rough ground and some risk, sized to the boy and the day." },
-      { time: "Back", title: "Look back", body: "Sit, share, journal. He names what he found, and carries it home." },
+      { time: "Arrive", title: "Check in", body: "An emotional check-in and a welcome circle. Each boy sets an intention for the day." },
+      { time: "Out", title: "Head out", body: "Free play, hiking, and climbing where it is safe. Tracking, and whatever wild things the day turns up." },
+      { time: "Along the way", title: "Learn as we go", body: "Hands-on lessons, sparked by whatever the day serves up." },
+      { time: "Back", title: "Reflect", body: "Stories, journals, and gratitude. We share what we saw before heading home." },
+    ],
+  },
+  // Emergent curriculum: lessons follow the boys, not a worksheet. Reads as the
+  // lead into the adventures list below.
+  curriculum: "The curriculum follows the boys' questions. Lessons in ecology, communication, problem solving, and confidence arrive through what they meet on the trail, not off a worksheet. The goal is simple: a lifelong love of learning.",
+  // What the days hold, curated to a handful of buckets. Plain nouns.
+  adventures: {
+    eyebrow: "On the trail",
+    headline: [[{ text: "What the adventures " }, { text: "include.", em: true }]] as HeadlineLine[],
+    items: [
+      { name: "Wild play and exploration", body: "Free play, hikes, tree climbing, forts and shelters, treasure hunts." },
+      { name: "Knowing the land", body: "Wildlife tracking, plants, insects, birds, weather and tides, nature journaling and sketching." },
+      { name: "A strong body", body: "Fitness through play, how the body works, food, water, energy, breath work." },
+      { name: "The group", body: "Team games, emotional check-ins, leadership, and boys inventing their own games." },
+      { name: "Caring for the place", body: "Stewardship of the Baylands." },
     ],
   },
   // The whole year at a glance. Session language only; the next one opens soon,

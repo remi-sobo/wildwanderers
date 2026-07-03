@@ -71,6 +71,34 @@ export default function TheProgramPage() {
         </Container>
       </Section>
 
+      {/* What the adventures include — emergent curriculum lead, then buckets */}
+      <Section tone="bone">
+        <Container>
+          <Reveal stagger className="max-w-[820px]">
+            <Eyebrow rule className="mb-7 text-amber-deep">
+              {P.adventures.eyebrow}
+            </Eyebrow>
+            <h2 className={`${h2} text-forest-deep [&_em]:text-bark`}>
+              <RichText lines={P.adventures.headline} />
+            </h2>
+            <p className="mt-7 font-sans text-[clamp(1rem,1.4vw,20px)] leading-[1.62] text-[#4A4234]">
+              {P.curriculum}
+            </p>
+          </Reveal>
+
+          <Reveal stagger className="mt-[clamp(48px,7vw,72px)] grid grid-cols-1 gap-x-[26px] gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {P.adventures.items.map((b) => (
+              <div key={b.name} className="border-t border-bark/25 pt-6">
+                <h3 className="font-display text-[clamp(1.375rem,2.2vw,26px)] font-medium text-forest-deep">
+                  {b.name}
+                </h3>
+                <p className="mt-2.5 font-sans text-[14.5px] leading-[1.6] text-[#5A5142]">{b.body}</p>
+              </div>
+            ))}
+          </Reveal>
+        </Container>
+      </Section>
+
       {/* The shape of the year — three sessions at a glance */}
       <Section tone="sand">
         <Container>
