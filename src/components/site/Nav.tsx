@@ -84,8 +84,8 @@ export default function Nav() {
         <a
           href="https://app.wildwanderers.life"
           className={clsx(
-            "font-sans text-[13.5px] font-medium tracking-[0.02em] transition-colors",
-            solid ? "text-ink/55 hover:text-ink" : "text-bone/65 hover:text-bone",
+            "link-underline font-sans text-[13.5px] font-medium tracking-[0.02em] transition-colors",
+            solid ? "text-ink/65 hover:text-ink" : "text-bone/75 hover:text-bone",
           )}
         >
           Log in

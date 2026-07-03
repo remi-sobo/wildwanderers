@@ -51,9 +51,10 @@ export default function SplitReveal({
         // The line masks are overflow:hidden boxes sized to the line height.
         // With tight display leading (leading-[0.9]) that box is shorter than
         // the glyph, so descenders (the y in "Boys") get clipped, and the mask
-        // persists after the reveal settles. A hair of bottom padding on each
-        // line grows the mask to include the descender. Layout-neutral above.
-        gsap.set(split.lines, { paddingBottom: "0.12em" });
+        // persists after the reveal settles. Grow each mask downward to include
+        // the descender, and cancel that height with an equal negative bottom
+        // margin so line spacing is unchanged. Layout-neutral, clip-free.
+        gsap.set(split.lines, { paddingBottom: "0.35em", marginBottom: "-0.35em" });
         gsap.from(split.lines, {
           yPercent: 100,
           duration: DURATION.reveal,
