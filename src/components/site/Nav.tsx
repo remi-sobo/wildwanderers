@@ -77,6 +77,18 @@ export default function Nav() {
             </a>
           ))}
         </div>
+        {/* Quiet, secondary text link for returning members. Stays to the left
+            of the action and lower in weight than the nav items so it never
+            reads as the way in. Kept visible on mobile beside the action. */}
+        <a
+          href="https://app.wildwanderers.life"
+          className={clsx(
+            "font-sans text-[13.5px] font-medium tracking-[0.02em] transition-colors",
+            solid ? "text-ink/55 hover:text-ink" : "text-bone/65 hover:text-bone",
+          )}
+        >
+          Log in
+        </a>
         <a
           href="/join"
           className={clsx(
