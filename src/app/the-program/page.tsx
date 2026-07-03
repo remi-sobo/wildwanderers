@@ -71,6 +71,43 @@ export default function TheProgramPage() {
         </Container>
       </Section>
 
+      {/* The shape of the year — three sessions at a glance */}
+      <Section tone="sand">
+        <Container>
+          <Reveal stagger className="max-w-[760px]">
+            <Eyebrow rule className="mb-7">
+              {P.year.eyebrow}
+            </Eyebrow>
+            <h2 className={`${h2} text-forest-deep [&_em]:text-amber-deep`}>
+              <RichText lines={P.year.headline} />
+            </h2>
+            <p className="mt-6 max-w-[560px] font-sans text-[clamp(1rem,1.35vw,19px)] leading-[1.6] text-[#4A4234]">
+              {P.year.lead}
+            </p>
+          </Reveal>
+
+          <Reveal stagger className="mt-[clamp(48px,7vw,72px)] grid grid-cols-1 gap-x-[26px] gap-y-12 sm:grid-cols-3">
+            {P.year.items.map((s) => (
+              <div key={s.season} className="border-t border-bark/25 pt-7">
+                <h3 className="font-display text-[clamp(1.75rem,2.6vw,32px)] font-medium text-forest-deep">
+                  {s.season}
+                </h3>
+                <div className="mt-2 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-deep">
+                  {s.span}
+                </div>
+                <p className="mt-3 font-sans text-[14.5px] leading-[1.6] text-[#5A5142]">{s.body}</p>
+              </div>
+            ))}
+          </Reveal>
+
+          <Reveal className="mt-[clamp(40px,6vw,56px)] border-t border-bark/20 pt-6">
+            <p className="max-w-[560px] font-sans text-[15px] leading-[1.6] text-[#4A4234]">
+              {P.year.close}
+            </p>
+          </Reveal>
+        </Container>
+      </Section>
+
       {/* Why boys — Gabe's calling, first person. Framed as lived experience,
           never as an admissions policy (CLAUDE.md guardrails). */}
       <Section tone="bone">

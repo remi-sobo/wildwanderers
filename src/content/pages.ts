@@ -110,6 +110,19 @@ export const programPage = {
       { time: "Back", title: "Look back", body: "Sit, share, journal. He names what he found, and carries it home." },
     ],
   },
+  // The whole year at a glance. Session language only; the next one opens soon,
+  // and the conversation is still the way in (guardrails).
+  year: {
+    eyebrow: "The year",
+    headline: [[{ text: "The shape of " }, { text: "the year.", em: true }]] as HeadlineLine[],
+    lead: "We run the year in three sessions. A boy can come for one or grow across all three.",
+    items: [
+      { season: "Fall session", span: "September through December", body: "The main season on the Baylands, three mornings a week as the marsh turns toward winter." },
+      { season: "Spring session", span: "January through May", body: "Back on the trail as the marsh comes alive, from the first warm weeks through late spring." },
+      { season: "Summer camp", span: "June through August", body: "Camp through the summer, with longer mornings and more time outside." },
+    ],
+    close: "The next session opens soon. Starting a conversation is the way in.",
+  },
   stages: {
     eyebrow: "Ages and stages",
     headline: [[{ text: "Start where he is. " }, { text: "Grow from there.", em: true }]] as HeadlineLine[],
