@@ -11,6 +11,7 @@ import Container from "@/components/ui/Container";
 const LINKS = [
   { label: "The Movement", href: routes.movement },
   { label: "The Program", href: routes.program },
+  { label: "Fitness", href: routes.fitness },
   { label: "For Dads", href: routes.forDads },
   { label: "About", href: routes.about },
   { label: "Join the circle", href: routes.join },
