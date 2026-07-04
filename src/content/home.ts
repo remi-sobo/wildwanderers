@@ -100,7 +100,7 @@ export const approach = {
     {
       n: "01",
       title: "Observe",
-      body: "Notice the world, the body, and the moment. A bird, a track, the turning tide, a feeling moving through.",
+      body: "Stop and look. A bird, a track, the tide, the way his own body feels. Noticing comes before moving.",
     },
     {
       n: "02",
@@ -110,7 +110,7 @@ export const approach = {
     {
       n: "03",
       title: "Explore",
-      body: "Run, climb, build, wander. Move with purpose over real ground, and the learning comes along with it.",
+      body: "Run, climb, build, wander. He moves hard over real ground, and learns by doing it.",
     },
     {
       n: "04",
