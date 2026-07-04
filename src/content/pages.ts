@@ -260,7 +260,7 @@ export const aboutPage = {
       { n: "07", title: "Strong hands, soft hearts", body: "We build physical courage and emotional strength in the same boy." },
       { n: "08", title: "Embodiment over expertise", body: "We become what we hope to inspire. In time, the student grows like the teacher." },
     ],
-    close: "Wild Wanderers is not a program built around one leader. It is a fellowship of mentors committed to continuous improvement, united by a love for boys, the outdoors, and one another.",
+    close: "Wild Wanderers is not a program built around one leader. It is a fellowship of mentors always trying to get a little better, bound by a love for boys, the outdoors, and one another.",
   },
   // Kyezen: the one-percent, long-haul idea, carrying Gabe's son's name.
   kyezen: {
