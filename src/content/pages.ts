@@ -61,6 +61,12 @@ export const movementPage = {
       },
     ],
   },
+  // All-weather: about how a day works, not who Gabe is, so it lives here.
+  allWeather: {
+    eyebrow: "Rain or shine",
+    headline: [[{ text: "There is no such thing as " }, { text: "bad weather.", em: true }]] as HeadlineLine[],
+    body: "We go outside in all of it. With the right gear, we head into the mud puddles and the creeks and learn to love every kind of day. The only thing that keeps us in is real danger, like lightning. Weather is not an obstacle to the adventure. Most days, it is the adventure.",
+  },
   pillars: {
     eyebrow: "What holds it up",
     headline: [[{ text: "Three things, " }, { text: "done together.", em: true }]] as HeadlineLine[],
@@ -236,6 +242,32 @@ export const aboutPage = {
     headline: [[{ text: "For my own " }, { text: "boys, first.", em: true }]] as HeadlineLine[],
     body: "I built Wild Wanderers for my own two boys first. Becoming a father cracked something open in me. It showed me how hard the job really is, and it softened how I think about my own dad. The Baylands is home. I watched my dad play baseball out here. I learned the outdoors out here, and I had the space to just be a kid. I proposed to my wife at the marsh. I have walked my dog thousands of miles on these trails, and a lot of this program was built on those walks. My sons are learning here now.",
     caption: "A portrait from the Baylands is on the way.",
+  },
+  // The creed, in Gabe's voice. Eight principles as the fellowship holds them,
+  // set apart by the closing fellowship line. Values carry the spirit; no
+  // scripture on the public site (Gabe's call).
+  principles: {
+    eyebrow: "What we believe",
+    headline: [[{ text: "Eight things we " }, { text: "hold to.", em: true }]] as HeadlineLine[],
+    lead: "Not rules on a wall. The way this fellowship actually moves.",
+    items: [
+      { n: "01", title: "The boys are the heroes", body: "This is their story. We are not the point." },
+      { n: "02", title: "The mentors walk beside", body: "Fathers and guides, shoulder to shoulder, not out front and not above." },
+      { n: "03", title: "Kyezen", body: "Continuous improvement. One percent better, most days, for the long haul." },
+      { n: "04", title: "Brotherhood", body: "We sharpen one another, hold one another accountable, and carry the mission together." },
+      { n: "05", title: "Stewardship", body: "We care for the land, the community, and each other. Like the redwoods, we are only stronger together." },
+      { n: "06", title: "Wonder before instruction", body: "Curiosity leads, and the curriculum follows." },
+      { n: "07", title: "Strong hands, soft hearts", body: "We build physical courage and emotional strength in the same boy." },
+      { n: "08", title: "Embodiment over expertise", body: "We become what we hope to inspire. In time, the student grows like the teacher." },
+    ],
+    close: "Wild Wanderers is not a program built around one leader. It is a fellowship of mentors always trying to get a little better, bound by a love for boys, the outdoors, and one another.",
+  },
+  // Kyezen: the one-percent, long-haul idea, carrying Gabe's son's name.
+  kyezen: {
+    eyebrow: "Kyezen",
+    headline: [[{ text: "One percent, " }, { text: "most days.", em: true }]] as HeadlineLine[],
+    body: "Kyezen means continuous improvement. Not a drastic change overnight, but a small one today, and again tomorrow. Some days a boy gains a lot and it feels great. Other days he gains a little, or he rests, and that counts just as much. Small changes become habits, and habits compound. Like a boulder starting downhill, once it rolls it is hard to stop. We are in this for the long haul.",
+    note: "The word comes from kai, change, and zen, good. It is also the name of Gabe's first son.",
   },
   // The careful-builder block. Reframes "new at this" as patience and care.
   careful: {
