@@ -78,7 +78,9 @@ export async function submitInquiry(
         const res = await fetch(slackUrl, {
           method: "POST",
           headers: { "content-type": "application/json" },
-          body: JSON.stringify({ text: `New trail inquiry from ${name}\n${summary}` }),
+          body: JSON.stringify({
+            text: `:evergreen_tree: *New trail inquiry from ${name}*\n*Email:* ${email}\n\n${about || "_(no message)_"}`,
+          }),
         });
         if (!res.ok) throw new Error(`Slack webhook responded ${res.status}`);
       })(),
