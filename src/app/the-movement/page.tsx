@@ -74,6 +74,23 @@ export default function TheMovementPage() {
         </Container>
       </Section>
 
+      {/* All-weather: how a day works, rain or shine. */}
+      <Section tone="sand">
+        <Container>
+          <Reveal stagger className="max-w-[820px]">
+            <Eyebrow rule className="mb-7">
+              {M.allWeather.eyebrow}
+            </Eyebrow>
+            <h2 className={`${h2} text-forest-deep [&_em]:text-amber-deep`}>
+              <RichText lines={M.allWeather.headline} />
+            </h2>
+            <p className="mt-7 font-sans text-[clamp(1rem,1.4vw,20px)] leading-[1.62] text-[#4A4234]">
+              {M.allWeather.body}
+            </p>
+          </Reveal>
+        </Container>
+      </Section>
+
       {/* Pillars */}
       <Section tone="bone">
         <Container>

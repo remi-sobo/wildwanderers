@@ -50,6 +50,64 @@ export default function AboutPage() {
         </Container>
       </Section>
 
+      {/* The principles: the fellowship's creed, a calm numbered list.
+          Fraunces numerals so it reads editorial, the close set apart. */}
+      <Section tone="sand">
+        <Container>
+          <Reveal stagger className="max-w-[760px]">
+            <Eyebrow rule className="mb-7">
+              {A.principles.eyebrow}
+            </Eyebrow>
+            <h2 className={`${h2} text-forest-deep [&_em]:text-amber-deep`}>
+              <RichText lines={A.principles.headline} />
+            </h2>
+            <p className="mt-6 font-sans text-[clamp(1rem,1.35vw,19px)] leading-[1.6] text-[#4A4234]">
+              {A.principles.lead}
+            </p>
+          </Reveal>
+          <Reveal stagger className="mt-[clamp(44px,6vw,64px)] grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2">
+            {A.principles.items.map((it) => (
+              <div key={it.n} className="flex gap-5 border-t border-bark/25 pt-6">
+                <div className="font-display text-[clamp(1.9rem,3.4vw,40px)] font-[400] italic leading-none text-amber-deep/80">
+                  {it.n}
+                </div>
+                <div>
+                  <h3 className="font-display text-[clamp(1.35rem,2vw,22px)] font-semibold text-forest-deep">
+                    {it.title}
+                  </h3>
+                  <p className="mt-2 font-sans text-[14.5px] leading-[1.6] text-[#5A5142]">{it.body}</p>
+                </div>
+              </div>
+            ))}
+          </Reveal>
+          <Reveal className="mt-[clamp(44px,6vw,60px)] max-w-[760px] border-t border-bark/25 pt-8">
+            <p className="font-display text-[clamp(1.25rem,2.4vw,26px)] font-[350] italic leading-[1.4] text-forest-deep">
+              {A.principles.close}
+            </p>
+          </Reveal>
+        </Container>
+      </Section>
+
+      {/* Kyezen: the one-percent, long-haul idea. Quiet and personal. */}
+      <Section tone="bone">
+        <Container>
+          <Reveal stagger className="max-w-[760px]">
+            <Eyebrow rule className="mb-7 text-amber-deep">
+              {A.kyezen.eyebrow}
+            </Eyebrow>
+            <h2 className={`${h2} text-forest-deep [&_em]:text-bark`}>
+              <RichText lines={A.kyezen.headline} />
+            </h2>
+            <p className="mt-7 font-sans text-[clamp(1rem,1.4vw,20px)] leading-[1.62] text-[#4A4234]">
+              {A.kyezen.body}
+            </p>
+            <p className="mt-6 font-sans text-[14.5px] italic leading-[1.6] text-[#5A5142]">
+              {A.kyezen.note}
+            </p>
+          </Reveal>
+        </Container>
+      </Section>
+
       {/* The why — honest about the research */}
       <Section tone="forest">
         <Container>
