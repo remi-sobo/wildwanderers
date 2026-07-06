@@ -9,6 +9,7 @@ const LINKS = [
   { label: "The Program", href: "/the-program" },
   { label: "Fitness", href: "/fitness" },
   { label: "For Dads", href: "/for-dads" },
+  { label: "Library", href: "/trailhead" },
   { label: "About", href: "/about" },
 ];
 
