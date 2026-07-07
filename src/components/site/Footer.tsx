@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { footer } from "@/content/home";
 import { routes } from "@/content/pages";
 import Container from "@/components/ui/Container";
@@ -22,11 +23,17 @@ export default function Footer() {
     <footer className="bg-forest-deep pb-[clamp(36px,4vw,48px)] pt-[clamp(64px,8vw,96px)] text-bone/70">
       <Container>
         <div className="grid gap-x-[clamp(32px,5vw,80px)] gap-y-12 border-b border-mist/15 pb-[clamp(40px,5vw,64px)] md:grid-cols-[1.2fr_0.8fr_1fr]">
-          {/* Wordmark and mission. */}
+          {/* Word mark and mission. The stacked word mark appears only here,
+              in bone on the forest-deep band, so the footer reads like a
+              signature. */}
           <div>
-            <div className="font-display text-[clamp(26px,3vw,34px)] font-medium text-bone">
-              {footer.wordmark}
-            </div>
+            <Image
+              src="/brand/word-bone.png"
+              alt={footer.wordmark}
+              width={172}
+              height={64}
+              className="h-auto w-[140px] sm:w-[172px]"
+            />
             <p className="mt-4 max-w-[380px] font-sans text-[14px] leading-[1.65] text-bone/75">
               {footer.mission}
             </p>
