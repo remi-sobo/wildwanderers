@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { clsx } from "@/lib/clsx";
 
 const LINKS = [
@@ -52,14 +53,57 @@ export default function Nav() {
           : "border-b border-transparent py-[22px] sm:py-[30px]",
       )}
     >
-      <Link
-        href="/"
-        className={clsx(
-          "font-display text-[25px] font-medium transition-colors",
-          solid ? "text-forest-deep" : "text-bone",
-        )}
-      >
-        Wild Wanderers
+      {/* The lockup swaps ink with the nav: bone over the hero photo, forest on
+          the condensed bar, crossfading on the same beat as the links. Below sm
+          the mark stands alone so the actions keep their room. */}
+      <Link href="/" aria-label="Wild Wanderers home" className="relative block">
+        <span className="relative hidden sm:block">
+          <Image
+            src="/brand/full-bone.png"
+            alt="Wild Wanderers"
+            width={140}
+            height={34}
+            preload
+            className={clsx(
+              "h-[34px] w-auto transition-opacity duration-300",
+              solid ? "opacity-0" : "opacity-100",
+            )}
+          />
+          <Image
+            src="/brand/full-forest.png"
+            alt=""
+            aria-hidden="true"
+            width={140}
+            height={34}
+            className={clsx(
+              "absolute inset-0 h-[34px] w-auto transition-opacity duration-300",
+              solid ? "opacity-100" : "opacity-0",
+            )}
+          />
+        </span>
+        <span className="relative block sm:hidden">
+          <Image
+            src="/brand/mark-bone.png"
+            alt="Wild Wanderers"
+            width={54}
+            height={34}
+            className={clsx(
+              "h-[34px] w-auto transition-opacity duration-300",
+              solid ? "opacity-0" : "opacity-100",
+            )}
+          />
+          <Image
+            src="/brand/mark-forest.png"
+            alt=""
+            aria-hidden="true"
+            width={54}
+            height={34}
+            className={clsx(
+              "absolute inset-0 h-[34px] w-auto transition-opacity duration-300",
+              solid ? "opacity-100" : "opacity-0",
+            )}
+          />
+        </span>
       </Link>
 
       <div className="flex items-center gap-[34px]">
