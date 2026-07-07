@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Cta, HeadlineLine } from "@/content/home";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
@@ -65,6 +66,17 @@ export default function ClosingCta({
 
       <Container className="relative z-[3]">
         <Reveal stagger className="max-w-[800px]">
+          {/* The mark as a small seal above the closing words, its only in-page
+              appearance on the site. Bone ink over the dusk scene, the cream
+              sun echoing the band's travelling one. */}
+          <Image
+            src="/brand/mark-bone.png"
+            alt=""
+            aria-hidden="true"
+            width={70}
+            height={44}
+            className="mb-6 h-11 w-auto"
+          />
           <h2 className="font-display text-[clamp(2.5rem,5.4vw,66px)] font-[330] leading-[1.0] tracking-[-0.02em] text-bone [&_em]:text-cream">
             <RichText lines={headline} />
           </h2>

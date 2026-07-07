@@ -7,6 +7,7 @@ import Nav from "@/components/site/Nav";
 import Footer from "@/components/site/Footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://wildwanderers.life"),
   title: "Wild Wanderers · outdoor movement and mentorship for boys",
   description:
     "Boys were born to move. Wild Wanderers is a weekly outdoor movement and mentorship program for boys and their dads and mentors, starting on the Baylands.",
