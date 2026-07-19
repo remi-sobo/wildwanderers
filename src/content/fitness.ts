@@ -24,11 +24,27 @@
  */
 import type { Cta, HeadlineLine } from "@/content/home";
 
-// Anchors the hero and CTAs point to, kept in one place.
+// Anchors the hero and CTAs point to, kept in one place. The plans anchor now
+// lives on the Offers tab; consult is the closing band on Overview and Offers.
 export const anchors = {
   plans: "plans",
   consult: "consult",
 } as const;
+
+// The Fitness section's own routes. Gabe's menu: a lean front, then the
+// options one step in. The global nav stays untouched.
+export const fitnessRoutes = {
+  overview: "/fitness",
+  offers: "/fitness/offers",
+  about: "/fitness/about",
+} as const;
+
+// The sub-nav tabs, in order.
+export const fitnessTabs = [
+  { label: "Overview", href: fitnessRoutes.overview },
+  { label: "Offers", href: fitnessRoutes.offers },
+  { label: "About Gabe", href: fitnessRoutes.about },
+] as const;
 
 export const fitnessPage = {
   hero: {
@@ -39,7 +55,7 @@ export const fitnessPage = {
     ] as HeadlineLine[],
     sub: "Coaching for adults who want to move again, get strong, and set up the second half of life to be better than the first. Not a bootcamp, not a quick fix. A body and a set of habits that last, so you can keep up with your life and be there for your people.",
     primary: { label: "Book a consult", href: `#${anchors.consult}` } as Cta,
-    secondary: { label: "See the plans", href: `#${anchors.plans}` } as Cta,
+    secondary: { label: "See the plans", href: `${fitnessRoutes.offers}#${anchors.plans}` } as Cta,
     photoLabel: "Photo of Gabe coaching · placeholder to swap",
   },
 
