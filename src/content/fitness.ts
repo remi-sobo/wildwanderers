@@ -2,8 +2,11 @@
  * Wild Wanderers Fitness copy. Words are data so edits never touch components.
  *
  * Same brand, same person, different buyer. The boys pages sell a parent on
- * trust; this page sells an adult on Gabe. Credibility and proof move forward,
- * and unlike the boys pages this one makes an offer and names a price.
+ * trust; this section sells an adult on Gabe. Per Gabe's menu idea the
+ * section runs as three tabs: Overview (/fitness) is the lean, emotional
+ * front with one action and no price; Offers (/fitness/offers) is the menu
+ * options, and the only place on the site a fitness price appears; About Gabe
+ * (/fitness/about) carries the story, the arc, and the proof placeholders.
  *
  * Voice: Gabe's, plain and unhurried. No em dashes, no AI-giveaway words, no
  * aphorism buttons, no "real" as a crutch, no staccato fragment stacks. Never
@@ -128,7 +131,7 @@ export const fitnessPage = {
   how: {
     eyebrow: "How coaching works",
     headline: [[{ text: "Six months, " }, { text: "start to finish.", em: true }]] as HeadlineLine[],
-    lead: "The wellness coaching arc, laid out plainly. No mystery, no gimmicks.",
+    lead: "The coaching arc, laid out plainly. No mystery, no gimmicks.",
     steps: [
       {
         time: "Week one",
@@ -160,8 +163,9 @@ export const fitnessPage = {
   // Meet Gabe. The credibility anchor a fitness page needs. Scope guardrail held
   // in the wording of the food and mental-side lines.
   gabe: {
-    eyebrow: "Meet Gabe",
+    eyebrow: "About Gabe",
     headline: [[{ text: "A coach who " }, { text: "plays the long game.", em: true }]] as HeadlineLine[],
+    sub: "The story behind the coaching, how it works, and how the six months run.",
     body: "Gabe has spent his life moving. An athlete, a longtime trainer, someone who grew up outdoors and never really stopped. He is a certified fitness trainer, and he coaches the whole picture: how you move, how you build strength, and the everyday habits around eating and rest that keep it going. He is in this for the long game, which means training you in a way you can carry for years, not weeks.",
     photoLabel: "Photo of Gabe · placeholder to swap",
     // Scope line, plain and honest, carried on the page near his bio.

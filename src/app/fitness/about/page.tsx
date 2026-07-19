@@ -26,7 +26,7 @@ const h2 = "font-display text-[clamp(2rem,4.4vw,52px)] font-[350] leading-[1.04]
 export default function FitnessAboutPage() {
   return (
     <>
-      <PageHero eyebrow={F.gabe.eyebrow} headline={F.gabe.headline} />
+      <PageHero eyebrow={F.gabe.eyebrow} headline={F.gabe.headline} sub={F.gabe.sub} />
       <FitnessTabs />
 
       {/* Meet Gabe — the credibility anchor, with the scope note carried plain */}
