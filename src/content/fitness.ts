@@ -75,32 +75,52 @@ export const fitnessPage = {
     link: { label: "See the offers", href: fitnessRoutes.offers } as Cta,
   },
 
-  // The three offers. Wellness coaching is the flagship.
+  // The three offers, the menu options. Wellness coaching is the flagship.
+  // Price rides each card on the Offers tab, value first and the number after,
+  // and appears nowhere else on the site. PROVISIONAL pricing from peninsula
+  // market research; the provisional line stays until Gabe locks the numbers.
   offers: {
-    eyebrow: "The three offers",
+    eyebrow: "The offers",
     headline: [[{ text: "Three ways to " }, { text: "train with me.", em: true }]] as HeadlineLine[],
-    lead: "Start where it fits. Every one of them is built around you and where you are today.",
+    lead: "Start where it fits. Every one of them is built around you and where you are today, and every one of them starts with a free consult.",
     items: [
       {
         name: "One-on-one training",
         forWho: "For the person who wants full attention on their form and their goals.",
         body: "Private sessions on the peninsula, in person, and out on the trail when the weather and the work call for it. We build strength, movement, and good form around your body, at your pace.",
+        priceNote: "Full attention, session by session.",
+        price: "From $150",
+        priceUnit: "per session",
         flagship: false,
       },
       {
         name: "Small-group training",
         forWho: "For those who want the pull of a group, or want to train with their own people.",
         body: "Semi-private sessions with a few others, or gather your own friends and family. More affordable than one-on-one, with the steadiness that comes from training alongside others.",
+        priceNote: "The pull of a group, at a friendlier number.",
+        price: "$55",
+        priceUnit: "per person, per session",
         flagship: false,
       },
       {
         name: "Wellness coaching",
         forWho: "For the person ready to change the whole picture, not just add a few workouts.",
         body: "A six-month coaching relationship, not a stack of sessions. A training plan built for you, eating guidance, a couple of habits to build, and regular check-ins, all in one place through the Wild Wanderers platform.",
+        priceNote: "Six months of coaching, the whole picture.",
+        price: "$450",
+        priceUnit: "per month",
         flagship: true,
         flag: "The flagship",
       },
     ],
+    // The packages guardrail: this line, full stop, until Gabe gives real
+    // package names and contents. Do not list tiers he has not confirmed.
+    packagesLine: "Packages available.",
+    // Promotions, kept generic on purpose. No invented offers, discounts, or
+    // deadlines; whatever is running, Gabe names it in the conversation.
+    promos: "Training offers and promotions come and go with the seasons. Ask what is running when we talk. The consult is free either way.",
+    provisional: "Pricing is being finalized, so treat these as a guide rather than a locked number.",
+    cta: { label: "Book a free consult", href: `#${anchors.consult}` } as Cta,
   },
 
   // How coaching works. The six-month arc, honestly. A timeline, start to
@@ -133,12 +153,9 @@ export const fitnessPage = {
     ],
   },
 
-  // The platform. Introduce it, do not sell it. One short section, growing.
-  platform: {
-    eyebrow: "The platform",
-    headline: [[{ text: "Everything in " }, { text: "one place.", em: true }]] as HeadlineLine[],
-    body: "The coaching is delivered through the Wild Wanderers platform. Your workouts, your eating guidance, your habits, your check-ins, and your progress all live in one place, so you can see the work move over time. It is growing, and it grows with the coaching.",
-  },
+  // The platform, one short line on the Offers tab. Introduce, do not sell.
+  platformLine:
+    "Whichever way in you pick, your plan, your habits, your check-ins, and your progress live in one place, on the Wild Wanderers platform.",
 
   // Meet Gabe. The credibility anchor a fitness page needs. Scope guardrail held
   // in the wording of the food and mental-side lines.
@@ -178,42 +195,9 @@ export const fitnessPage = {
     ],
   },
 
-  // Investment. PROVISIONAL tiers, framed as premium, with a free intro consult
-  // as the front door. A single quiet line that pricing is being finalized.
-  investment: {
-    eyebrow: "Investment",
-    headline: [[{ text: "What it " }, { text: "costs.", em: true }]] as HeadlineLine[],
-    lead: "Premium coaching, priced for the attention it takes. The front door is a free intro consult, so we can find the right fit before you commit to anything.",
-    tiers: [
-      {
-        name: "One-on-one training",
-        price: "From $150",
-        unit: "per session",
-        note: "Less per session in a package.",
-        flagship: false,
-      },
-      {
-        name: "Small-group training",
-        price: "$55",
-        unit: "per person, per session",
-        note: "Train with a few others or bring your own group.",
-        flagship: false,
-      },
-      {
-        name: "Wellness coaching",
-        price: "$450",
-        unit: "per month",
-        note: "Six-month commitment. Free intro consult.",
-        flagship: true,
-        flag: "The flagship",
-      },
-    ],
-    provisional: "Pricing is being finalized, so treat these as a guide rather than a locked number.",
-    cta: { label: "Book a free consult", href: `#${anchors.consult}` } as Cta,
-  },
-
-  // FAQ. Short. Scope guardrail held in the eating-guidance answer, plus the
-  // see-your-doctor line.
+  // FAQ. Short, condensed to an accordion at the bottom of the Offers tab,
+  // since the purchase questions belong next to the purchase. Scope guardrail
+  // held in the eating-guidance answer, plus the see-your-doctor line.
   faq: {
     eyebrow: "Questions",
     headline: [[{ text: "A few " }, { text: "honest answers.", em: true }]] as HeadlineLine[],

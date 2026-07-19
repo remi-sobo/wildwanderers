@@ -20,9 +20,11 @@ export const metadata: Metadata = {
 const h2 = "font-display text-[clamp(2rem,4.4vw,52px)] font-[350] leading-[1.04] tracking-[-0.018em]";
 
 /**
- * The Offers tab: the menu options. The three offers, the price (this is the
- * only place on the site a fitness price appears), the platform line, and the
- * FAQ, since purchase questions belong next to the purchase.
+ * The Offers tab: the menu options. Each offer carries what it includes and
+ * its price, value first and the number after. This is the only place on the
+ * site a fitness price appears. Packages stay one line ("Packages available")
+ * until Gabe confirms real ones, and the FAQ sits at the bottom as an
+ * accordion, next to the purchase it answers for.
  */
 export default function FitnessOffersPage() {
   return (
@@ -30,8 +32,8 @@ export default function FitnessOffersPage() {
       <PageHero eyebrow={F.offers.eyebrow} headline={F.offers.headline} sub={F.offers.lead} />
       <FitnessTabs />
 
-      {/* The three offers — wellness coaching marked as the flagship */}
-      <Section tone="sand">
+      {/* The three offers with price on the card, wellness coaching flagship */}
+      <Section tone="sand" id={anchors.plans} className="scroll-mt-24">
         <Container>
           <Reveal stagger className="grid grid-cols-1 gap-6 lg:grid-cols-3">
             {F.offers.items.map((o) => (
@@ -73,110 +75,74 @@ export default function FitnessOffersPage() {
                 >
                   {o.body}
                 </p>
-              </div>
-            ))}
-          </Reveal>
-        </Container>
-      </Section>
 
-      {/* The platform — introduce, do not sell. One short section. */}
-      <Section tone="bone">
-        <Container>
-          <Reveal stagger className="max-w-[720px]">
-            <Eyebrow rule className="mb-7 text-amber-deep">
-              {F.platform.eyebrow}
-            </Eyebrow>
-            <h2 className={`${h2} text-forest-deep [&_em]:text-bark`}>
-              <RichText lines={F.platform.headline} />
-            </h2>
-            <p className="mt-7 font-sans text-[clamp(1rem,1.4vw,20px)] leading-[1.62] text-[#4A4234]">
-              {F.platform.body}
-            </p>
-          </Reveal>
-        </Container>
-      </Section>
-
-      {/* Investment — the only place price appears. Free consult front door. */}
-      <Section tone="sand" id={anchors.plans} className="scroll-mt-24">
-        <Container>
-          <Reveal stagger className="max-w-[760px]">
-            <Eyebrow rule className="mb-7">
-              {F.investment.eyebrow}
-            </Eyebrow>
-            <h2 className={`${h2} text-forest-deep [&_em]:text-amber-deep`}>
-              <RichText lines={F.investment.headline} />
-            </h2>
-            <p className="mt-6 max-w-[600px] font-sans text-[clamp(1rem,1.35vw,19px)] leading-[1.6] text-[#4A4234]">
-              {F.investment.lead}
-            </p>
-          </Reveal>
-
-          <Reveal stagger className="mt-[clamp(44px,6vw,64px)] grid grid-cols-1 gap-6 lg:grid-cols-3">
-            {F.investment.tiers.map((t) => (
-              <div
-                key={t.name}
-                className={clsx(
-                  "flex flex-col rounded-[20px] p-8",
-                  t.flagship
-                    ? "bg-forest-deep text-bone ring-1 ring-amber/40"
-                    : "border border-bark/20 bg-bone/60",
-                )}
-              >
-                {t.flagship && t.flag && (
-                  <span className="mb-5 inline-flex w-fit rounded-full bg-amber px-3 py-1 font-sans text-[10.5px] font-semibold uppercase tracking-[0.2em] text-ink">
-                    {t.flag}
-                  </span>
-                )}
-                <h3
+                {/* Price, value first and the number after. */}
+                <div
                   className={clsx(
-                    "font-display text-[clamp(1.375rem,2.2vw,26px)] font-medium",
-                    t.flagship ? "text-bone" : "text-forest-deep",
+                    "mt-auto border-t pt-5",
+                    o.flagship ? "border-bone/20" : "border-bark/20",
                   )}
                 >
-                  {t.name}
-                </h3>
-                <div className="mt-5 flex items-baseline gap-2">
-                  <span
+                  <p
                     className={clsx(
-                      "font-display text-[clamp(2rem,3.4vw,40px)] font-medium",
-                      t.flagship ? "text-cream" : "text-forest-deep",
+                      "font-sans text-[13px] leading-[1.5]",
+                      o.flagship ? "text-cream/85" : "text-[#5A5142]",
                     )}
                   >
-                    {t.price}
-                  </span>
-                  <span
-                    className={clsx(
-                      "font-sans text-[12.5px] font-medium uppercase tracking-[0.12em]",
-                      t.flagship ? "text-bone/70" : "text-[#6B6152]",
-                    )}
-                  >
-                    {t.unit}
-                  </span>
+                    {o.priceNote}
+                  </p>
+                  <div className="mt-2 flex items-baseline gap-2">
+                    <span
+                      className={clsx(
+                        "font-display text-[clamp(1.75rem,3vw,36px)] font-medium",
+                        o.flagship ? "text-cream" : "text-forest-deep",
+                      )}
+                    >
+                      {o.price}
+                    </span>
+                    <span
+                      className={clsx(
+                        "font-sans text-[12px] font-medium uppercase tracking-[0.12em]",
+                        o.flagship ? "text-bone/70" : "text-[#6B6152]",
+                      )}
+                    >
+                      {o.priceUnit}
+                    </span>
+                  </div>
                 </div>
-                <p
-                  className={clsx(
-                    "mt-4 font-sans text-[14px] leading-[1.6]",
-                    t.flagship ? "text-bone/85" : "text-[#5A5142]",
-                  )}
-                >
-                  {t.note}
-                </p>
               </div>
             ))}
           </Reveal>
 
-          <Reveal className="mt-[clamp(36px,5vw,52px)] flex flex-col gap-6 border-t border-bark/20 pt-7 sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-[440px] font-sans text-[13.5px] italic leading-[1.6] text-[#5A5142]">
-              {F.investment.provisional}
-            </p>
-            <Button variant="primary" href={F.investment.cta.href} arrow className="w-fit">
-              {F.investment.cta.label}
+          {/* Packages (one line, by the guardrail), promotions, the
+              provisional-pricing note, and the consult button. */}
+          <Reveal className="mt-[clamp(36px,5vw,52px)] flex flex-col gap-6 border-t border-bark/20 pt-7 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-[560px]">
+              <p className="font-display text-[clamp(1.125rem,1.8vw,21px)] font-medium text-forest-deep">
+                {F.offers.packagesLine}
+              </p>
+              <p className="mt-2 font-sans text-[14px] leading-[1.6] text-[#5A5142]">
+                {F.offers.promos}
+              </p>
+              <p className="mt-4 font-sans text-[12.5px] italic leading-[1.6] text-[#6B6152]">
+                {F.offers.provisional}
+              </p>
+            </div>
+            <Button variant="primary" href={F.offers.cta.href} arrow className="w-fit shrink-0">
+              {F.offers.cta.label}
             </Button>
           </Reveal>
+
+          {/* The platform, one quiet line. Introduce, do not sell. */}
+          <Reveal className="mt-8">
+            <p className="max-w-[640px] font-sans text-[13.5px] leading-[1.6] text-[#5A5142]">
+              {F.platformLine}
+            </p>
+          </Reveal>
         </Container>
       </Section>
 
-      {/* FAQ — short, honest, next to the purchase. */}
+      {/* FAQ — condensed accordion, next to the purchase it answers for. */}
       <Section tone="bone">
         <Container>
           <Reveal stagger className="max-w-[760px]">
@@ -188,22 +154,30 @@ export default function FitnessOffersPage() {
             </h2>
           </Reveal>
 
-          <Reveal stagger className="mt-[clamp(40px,6vw,56px)] max-w-[820px]">
+          <Reveal className="mt-[clamp(36px,5vw,48px)] max-w-[820px]">
             {F.faq.items.map((item) => (
-              <div key={item.q} className="border-t border-bark/20 py-7 first:border-t-0 first:pt-0">
-                <h3 className="font-display text-[clamp(1.25rem,2vw,24px)] font-medium text-forest-deep">
-                  {item.q}
-                </h3>
-                <p className="mt-3 max-w-[640px] font-sans text-[15px] leading-[1.62] text-[#4A4234]">
+              <details key={item.q} className="group border-t border-bark/20 first:border-t-0">
+                <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 py-5 [&::-webkit-details-marker]:hidden">
+                  <h3 className="font-display text-[clamp(1.125rem,1.8vw,21px)] font-medium text-forest-deep">
+                    {item.q}
+                  </h3>
+                  <span
+                    aria-hidden="true"
+                    className="shrink-0 font-sans text-[20px] font-light leading-none text-amber-deep transition-transform duration-200 group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="max-w-[640px] pb-6 font-sans text-[15px] leading-[1.62] text-[#4A4234]">
                   {item.a}
                 </p>
-              </div>
+              </details>
             ))}
           </Reveal>
         </Container>
       </Section>
 
-      {/* CTA band — "Book a consult" front door (#consult). */}
+      {/* CTA band — "Book a free consult" front door (#consult). */}
       <div id={anchors.consult} className="scroll-mt-24">
         <ClosingCta headline={F.cta.headline} body={F.cta.body} cta={F.cta.primary} />
       </div>
