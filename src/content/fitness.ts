@@ -53,21 +53,26 @@ export const fitnessPage = {
       [{ text: "Strong for the" }],
       [{ text: "long haul.", em: true }],
     ] as HeadlineLine[],
-    sub: "Coaching for adults who want to move again, get strong, and set up the second half of life to be better than the first. Not a bootcamp, not a quick fix. A body and a set of habits that last, so you can keep up with your life and be there for your people.",
-    primary: { label: "Book a consult", href: `#${anchors.consult}` } as Cta,
-    secondary: { label: "See the plans", href: `${fitnessRoutes.offers}#${anchors.plans}` } as Cta,
+    sub: "I'm Gabe. I coach adults who put everyone else first and want their own strength back. Not a bootcamp, not a quick fix. A body and a set of habits that hold up, so you can keep up with your life and be there for your people.",
+    primary: { label: "Book a free consult", href: "/join" } as Cta,
     photoLabel: "Photo of Gabe coaching · placeholder to swap",
   },
 
   // Who this is for. The adult who has let their own health slide and wants it
-  // back. Names the long-haul promise plainly, never frames them as broken.
+  // back. One short block; the depth lives on the Offers and About tabs.
   whoFor: {
     eyebrow: "Who this is for",
     headline: [
       [{ text: "You put yourself last." }],
       [{ text: "Time to get it back.", em: true }],
     ] as HeadlineLine[],
-    body: "You have a career, a family, and a long list of people who count on you. Somewhere in there your own health slid down the list. This is about getting moving again, getting strong, and building a body that holds up under a full life. The promise is plain. Do the work steadily and you get to keep up with your kids, carry your own weight, and feel good in the years ahead.",
+    body: "You have a career, a family, and a long list of people who count on you. Somewhere in there your own health slid down the list. Do the work steadily and you get it back: keeping up with your kids, carrying your own weight, feeling good in the years ahead.",
+  },
+
+  // The quiet peek at the menu: the three offer names, nothing else. No price,
+  // no detail, just the door to the Offers tab.
+  peek: {
+    link: { label: "See the offers", href: fitnessRoutes.offers } as Cta,
   },
 
   // The three offers. Wellness coaching is the flagship.
@@ -236,10 +241,10 @@ export const fitnessPage = {
     ],
   },
 
-  // CTA band. Book a consult. Reuses the closing-band pattern.
+  // CTA band. Book a free consult. Reuses the closing-band pattern.
   cta: {
     headline: [[{ text: "Let's start with " }, { text: "a conversation.", em: true }]] as HeadlineLine[],
     body: "The first step is a free consult. We talk through where you are, what you want, and whether this is the right fit. No pressure, no pitch. Just a plan for getting you strong for the long haul.",
-    primary: { label: "Book a consult", href: "/join" } as Cta,
+    primary: { label: "Book a free consult", href: "/join" } as Cta,
   },
 };

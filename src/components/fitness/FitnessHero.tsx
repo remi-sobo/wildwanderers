@@ -12,8 +12,8 @@ import PhotoSlot from "@/components/fitness/PhotoSlot";
 
 /**
  * Fitness hero. Photo-forward, since a fitness page sells the adult on Gabe:
- * copy on the left with the two CTAs (a consult is the front door, seeing the
- * plans is the quiet second step), a coaching-photo placeholder on the right.
+ * copy on the left with one action (the free consult is the front door), a
+ * coaching-photo placeholder on the right.
  * Built from the shared primitives and the same ridgeline / contour scene the
  * interior PageHero uses, so it opens inside the same day on the trail.
  */
@@ -50,12 +50,9 @@ export default function FitnessHero() {
               <p className="mt-7 max-w-[560px] font-sans text-[clamp(1rem,1.4vw,20px)] leading-[1.55] text-bone/85">
                 {hero.sub}
               </p>
-              <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
+              <div className="mt-9">
                 <Button variant="primary" href={hero.primary.href} arrow>
                   {hero.primary.label}
-                </Button>
-                <Button variant="ghost" href={hero.secondary.href} arrow className="text-bone">
-                  {hero.secondary.label}
                 </Button>
               </div>
             </Reveal>

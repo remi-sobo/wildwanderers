@@ -4,6 +4,7 @@ import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
 import RichText from "@/components/ui/RichText";
 import Section from "@/components/ui/Section";
+import Button from "@/components/ui/Button";
 import ClosingCta from "@/components/site/ClosingCta";
 import Reveal from "@/components/motion/Reveal";
 import FitnessHero from "@/components/fitness/FitnessHero";
@@ -28,7 +29,8 @@ export default function FitnessPage() {
       <FitnessHero />
       <FitnessTabs />
 
-      {/* Who this is for */}
+      {/* Who this is for, kept to one short block, then the quiet peek at the
+          three offers: names only, no price, no detail, the door to Offers. */}
       <Section tone="bone">
         <Container>
           <Reveal stagger className="max-w-[820px]">
@@ -41,6 +43,19 @@ export default function FitnessPage() {
             <p className="mt-7 font-sans text-[clamp(1rem,1.4vw,20px)] leading-[1.62] text-[#4A4234]">
               {F.whoFor.body}
             </p>
+          </Reveal>
+
+          <Reveal className="mt-[clamp(40px,6vw,56px)] flex flex-col gap-6 border-t border-bark/20 pt-7 md:flex-row md:items-center md:justify-between">
+            <ul className="flex flex-wrap items-baseline gap-x-8 gap-y-2">
+              {F.offers.items.map((o) => (
+                <li key={o.name} className="font-display text-[clamp(1.25rem,2vw,24px)] font-medium text-forest-deep">
+                  {o.name}
+                </li>
+              ))}
+            </ul>
+            <Button variant="ghost" href={F.peek.link.href} arrow className="w-fit shrink-0">
+              {F.peek.link.label}
+            </Button>
           </Reveal>
         </Container>
       </Section>
