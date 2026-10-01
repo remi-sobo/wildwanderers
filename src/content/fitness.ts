@@ -40,6 +40,7 @@ export const fitnessRoutes = {
   overview: "/fitness",
   offers: "/fitness/offers",
   about: "/fitness/about",
+  freeSession: "/free-session",
 } as const;
 
 // The sub-nav tabs, in order.
@@ -57,7 +58,7 @@ export const fitnessPage = {
       [{ text: "long haul.", em: true }],
     ] as HeadlineLine[],
     sub: "I'm Gabe. I coach adults who put everyone else first and want their own strength back. Not a bootcamp, not a quick fix. A body and a set of habits that hold up, so you can keep up with your life and be there for your people.",
-    primary: { label: "Book a free consult", href: "/join" } as Cta,
+    primary: { label: "Book a free consult", href: fitnessRoutes.freeSession } as Cta,
     photoLabel: "Photo of Gabe coaching · placeholder to swap",
   },
 
@@ -233,6 +234,57 @@ export const fitnessPage = {
   cta: {
     headline: [[{ text: "Let's start with " }, { text: "a conversation.", em: true }]] as HeadlineLine[],
     body: "The first step is a free consult. We talk through where you are, what you want, and whether this is the right fit. No pressure, no pitch. Just a plan for getting you strong for the long haul.",
-    primary: { label: "Book a free consult", href: "/join" } as Cta,
+    primary: { label: "Book a free consult", href: fitnessRoutes.freeSession } as Cta,
+  },
+};
+
+// The free consult form (/free-session). An adult asking about training, not a
+// family asking about the boys program, so it has its own page instead of
+// /join. Every line reuses language already live on the Fitness pages; nothing
+// here promises a price, a time, or a result.
+//
+// The inquiry lands in Gabe's private inbox in the app. `message` may hold
+// health context a visitor volunteers, so it is never logged, never echoed
+// back, and never shown anywhere on this site.
+export const freeSessionPage = {
+  hero: {
+    eyebrow: "Wild Wanderers Fitness",
+    headline: [[{ text: "Let's start with " }, { text: "a conversation.", em: true }]] as HeadlineLine[],
+    sub: "The first step is a free consult. We talk through where you are, what you want, and whether this is the right fit. No pressure, no pitch.",
+  },
+  reasons: [
+    { title: "Free either way", body: "The consult costs nothing, whatever you decide after." },
+    { title: "Built around you", body: "Every way to train with me is built around you and where you are today." },
+    { title: "No pressure, no pitch", body: "Being curious is enough. Ask me anything before you decide." },
+  ],
+  form: {
+    eyebrow: "The free consult",
+    headline: [[{ text: "Tell me a little, " }, { text: "I'll write back.", em: true }]] as HeadlineLine[],
+    contactHint: "Email or phone, whichever you'd rather hear back on.",
+    interestLabel: "What you're interested in",
+    // Values match the app's lead_interest enum; labels match the Offers tab.
+    interests: [
+      { value: "one_on_one", label: "One-on-one training" },
+      { value: "small_group", label: "Small-group training" },
+      { value: "wellness", label: "Wellness coaching" },
+    ],
+    messageLabel: "What's going on",
+    messagePlaceholder: "What you want to work toward, in a sentence or two.",
+    timesLabel: "When you're usually free",
+    // Values are what Gabe sees in the app, so they read as plain phrases.
+    times: [
+      { value: "weekday mornings", label: "Weekday mornings" },
+      { value: "weekday afternoons", label: "Weekday afternoons" },
+      { value: "weekends", label: "Weekends" },
+    ],
+    note: "I'll only use this to talk with you about training. Nothing else, ever.",
+    success: {
+      headline: "Got it, thank you.",
+      // PENDING GABE'S APPROVAL (Speed to Lead spec): this is the "what happens
+      // next" promise. It commits to nothing he has not said. When he names
+      // the response window he will really keep, it goes in this line, in his
+      // words, and this comment comes out.
+      body: "I read every one of these myself, and I'll write back to you personally.",
+    },
   },
 };
