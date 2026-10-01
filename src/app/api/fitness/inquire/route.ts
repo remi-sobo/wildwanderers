@@ -53,6 +53,26 @@ function str(v: unknown): string {
   return typeof v === "string" ? v.trim() : "";
 }
 
+// Tell the app a new inquiry landed, so the owner's alert email goes out
+// within a minute. The ping carries only the shared secret, never inquiry
+// data; the app reads the row itself. Awaited with a short timeout so the
+// serverless function is not frozen mid-request, and never fails the
+// visitor's submit. Dormant until both env vars are set.
+async function pingAlert(): Promise<void> {
+  const url = process.env.INQUIRY_ALERT_URL;
+  const secret = process.env.INQUIRY_ALERT_SECRET;
+  if (!url || !secret) return;
+  try {
+    await fetch(url, {
+      method: "POST",
+      headers: { "x-inquiry-alert-secret": secret },
+      signal: AbortSignal.timeout(4000),
+    });
+  } catch {
+    console.warn("[fitness/inquire] alert ping failed");
+  }
+}
+
 type Payload = {
   name?: unknown;
   email?: unknown;
@@ -159,6 +179,9 @@ export async function POST(request: Request) {
       console.error("[fitness/inquire] insert failed:", error.code);
       return Response.json({ ok: false, error: "Something went wrong. Try again in a moment." }, { status: 500 });
     }
+
+    // A fresh insert (not a duplicate) rings Gabe's alarm.
+    if (!error) await pingAlert();
 
     return Response.json({ ok: true });
   } catch (e) {
