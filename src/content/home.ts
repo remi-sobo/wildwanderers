@@ -137,15 +137,6 @@ export const cta = {
   secondary: { label: "Talk with Gabe", href: "/join" } as Cta,
 };
 
-export const footer = {
-  wordmark: "Wild Wanderers",
-  mission:
-    "An outdoor movement and mentorship program for boys and their dads and mentors. Chapter One gathers on the Baylands.",
-  facts: ["Baylands Nature Preserve, Palo Alto", "Weekly, by season", "Boys 5 to 13"],
-  meta: "Strong hands · soft hearts · on the Baylands",
-  credit: "A SOBO build",
-};
-
 // ---------------------------------------------------------------------------
 // Ring 2. These sections are not in the mock and several are GATED on Gabe's
 // transcript. Copy is on-voice placeholder; no fabricated specifics (exact

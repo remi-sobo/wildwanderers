@@ -8,15 +8,6 @@
  */
 import type { Cta, HeadlineLine } from "@/content/home";
 
-export const routes = {
-  movement: "/the-movement",
-  program: "/the-program",
-  fitness: "/fitness",
-  forDads: "/for-dads",
-  about: "/about",
-  join: "/join",
-} as const;
-
 // ---------------------------------------------------------------------------
 // The Movement — the why and the four-step approach.
 // ---------------------------------------------------------------------------

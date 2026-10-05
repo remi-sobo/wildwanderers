@@ -1,80 +1,64 @@
 import Image from "next/image";
-import { footer } from "@/content/home";
-import { routes } from "@/content/pages";
+import Link from "next/link";
+import { siteFooter as F } from "@/content/home";
 import Container from "@/components/ui/Container";
 
-/**
- * Footer. A forest-deep band that closes the site the way the sections opened
- * it: the wordmark with the one-line mission, a trail column of links, the
- * confirmed practicals, and the motto strip along the bottom. Only
- * Gabe-confirmed facts appear here.
- */
-const LINKS = [
-  { label: "The Movement", href: routes.movement },
-  { label: "The Program", href: routes.program },
-  { label: "Fitness", href: routes.fitness },
-  { label: "For Dads", href: routes.forDads },
-  { label: "About", href: routes.about },
-  { label: "Join the circle", href: routes.join },
-];
+const colTitle = "font-sans text-[10.5px] font-semibold uppercase tracking-[0.24em] text-cream/80";
 
+/**
+ * Footer. A forest-deep band in four columns: the stacked word mark with the
+ * one-line description of both programs, the boys program pages, the fitness
+ * pages, and the boys program basics. The motto and credit run along the
+ * bottom. Only Gabe-confirmed facts appear here.
+ */
 export default function Footer() {
   return (
-    <footer className="bg-forest-deep pb-[clamp(36px,4vw,48px)] pt-[clamp(64px,8vw,96px)] text-bone/70">
+    <footer className="bg-forest-deep pb-11 pt-[clamp(64px,8vw,96px)] text-bone/70">
       <Container>
-        <div className="grid gap-x-[clamp(32px,5vw,80px)] gap-y-12 border-b border-mist/15 pb-[clamp(40px,5vw,64px)] md:grid-cols-[1.2fr_0.8fr_1fr]">
-          {/* Word mark and mission. The stacked word mark appears only here,
-              in bone on the forest-deep band, so the footer reads like a
-              signature. */}
-          <div>
+        <div className="grid gap-x-14 gap-y-12 border-b border-mist/15 pb-[52px] sm:grid-cols-2 lg:grid-cols-4">
+          {/* The stacked word mark appears only here, in bone on forest-deep,
+              so the footer reads like a signature. */}
+          <div className="min-w-0">
             <Image
               src="/brand/word-bone.png"
-              alt={footer.wordmark}
+              alt={F.wordmark}
               width={172}
               height={64}
-              className="h-auto w-[140px] sm:w-[172px]"
+              className="h-auto w-[160px]"
             />
-            <p className="mt-4 max-w-[380px] font-sans text-[14px] leading-[1.65] text-bone/75">
-              {footer.mission}
+            <p className="mt-4 max-w-[340px] font-sans text-[14px] leading-[1.65] text-bone/75">
+              {F.mission}
             </p>
           </div>
 
-          {/* The trail: every page, reachable from the bottom. */}
-          <nav aria-label="Footer" className="flex flex-col items-start gap-3.5">
-            <div className="font-sans text-[10.5px] font-semibold uppercase tracking-[0.24em] text-cream/80">
-              The trail
-            </div>
-            {LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="link-underline font-sans text-[14px] font-medium text-bone/85 transition-colors hover:text-bone"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
+          {F.columns.map((col) => (
+            <nav key={col.title} aria-label={col.title} className="flex flex-col items-start gap-3.5">
+              <div className={colTitle}>{col.title}</div>
+              {col.links.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="link-underline font-sans text-[14px] font-medium text-bone/85 transition-colors hover:text-bone"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          ))}
 
-          {/* The confirmed practicals. */}
-          <div className="flex flex-col items-start gap-3.5">
-            <div className="font-sans text-[10.5px] font-semibold uppercase tracking-[0.24em] text-cream/80">
-              Chapter One
-            </div>
-            {footer.facts.map((fact) => (
-              <div key={fact} className="font-sans text-[14px] text-bone/75">
-                {fact}
+          <div className="flex flex-col gap-3.5">
+            <div className={colTitle}>{F.basics.title}</div>
+            {F.basics.items.map((item) => (
+              <div key={item} className="font-sans text-[14px] text-bone/75">
+                {item}
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div className="font-display text-[15px] italic tracking-[0.01em] text-cream/85">
-            {footer.meta}
-          </div>
-          <div className="font-sans text-[10.5px] uppercase tracking-[0.22em] opacity-60">
-            {footer.credit}
-          </div>
+        <div className="mt-7 flex flex-wrap items-center justify-between gap-4">
+          <div className="font-display text-[15px] italic text-cream/85">{F.motto}</div>
+          <div className="font-sans text-[10.5px] uppercase tracking-[0.22em] opacity-60">{F.credit}</div>
         </div>
       </Container>
     </footer>

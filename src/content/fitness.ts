@@ -43,13 +43,6 @@ export const fitnessRoutes = {
   freeSession: "/free-session",
 } as const;
 
-// The sub-nav tabs, in order.
-export const fitnessTabs = [
-  { label: "Overview", href: fitnessRoutes.overview },
-  { label: "Offers", href: fitnessRoutes.offers },
-  { label: "About Gabe", href: fitnessRoutes.about },
-] as const;
-
 export const fitnessPage = {
   hero: {
     eyebrow: "Wild Wanderers Fitness",
