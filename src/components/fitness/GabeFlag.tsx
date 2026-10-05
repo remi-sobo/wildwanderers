@@ -7,5 +7,5 @@ import { clsx } from "@/lib/clsx";
  */
 export default function GabeFlag({ children, className }: { children: React.ReactNode; className?: string }) {
   if (!children) return null;
-  return <p className={clsx("font-sans text-[13px] font-semibold text-amber-deep", className)}>{children}</p>;
+  return <span className={clsx("block font-sans text-[13px] font-semibold text-amber-deep", className)}>{children}</span>;
 }
