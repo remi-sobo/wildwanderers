@@ -5,7 +5,7 @@ import Eyebrow from "@/components/ui/Eyebrow";
 import RichText from "@/components/ui/RichText";
 import Section from "@/components/ui/Section";
 import Contours from "@/components/ui/Contours";
-import PageHero from "@/components/site/PageHero";
+import ProgramHero from "@/components/program/ProgramHero";
 import ClosingCta from "@/components/site/ClosingCta";
 import Reveal from "@/components/motion/Reveal";
 
@@ -20,7 +20,7 @@ const h2 = "font-display text-[clamp(2rem,4.4vw,52px)] font-[350] leading-[1.04]
 export default function TheProgramPage() {
   return (
     <>
-      <PageHero eyebrow={P.hero.eyebrow} headline={P.hero.headline} sub={P.hero.sub} />
+      <ProgramHero />
 
       {/* The way in */}
       <Section tone="bone">

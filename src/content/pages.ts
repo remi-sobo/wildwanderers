@@ -87,11 +87,6 @@ export const movementPage = {
 // Exact ages, cost, dates, group size are GATED on Gabe.
 // ---------------------------------------------------------------------------
 export const programPage = {
-  hero: {
-    eyebrow: "The flagship program",
-    headline: [[{ text: "A boys' program," }], [{ text: "out on the Baylands.", em: true }]] as HeadlineLine[],
-    sub: "Our first program is for boys, out on the trail, learning to move, explore, and look out for each other. Every week, with the dads beside them.",
-  },
   // Confirmed facts, all publishable: ages, group size, the park, the days.
   wayIn: {
     eyebrow: "The way in",
