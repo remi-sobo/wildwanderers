@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { freeSessionPage as P } from "@/content/fitness";
+import { freeSessionCopy as P } from "@/content/fitness";
 import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
 import RichText from "@/components/ui/RichText";
@@ -11,13 +11,12 @@ import FreeSessionForm from "@/components/fitness/FreeSessionForm";
 export const metadata: Metadata = {
   title: "Book a free consult · Wild Wanderers Fitness",
   description:
-    "Start with a free consult. Tell Gabe a little about you and when you are free, and he will write back. No pressure, no pitch.",
+    "Tell Gabe what you're looking for. He'll follow up to talk through your goals and the best way to start. The consult is free.",
 };
 
 /**
- * The fitness front door. Same layout as /join (why on the left, the form on
- * the right), for an adult asking about training rather than a family asking
- * about the boys program. No price here; price lives on the Offers tab only.
+ * The free consult. Form first (left on desktop, top on mobile), then what
+ * happens next, where the single "No pressure" line lives.
  */
 export default function FreeSessionPage() {
   return (
@@ -26,29 +25,26 @@ export default function FreeSessionPage() {
 
       <Section tone="bone">
         <Container>
-          <div className="grid items-start gap-[clamp(40px,6vw,72px)] lg:grid-cols-[0.92fr_1.08fr]">
-            <Reveal stagger>
-              <Eyebrow rule className="mb-7 text-amber-deep">
-                {P.form.eyebrow}
-              </Eyebrow>
-              <h2 className="font-display text-[clamp(2rem,4vw,46px)] font-[350] leading-[1.04] tracking-[-0.018em] text-forest-deep [&_em]:text-bark">
-                <RichText lines={P.form.headline} />
-              </h2>
-
-              <ul className="mt-9 grid gap-7">
-                {P.reasons.map((r) => (
-                  <li key={r.title} className="border-t border-bark/20 pt-5">
-                    <h3 className="font-display text-[20px] font-semibold text-forest-deep">{r.title}</h3>
-                    <p className="mt-2 max-w-[420px] font-sans text-[14.5px] leading-[1.6] text-[#5A5142]">
-                      {r.body}
-                    </p>
-                  </li>
-                ))}
-              </ul>
+          <div className="grid items-start gap-[clamp(40px,6vw,72px)] md:grid-cols-2">
+            <Reveal>
+              <FreeSessionForm />
             </Reveal>
 
-            <Reveal delay={0.15}>
-              <FreeSessionForm />
+            <Reveal stagger delay={0.1}>
+              <Eyebrow rule className="mb-7 text-amber-deep">
+                {P.next.eyebrow}
+              </Eyebrow>
+              <h2 className="font-display text-[clamp(32px,4vw,46px)] font-[350] leading-[1.04] tracking-[-0.018em] text-forest-deep [&_em]:text-bark">
+                <RichText lines={P.next.headline} />
+              </h2>
+              <div className="mt-9">
+                {P.next.items.map((r) => (
+                  <div key={r.title} className="border-t border-bark/20 py-5">
+                    <h3 className="font-display text-[20px] font-semibold text-forest-deep">{r.title}</h3>
+                    <p className="mt-1.5 max-w-[420px] font-sans text-[14.5px] leading-[1.6] text-[#5A5142]">{r.body}</p>
+                  </div>
+                ))}
+              </div>
             </Reveal>
           </div>
         </Container>
