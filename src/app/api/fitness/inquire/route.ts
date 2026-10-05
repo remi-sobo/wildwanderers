@@ -1,12 +1,9 @@
-import { createReadOnlyClient, supabaseConfigured } from "@/lib/supabase/read-only";
+import { insertInquiry, ipFrom, rateLimited } from "@/lib/inquiries";
 
 // The free consult inquiry. The public form on /free-session posts here; this
 // handler is where the rate limit and the honeypot live, then it writes one
-// row through the anon insert-only policy on lead_inquiries. That is the
-// single write the anon key is allowed, and it can never read the row back.
-// The org is resolved server-side from a published public post (a read the
-// anon policy allows, the same as the subscribe route), so the client never
-// names an org.
+// row through the shared lead_inquiries insert path (src/lib/inquiries.ts):
+// the anon insert-only policy, the org resolved server-side, nothing read back.
 //
 // Privacy: an inquiry can carry health context a visitor volunteers. Nothing
 // from the payload is ever logged or echoed back, only generic outcomes.
@@ -23,54 +20,8 @@ const MAX_EMAIL = 254;
 const MAX_PHONE = 40;
 const MAX_MESSAGE = 1000;
 
-// Best-effort in-memory IP limiter, the same speed bump as the subscribe
-// route. It does not span serverless instances; the dedupe trigger on
-// lead_inquiries makes a repeat submit idempotent and the honeypot catches
-// the obvious bots.
-const WINDOW_MS = 60_000;
-const MAX_PER_WINDOW = 5;
-const hits = new Map<string, number[]>();
-
-function rateLimited(ip: string): boolean {
-  const now = Date.now();
-  const recent = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
-  if (recent.length >= MAX_PER_WINDOW) {
-    hits.set(ip, recent);
-    return true;
-  }
-  recent.push(now);
-  hits.set(ip, recent);
-  return false;
-}
-
-function clientIp(request: Request): string {
-  const fwd = request.headers.get("x-forwarded-for");
-  if (fwd) return fwd.split(",")[0]!.trim();
-  return request.headers.get("x-real-ip") ?? "unknown";
-}
-
 function str(v: unknown): string {
   return typeof v === "string" ? v.trim() : "";
-}
-
-// Tell the app a new inquiry landed, so the owner's alert email goes out
-// within a minute. The ping carries only the shared secret, never inquiry
-// data; the app reads the row itself. Awaited with a short timeout so the
-// serverless function is not frozen mid-request, and never fails the
-// visitor's submit. Dormant until both env vars are set.
-async function pingAlert(): Promise<void> {
-  const url = process.env.INQUIRY_ALERT_URL;
-  const secret = process.env.INQUIRY_ALERT_SECRET;
-  if (!url || !secret) return;
-  try {
-    await fetch(url, {
-      method: "POST",
-      headers: { "x-inquiry-alert-secret": secret },
-      signal: AbortSignal.timeout(4000),
-    });
-  } catch {
-    console.warn("[fitness/inquire] alert ping failed");
-  }
 }
 
 type Payload = {
@@ -129,63 +80,27 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, errors }, { status: 400 });
   }
 
-  if (rateLimited(clientIp(request))) {
+  if (rateLimited(ipFrom(request.headers))) {
     return Response.json(
       { ok: false, error: "One moment, that is a few too many tries. Try again shortly." },
       { status: 429 },
     );
   }
 
-  if (!supabaseConfigured()) {
-    // Before the env vars land, accept so the form is whole. No payload in the
-    // log line, ever.
-    console.info("[fitness/inquire] Supabase not configured, inquiry not stored");
-    return Response.json({ ok: true });
-  }
-
-  try {
-    const supabase = createReadOnlyClient();
-
-    // Resolve the org from a published public post, the same read the
-    // subscribe route uses and the same check the insert policy enforces.
-    const { data: post } = await supabase
-      .from("posts")
-      .select("org_id")
-      .eq("status", "published")
-      .eq("audience", "public")
-      .limit(1)
-      .maybeSingle();
-
-    const orgId = (post as { org_id: string } | null)?.org_id;
-    if (!orgId) {
-      console.error("[fitness/inquire] no org resolved, inquiry not stored");
-      return Response.json({ ok: false, error: "Something went wrong. Try again in a moment." }, { status: 500 });
-    }
-
-    // Insert only; no .select(), so nothing is read back.
-    const { error } = await supabase.from("lead_inquiries").insert({
-      org_id: orgId,
+  const result = await insertInquiry(
+    {
       name,
       email: email || null,
       phone: phone || null,
-      interest,
+      interest: interest as "one_on_one" | "small_group" | "wellness",
       message: message || null,
       preferred_times: preferredTimes.length ? preferredTimes : null,
-    });
+    },
+    "fitness/inquire",
+  );
 
-    // A resubmit of the same contact within the dedupe window (23505) is the
-    // same inquiry: a success to the visitor, not an error.
-    if (error && error.code !== "23505") {
-      console.error("[fitness/inquire] insert failed:", error.code);
-      return Response.json({ ok: false, error: "Something went wrong. Try again in a moment." }, { status: 500 });
-    }
-
-    // A fresh insert (not a duplicate) rings Gabe's alarm.
-    if (!error) await pingAlert();
-
-    return Response.json({ ok: true });
-  } catch (e) {
-    console.error("[fitness/inquire] threw:", e instanceof Error ? e.name : "unknown");
+  if (result === "error") {
     return Response.json({ ok: false, error: "Something went wrong. Try again in a moment." }, { status: 500 });
   }
+  return Response.json({ ok: true });
 }

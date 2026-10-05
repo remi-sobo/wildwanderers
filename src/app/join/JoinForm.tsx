@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { submitInquiry } from "./actions";
+import { submitJoin } from "./actions";
 import { joinCopy } from "@/content/pages";
 import { EMAIL_RE, Field, FormCard, Honeypot, Optional, SubmitButton, TextArea } from "@/components/forms/fields";
 
@@ -10,8 +10,10 @@ const f = joinCopy.form;
 type Values = { name: string; email: string; about: string; company: string };
 
 /**
- * The boys program interest form. Inline validation shows only after the
- * first submit attempt; a success state replaces the form in place.
+ * The boys program interest form. It calls the submitJoin Server Action,
+ * which stores the inquiry in lead_inquiries as interest 'boys_program'.
+ * Inline validation shows only after the first submit attempt; a success
+ * state replaces the form in place.
  */
 export default function JoinForm() {
   const [v, setV] = useState<Values>({ name: "", email: "", about: "", company: "" });
@@ -35,14 +37,9 @@ export default function JoinForm() {
 
     setSending(true);
     try {
-      const form = new FormData();
-      form.set("name", v.name);
-      form.set("email", v.email);
-      form.set("about", v.about);
-      form.set("company", v.company);
-      const res = await submitInquiry({ status: "idle" }, form);
-      if (res.status === "success") setDone(true);
-      else setServerError(res.message ?? Object.values(res.errors ?? {})[0] ?? null);
+      const res = await submitJoin(v);
+      if (res.ok) setDone(true);
+      else setServerError(res.error ?? Object.values(res.errors ?? {})[0] ?? null);
     } catch {
       setServerError("Something went wrong. Try again in a moment.");
     } finally {
