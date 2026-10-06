@@ -1,232 +1,177 @@
 import type { Metadata } from "next";
-import { programPage as P } from "@/content/pages";
+import { programCopy as P } from "@/content/pages";
 import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
 import RichText from "@/components/ui/RichText";
 import Section from "@/components/ui/Section";
 import Contours from "@/components/ui/Contours";
-import PageHero from "@/components/site/PageHero";
 import ClosingCta from "@/components/site/ClosingCta";
 import Reveal from "@/components/motion/Reveal";
+import ProgramHero from "@/components/program/ProgramHero";
 
 export const metadata: Metadata = {
-  title: "The Program · Wild Wanderers",
+  title: "The Boys Program · Wild Wanderers",
   description:
-    "Our flagship boys' program out on the Baylands: how a day moves, ages and stages, safe ground, and the way in.",
+    "An after-school outdoor program for boys ages 5 to 13 on the Baylands trail, with screened adult leaders and no more than six boys per adult.",
 };
 
-const h2 = "font-display text-[clamp(2rem,4.4vw,52px)] font-[350] leading-[1.04] tracking-[-0.018em]";
+const h2 = "font-display text-[clamp(32px,4.4vw,52px)] font-[350] leading-[1.04] tracking-[-0.018em]";
+const h2sm = "font-display text-[clamp(32px,4.4vw,48px)] font-[350] leading-[1.04] tracking-[-0.018em]";
+const lead = "font-sans text-[clamp(16px,1.3vw,18px)] leading-[1.62] text-[#4A4234]";
 
 export default function TheProgramPage() {
   return (
     <>
-      <PageHero eyebrow={P.hero.eyebrow} headline={P.hero.headline} sub={P.hero.sub} />
+      <ProgramHero />
 
-      {/* The way in */}
-      <Section tone="bone">
+      {/* At a glance */}
+      <section className="bg-bone pt-[clamp(48px,6vw,72px)]">
         <Container>
-          <Reveal stagger className="max-w-[760px]">
-            <Eyebrow rule className="mb-7 text-amber-deep">
-              {P.wayIn.eyebrow}
-            </Eyebrow>
-            <h2 className={`${h2} max-w-[840px] text-forest-deep [&_em]:text-bark`}>
-              <RichText lines={P.wayIn.headline} />
-            </h2>
-            <p className="mt-7 font-sans text-[clamp(1rem,1.4vw,20px)] leading-[1.62] text-[#4A4234]">
-              {P.wayIn.body}
-            </p>
-          </Reveal>
-        </Container>
-      </Section>
-
-      {/* A day on the trail — vertical timeline, dark for cinematic variety */}
-      <Section tone="forest">
-        <Contours color="#F2C879" opacity={0.08} className="pointer-events-none absolute -right-[10%] top-0 z-0 h-full w-[55%]" />
-        <Container className="relative z-[1]">
-          <Reveal>
-            <Eyebrow rule className="mb-7 text-cream">
-              {P.day.eyebrow}
-            </Eyebrow>
-            <h2 className={`${h2} mb-[clamp(40px,6vw,64px)] text-bone [&_em]:text-cream`}>
-              <RichText lines={P.day.headline} />
-            </h2>
-          </Reveal>
-
-          <Reveal stagger className="relative max-w-[760px] border-l border-cream/25 pl-9">
-            {P.day.items.map((item) => (
-              <div key={item.title} className="relative pb-12 last:pb-0">
-                <span className="absolute -left-[42px] top-1.5 h-[11px] w-[11px] rounded-full bg-amber shadow-[0_0_0_5px_var(--color-forest-deep)]" />
-                <div className="font-sans text-[11px] font-semibold uppercase tracking-[0.24em] text-cream/80">
-                  {item.time}
+          <Reveal stagger className="grid gap-x-[26px] gap-y-7 sm:grid-cols-2 lg:grid-cols-4">
+            {P.facts.map((f) => (
+              <div key={f.label} className="border-t border-bark/[.22] pt-5">
+                <div className="font-sans text-[11px] font-semibold uppercase tracking-[0.24em] text-amber-deep">
+                  {f.label}
                 </div>
-                <h3 className="mt-2 font-display text-[clamp(1.5rem,2.6vw,30px)] font-semibold text-bone">
-                  {item.title}
-                </h3>
-                <p className="mt-2.5 max-w-[560px] font-sans text-[15px] leading-[1.6] text-bone/80">
-                  {item.body}
-                </p>
+                <div className="mt-2.5 font-display text-[20px] leading-[1.35] text-forest-deep">{f.value}</div>
               </div>
             ))}
           </Reveal>
         </Container>
-      </Section>
+      </section>
 
-      {/* What the adventures include — emergent curriculum lead, then buckets */}
+      {/* A session: the after-school blocks as a vertical timeline. */}
       <Section tone="bone">
         <Container>
-          <Reveal stagger className="max-w-[820px]">
-            <Eyebrow rule className="mb-7 text-amber-deep">
-              {P.adventures.eyebrow}
-            </Eyebrow>
-            <h2 className={`${h2} text-forest-deep [&_em]:text-bark`}>
-              <RichText lines={P.adventures.headline} />
-            </h2>
-            <p className="mt-7 font-sans text-[clamp(1rem,1.4vw,20px)] leading-[1.62] text-[#4A4234]">
-              {P.curriculum}
-            </p>
-          </Reveal>
-
-          <Reveal stagger className="mt-[clamp(48px,7vw,72px)] grid grid-cols-1 gap-x-[26px] gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-            {P.adventures.items.map((b) => (
-              <div key={b.name} className="border-t border-bark/25 pt-6">
-                <h3 className="font-display text-[clamp(1.375rem,2.2vw,26px)] font-medium text-forest-deep">
-                  {b.name}
-                </h3>
-                <p className="mt-2.5 font-sans text-[14.5px] leading-[1.6] text-[#5A5142]">{b.body}</p>
-              </div>
-            ))}
-          </Reveal>
-        </Container>
-      </Section>
-
-      {/* The shape of the year — three sessions at a glance */}
-      <Section tone="sand">
-        <Container>
-          <Reveal stagger className="max-w-[760px]">
-            <Eyebrow rule className="mb-7">
-              {P.year.eyebrow}
-            </Eyebrow>
-            <h2 className={`${h2} text-forest-deep [&_em]:text-amber-deep`}>
-              <RichText lines={P.year.headline} />
-            </h2>
-            <p className="mt-6 max-w-[560px] font-sans text-[clamp(1rem,1.35vw,19px)] leading-[1.6] text-[#4A4234]">
-              {P.year.lead}
-            </p>
-          </Reveal>
-
-          <Reveal stagger className="mt-[clamp(48px,7vw,72px)] grid grid-cols-1 gap-x-[26px] gap-y-12 sm:grid-cols-3">
-            {P.year.items.map((s) => (
-              <div key={s.season} className="border-t border-bark/25 pt-7">
-                <h3 className="font-display text-[clamp(1.75rem,2.6vw,32px)] font-medium text-forest-deep">
-                  {s.season}
-                </h3>
-                <div className="mt-2 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-deep">
-                  {s.span}
+          <div className="grid items-start gap-[clamp(40px,6vw,80px)] md:grid-cols-2">
+            <Reveal stagger>
+              <Eyebrow rule className="mb-7 text-amber-deep">
+                {P.session.eyebrow}
+              </Eyebrow>
+              <h2 className={`${h2} text-forest-deep [&_em]:text-bark`}>
+                <RichText lines={P.session.headline} />
+              </h2>
+              <p className={`mt-7 max-w-[460px] text-pretty ${lead}`}>{P.session.intro}</p>
+            </Reveal>
+            <Reveal stagger className="grid gap-[30px] border-l border-bark/25 pl-9">
+              {P.session.day.map((d) => (
+                <div key={d.time} className="relative">
+                  <span className="absolute -left-[42px] top-[5px] h-[11px] w-[11px] rounded-full bg-amber shadow-[0_0_0_5px_var(--color-bone)]" />
+                  <div className="font-sans text-[11px] font-semibold uppercase tracking-[0.24em] text-bark">{d.time}</div>
+                  <h3 className="mt-1.5 font-display text-[clamp(21px,2vw,24px)] font-semibold text-forest-deep">{d.title}</h3>
+                  <p className="mt-1.5 max-w-[460px] font-sans text-[15px] leading-[1.6] text-[#5A5142]">{d.body}</p>
                 </div>
-                <p className="mt-3 font-sans text-[14.5px] leading-[1.6] text-[#5A5142]">{s.body}</p>
-              </div>
-            ))}
-          </Reveal>
-
-          <Reveal className="mt-[clamp(40px,6vw,56px)] border-t border-bark/20 pt-6">
-            <p className="max-w-[560px] font-sans text-[15px] leading-[1.6] text-[#4A4234]">
-              {P.year.close}
-            </p>
-          </Reveal>
+              ))}
+            </Reveal>
+          </div>
         </Container>
       </Section>
 
-      {/* Why boys — Gabe's calling, first person. Framed as lived experience,
-          never as an admissions policy (CLAUDE.md guardrails). */}
-      <Section tone="bone">
-        <Container>
-          <Reveal stagger className="max-w-[820px]">
-            <Eyebrow rule className="mb-7 text-amber-deep">
-              {P.whyBoys.eyebrow}
-            </Eyebrow>
-            <h2 className={`${h2} text-forest-deep [&_em]:text-bark`}>
-              <RichText lines={P.whyBoys.headline} />
-            </h2>
-            <p className="mt-7 font-sans text-[clamp(1rem,1.4vw,20px)] leading-[1.62] text-[#4A4234]">
-              {P.whyBoys.body}
-            </p>
-          </Reveal>
-        </Container>
-      </Section>
-
-      {/* Ages and stages */}
+      {/* How the program changes by age */}
       <Section tone="sand">
         <Container>
           <Reveal stagger>
-            <Eyebrow rule className="mb-7">
-              {P.stages.eyebrow}
+            <Eyebrow rule className="mb-7 text-amber-deep">
+              {P.ages.eyebrow}
             </Eyebrow>
-            <h2 className={`${h2} max-w-[840px] text-forest-deep [&_em]:text-amber-deep`}>
-              <RichText lines={P.stages.headline} />
+            <h2 className={`${h2} text-forest-deep [&_em]:text-bark`}>
+              <RichText lines={P.ages.headline} />
             </h2>
-            <p className="mt-6 max-w-[560px] font-sans text-[clamp(1rem,1.35vw,19px)] leading-[1.6] text-[#4A4234]">
-              {P.stages.lead}
-            </p>
           </Reveal>
-
-          <Reveal stagger className="mt-[clamp(48px,7vw,72px)] grid grid-cols-1 gap-x-[26px] gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {P.stages.items.map((s) => (
-              <div key={s.name} className="border-t border-bark/25 pt-7">
-                <div className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-deep">
-                  {s.label}
-                </div>
-                <h3 className="mt-3 font-display text-[clamp(1.75rem,2.6vw,32px)] font-medium text-forest-deep">
-                  {s.name}
-                </h3>
-                <p className="mt-3 font-sans text-[14.5px] leading-[1.6] text-[#5A5142]">{s.body}</p>
+          <Reveal stagger className="mt-[clamp(40px,6vw,56px)] grid gap-x-[26px] gap-y-10 md:grid-cols-3">
+            {P.ages.stages.map((s) => (
+              <div key={s.name} className="border-t border-bark/20 pt-6">
+                <div className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-deep">{s.label}</div>
+                <h3 className="mt-2.5 font-display text-[clamp(26px,2.4vw,30px)] font-medium text-forest-deep">{s.name}</h3>
+                <p className="mt-2.5 font-sans text-[15px] leading-[1.6] text-[#5A5142]">{s.body}</p>
               </div>
             ))}
-          </Reveal>
-
-          {/* Trail log — a quiet teaser for the named future ring. */}
-          <Reveal className="mt-[clamp(40px,6vw,56px)] border-t border-bark/20 pt-6">
-            <p className="font-sans text-[13.5px] italic leading-[1.6] text-[#5A5142]">
-              {P.trailLog}
-            </p>
           </Reveal>
         </Container>
       </Section>
 
-      {/* Safe ground */}
+      {/* How we're starting, and pricing. No season named. */}
+      <Section tone="forest">
+        <Contours color="#F2C879" opacity={0.08} className="pointer-events-none absolute -right-[10%] top-0 z-0 h-full w-[55%]" />
+        <Container className="relative z-[2]">
+          <Reveal stagger>
+            <Eyebrow rule className="mb-7 text-cream">
+              {P.launch.eyebrow}
+            </Eyebrow>
+            <h2 className={`${h2} text-bone [&_em]:text-cream`}>
+              <RichText lines={P.launch.headline} />
+            </h2>
+          </Reveal>
+          <Reveal stagger className="mt-[clamp(40px,6vw,60px)] grid gap-x-[26px] gap-y-8 md:grid-cols-3">
+            {P.launch.items.map((y) => (
+              <div key={y.title} className="border-t border-cream/25 pt-[22px]">
+                <h3 className="font-display text-[clamp(24px,2.4vw,28px)] font-medium text-bone">{y.title}</h3>
+                <p className="mt-2.5 font-sans text-[15px] leading-[1.6] text-bone/80">{y.body}</p>
+              </div>
+            ))}
+          </Reveal>
+          <Reveal className="mt-[clamp(44px,6vw,60px)] max-w-[680px] border-t border-cream/25 pt-[clamp(24px,3vw,32px)]">
+            <h3 className="font-display text-[clamp(22px,2.2vw,26px)] font-medium text-bone">{P.launch.pricing.title}</h3>
+            <p className="mt-2.5 font-sans text-[15px] leading-[1.62] text-bone/80">{P.launch.pricing.body}</p>
+          </Reveal>
+        </Container>
+      </Section>
+
+      {/* Safety */}
       <Section tone="bone">
         <Container>
           <Reveal stagger>
             <Eyebrow rule className="mb-7 text-amber-deep">
               {P.safety.eyebrow}
             </Eyebrow>
-            <h2 className={`${h2} max-w-[720px] text-forest-deep [&_em]:text-bark`}>
+            <h2 className={`${h2} text-forest-deep [&_em]:text-bark`}>
               <RichText lines={P.safety.headline} />
             </h2>
+            <p className="mt-7 max-w-[720px] border-l-[3px] border-amber pl-5 font-display text-[clamp(20px,2vw,24px)] leading-[1.4] text-forest-deep">
+              {P.safety.quote}
+            </p>
           </Reveal>
-          <Reveal stagger className="mt-[clamp(40px,6vw,60px)] grid grid-cols-1 gap-x-[26px] gap-y-10 sm:grid-cols-3">
-            {P.safety.points.map((pt) => (
-              <div key={pt.title}>
-                <h3 className="font-display text-[22px] font-semibold text-forest-deep">{pt.title}</h3>
-                <p className="mt-3 font-sans text-[14.5px] leading-[1.6] text-[#5A5142]">{pt.body}</p>
+          <Reveal stagger className="mt-[clamp(40px,6vw,56px)] grid gap-x-8 gap-y-9 sm:grid-cols-2 lg:grid-cols-4">
+            {P.safety.items.map((s) => (
+              <div key={s.title} className="border-t border-bark/20 pt-5">
+                <h3 className="font-display text-[clamp(20px,1.8vw,22px)] font-semibold text-forest-deep">{s.title}</h3>
+                <p className="mt-2 font-sans text-[15px] leading-[1.6] text-[#5A5142]">{s.body}</p>
               </div>
             ))}
           </Reveal>
         </Container>
       </Section>
 
-      {/* Cost (gated) */}
+      {/* Parent communication */}
       <Section tone="sand">
         <Container>
-          <Reveal stagger className="max-w-[680px]">
-            <Eyebrow rule className="mb-7">
-              {P.cost.eyebrow}
+          <Reveal stagger className="max-w-[720px]">
+            <Eyebrow rule className="mb-7 text-amber-deep">
+              {P.parents.eyebrow}
             </Eyebrow>
-            <h2 className={`${h2} text-forest-deep [&_em]:text-amber-deep`}>
-              <RichText lines={P.cost.headline} />
+            <h2 className={`${h2sm} text-forest-deep [&_em]:text-bark`}>
+              <RichText lines={P.parents.headline} />
             </h2>
-            <p className="mt-7 font-sans text-[clamp(1rem,1.35vw,19px)] leading-[1.62] text-[#4A4234]">
-              {P.cost.body}
-            </p>
+            <p className={`mt-6 text-pretty ${lead}`}>{P.parents.body}</p>
+          </Reveal>
+        </Container>
+      </Section>
+
+      {/* Why boys: Gabe's experience, never an admissions policy. */}
+      <Section tone="bone">
+        <Container>
+          <Reveal stagger className="max-w-[760px]">
+            <Eyebrow rule className="mb-7 text-amber-deep">
+              {P.whyBoys.eyebrow}
+            </Eyebrow>
+            <h2 className={`${h2sm} text-forest-deep [&_em]:text-bark`}>
+              <RichText lines={P.whyBoys.headline} />
+            </h2>
+            {P.whyBoys.paragraphs.map((para, i) => (
+              <p key={i} className={`${i === 0 ? "mt-6" : "mt-4"} text-pretty font-sans text-[clamp(16px,1.3vw,18px)] leading-[1.65] text-[#4A4234]`}>
+                {para}
+              </p>
+            ))}
           </Reveal>
         </Container>
       </Section>

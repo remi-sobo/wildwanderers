@@ -1,65 +1,61 @@
 import type { Metadata } from "next";
-import { joinPage as J } from "@/content/pages";
+import { joinCopy as J } from "@/content/pages";
 import Container from "@/components/ui/Container";
-import Eyebrow from "@/components/ui/Eyebrow";
-import RichText from "@/components/ui/RichText";
 import Section from "@/components/ui/Section";
 import PageHero from "@/components/site/PageHero";
 import Reveal from "@/components/motion/Reveal";
 import JoinForm from "./JoinForm";
 
 export const metadata: Metadata = {
-  title: "Start the conversation · Wild Wanderers",
+  title: "Join · Wild Wanderers",
   description:
-    "Tell us about your boy and what you are hoping for. This begins as a conversation, not a form. Out on the Baylands Nature Preserve in Palo Alto.",
+    "Tell us a little about your family. We'll follow up with availability, the current schedule, and next steps for the boys program on the Baylands trail.",
 };
 
+/**
+ * Join: the form comes first (left on desktop, top on mobile), then what
+ * happens next and the practical facts.
+ */
 export default function JoinPage() {
-  const p = J.practical;
   return (
     <>
       <PageHero eyebrow={J.hero.eyebrow} headline={J.hero.headline} sub={J.hero.sub} />
 
       <Section tone="bone">
         <Container>
-          <div className="grid items-start gap-[clamp(40px,6vw,72px)] lg:grid-cols-[0.92fr_1.08fr]">
-            {/* Left: why + practical */}
-            <Reveal stagger>
-              <Eyebrow rule className="mb-7 text-amber-deep">
-                {J.form.eyebrow}
-              </Eyebrow>
-              <h2 className="font-display text-[clamp(2rem,4vw,46px)] font-[350] leading-[1.04] tracking-[-0.018em] text-forest-deep [&_em]:text-bark">
-                <RichText lines={J.form.headline} />
-              </h2>
+          <div className="grid items-start gap-[clamp(40px,6vw,72px)] md:grid-cols-2">
+            <Reveal>
+              <JoinForm />
+            </Reveal>
 
-              <ul className="mt-9 grid gap-7">
-                {J.reasons.map((r) => (
-                  <li key={r.title} className="border-t border-bark/20 pt-5">
-                    <h3 className="font-display text-[20px] font-semibold text-forest-deep">
-                      {r.title}
-                    </h3>
-                    <p className="mt-2 max-w-[420px] font-sans text-[14.5px] leading-[1.6] text-[#5A5142]">
-                      {r.body}
-                    </p>
+            <Reveal stagger delay={0.1}>
+              <h2 className="font-display text-[clamp(26px,2.8vw,32px)] font-medium text-forest-deep">
+                {J.next.headline}
+              </h2>
+              <ol className="mt-5">
+                {J.next.steps.map((r) => (
+                  <li
+                    key={r.n}
+                    className="grid grid-cols-[32px_1fr] items-baseline gap-2.5 border-t border-bark/20 py-[18px]"
+                  >
+                    <span className="font-display text-[17px] italic text-bark">{r.n}</span>
+                    <div>
+                      <h3 className="font-display text-[19px] font-semibold text-forest-deep">{r.title}</h3>
+                      <p className="mt-1 max-w-[420px] font-sans text-[14.5px] leading-[1.6] text-[#5A5142]">{r.body}</p>
+                    </div>
                   </li>
                 ))}
-              </ul>
-
-              <dl className="mt-10 flex flex-wrap gap-x-12 gap-y-5">
-                {[p.where, p.when, p.who].map((item) => (
-                  <div key={item.label}>
+              </ol>
+              <dl className="mt-7 flex flex-wrap gap-x-10 gap-y-5">
+                {J.practical.map((p) => (
+                  <div key={p.label}>
                     <dt className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-deep">
-                      {item.label}
+                      {p.label}
                     </dt>
-                    <dd className="mt-1 font-display text-[18px] text-forest-deep">{item.value}</dd>
+                    <dd className="mt-1 font-display text-[18px] text-forest-deep">{p.value}</dd>
                   </div>
                 ))}
               </dl>
-            </Reveal>
-
-            {/* Right: the form */}
-            <Reveal delay={0.15}>
-              <JoinForm />
             </Reveal>
           </div>
         </Container>

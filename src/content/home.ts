@@ -1,9 +1,9 @@
 /**
- * Homepage copy. Words are data so edits never touch components.
+ * Homepage and site-chrome copy, plus the shared copy types. Words are data so
+ * edits never touch components.
  *
- * Voice: SOBO house voice. Warm, direct, specific, premium restraint. No em
- * dashes, no wellness clichés, no pep talks. Headlines keep the approved mock
- * lines; supporting copy is tuned toward the ground.
+ * Voice: plain, direct, complete sentences. No em dashes, no exclamation
+ * marks, no slogan constructions. Gabe is final editor on every string.
  */
 
 /** A run of text; `em` marks the italic display accent (one accent per line). */
@@ -13,230 +13,143 @@ export type HeadlineLine = Segment[];
 
 export type Cta = { label: string; href: string };
 
-export const hero = {
-  eyebrow: "Wild Wanderers · Baylands Chapter One",
-  headline: [
-    [{ text: "Boys were born" }],
-    [{ text: "to " }, { text: "move.", em: true }],
-  ] as HeadlineLine[],
-  sub: "An outdoor movement and mentorship program for boys and their dads and mentors. A weekly rhythm of nature, breath, courage, and connection, out on the Baylands.",
-  primary: { label: "Join the first Baylands circle", href: "/join" } as Cta,
-  secondary: { label: "See how it works", href: "#how-it-works" } as Cta,
-  scrollCue: "Scroll",
-  photoAlt:
-    "A father and son on a ridge at golden hour, looking out over rolling hills",
-};
+// ===========================================================================
+// v2 (October 2026 handoff). Copy is verbatim from the approved prototypes,
+// checked against Operations Manual v1.1. The homepage now represents the
+// whole brand: the boys program and adult fitness.
+// ===========================================================================
 
-// Why now. The strongest argument for the program, made concrete: what a
-// screen-heavy, sat-down childhood costs, and the trade we offer instead.
-export const whyNow = {
-  eyebrow: "Why now",
-  headline: [
-    [{ text: "Childhood has gotten" }],
-    [{ text: "too " }, { text: "still.", em: true }],
-  ] as HeadlineLine[],
-  body: "Kids spend more time inside, more time on screens, and less time moving through the real world with people who know them. Boys feel it in the body and in the mind. Wild Wanderers goes the other direction.",
-  trades: [
+export const homeCopy = {
+  hero: {
+    eyebrow: "Wild Wanderers",
+    headline: [
+      [{ text: "Movement and" }],
+      [{ text: "connection, " }, { text: "outside.", em: true }],
+    ] as HeadlineLine[],
+    body: "Gabe coaches two things on the Peninsula: an outdoor program for boys 5 to 13, and fitness for the adults in their lives. Same trail, same idea: people grow when they move together outside.",
+    primary: { label: "Explore the boys program", href: "/the-program" } as Cta,
+    secondary: { label: "Explore fitness", href: "/fitness" } as Cta,
+    photo: "/photos/golden-hour-family-hike.jpg",
+    photoAlt:
+      "Gabe and his son walking a Baylands trail at golden hour, with other dads and kids ahead and the marsh and hills to the left",
+  },
+  programs: [
     {
-      less: "Less screen.",
-      more: "More sky.",
-      body: "Trade the feed for weather, tide, and mud that is actually cold.",
+      photo: "/photos/dad-piggyback-trail.jpg",
+      photoAlt: "A dad climbing a wooded trail with his young son on his shoulders, seen from behind",
+      objectPosition: "50% 50%",
+      eyebrow: "For boys 5–13",
+      headline: [[{ text: "The Boys " }, { text: "Program", em: true }]] as HeadlineLine[],
+      body: "Small groups of boys meet after school on the Baylands trail to move, explore, and build skills outside. Every session has screened adults, with no more than six boys per adult.",
+      cta: { label: "See the program", href: "/the-program" } as Cta,
     },
     {
-      less: "Less sitting.",
-      more: "More strength.",
-      body: "Run, climb, carry, tumble. A body used the way it was built to be used.",
-    },
-    {
-      less: "Less isolation.",
-      more: "More belonging.",
-      body: "A circle of boys and men who know his name and expect him back.",
+      photo: "/photos/gabe-training-outdoor.jpg",
+      photoAlt: "Gabe training outdoors in the sun",
+      objectPosition: "42% 38%",
+      eyebrow: "For adults",
+      headline: [[{ text: "Wild Wanderers " }, { text: "Fitness", em: true }]] as HeadlineLine[],
+      body: "One-on-one training, small-group training, and coaching for busy adults. Saturday popups are the easiest way to start.",
+      cta: { label: "See fitness", href: "/fitness" } as Cta,
     },
   ],
-};
-
-// What it is, said plainly, with the confirmed facts as a spec row. Facts are
-// GATED: publish only what Gabe confirmed (CLAUDE.md). No price, no dates.
-export const whatItIs = {
-  eyebrow: "What it is",
-  headline: [
-    [
-      { text: "A weekly trail rhythm for boys becoming " },
-      { text: "strong, calm, and connected.", em: true },
+  whyExists: {
+    eyebrow: "Why it exists",
+    headline: [[{ text: "Kids need more time moving " }, { text: "and outside.", em: true }]] as HeadlineLine[],
+    body: "School, screens, and busy schedules mean a lot of kids spend much of the day sitting indoors. Wild Wanderers gives boys regular time each week to move, explore the outdoors, and build relationships in a small group.",
+    cta: { label: "Why Wild Wanderers", href: "/why-wild-wanderers" } as Cta,
+  },
+  session: {
+    eyebrow: "A session",
+    headline: [[{ text: "What happens during " }, { text: "a session.", em: true }]] as HeadlineLine[],
+    steps: [
+      { title: "Arrive", body: "Check in, have a snack, and get moving while the group arrives." },
+      { title: "Move", body: "A movement game, workout, or physical challenge." },
+      { title: "Explore", body: "Nature, outdoor skills, and hands-on learning along the trail." },
+      { title: "Reflect", body: "Come back together, talk about the day, and meet parents at pickup." },
     ],
-  ] as HeadlineLine[],
-  body: "Every week, a small circle of boys gathers outdoors with their dads and mentors and moves through the Baylands together. They run and climb, practice animal breath, track what the marsh is doing, build, wander, and sit down at the end to make sense of it all. Simple on purpose, and it adds up.",
-  facts: [
-    { label: "Who", value: "Boys 5 to 13, with dads and mentors beside them" },
-    { label: "Group", value: "Around 10 boys, about one adult per six" },
-    { label: "Where", value: "Baylands Nature Preserve, Palo Alto" },
-    { label: "When", value: "Weekly, by season" },
+    fieldGuide: {
+      title: "The Field Guide",
+      body: "Boys use animals they see around the Baylands as simple reminders for skills like calm, awareness, adaptability, and courage.",
+      cta: { label: "See how the program works", href: "/the-program" } as Cta,
+    },
+  },
+  supervision: {
+    eyebrow: "Supervision",
+    headline: [[{ text: "Who is with " }, { text: "your son.", em: true }]] as HeadlineLine[],
+    body: "At least two screened adults are present at every session, with no more than six boys per adult. No adult is ever alone with one boy out of sight or hearing of another screened adult.",
+    dads: {
+      title: "Dads can get involved, too.",
+      body: "Dads who want to participate can apply to serve as volunteer mentors. Every adult on the trail goes through the same screening and safety process.",
+      cta: { label: "For dads", href: "/for-dads" } as Cta,
+    },
+  },
+  meetGabe: {
+    eyebrow: "Founder",
+    headline: [[{ text: "Meet " }, { text: "Gabe.", em: true }]] as HeadlineLine[],
+    body: "Gabe started Wild Wanderers with his own family on the Baylands. Now he is building the first small cohort for local boys.",
+    cta: { label: "Read his story", href: "/about" } as Cta,
+    photo: "/photos/gabe-family-swing.jpg",
+    photoAlt:
+      "Gabe and his family walking through tall grass, swinging their son between them, the dog alongside",
+  },
+  cta: {
+    headline: [
+      [{ text: "Interested in the first " }, { text: "Wild Wanderers cohort?", em: true }],
+    ] as HeadlineLine[],
+    body: "Tell us about your son and we'll follow up with availability and next steps.",
+    primary: { label: "Join", href: "/join" } as Cta,
+  },
+};
+
+// The site chrome: nav and footer. The pill CTA depends on the section: the
+// boys pages point to /join, the fitness pages to the free consult (and add
+// "Join" as a plain link so the boys program stays one tap away).
+export const siteNav = {
+  links: [
+    { label: "Program", href: "/the-program" },
+    { label: "For Dads", href: "/for-dads" },
+    { label: "About", href: "/about" },
+    { label: "Fitness", href: "/fitness" },
   ],
-  primary: { label: "Join the first Baylands circle", href: "/join" } as Cta,
-  secondary: { label: "See a full gathering", href: "/the-program" } as Cta,
-  badge: "EST. ON THE BAYLANDS",
+  fitnessExtra: { label: "Join", href: "/join" },
+  login: { label: "Log in", href: "https://app.wildwanderers.life" },
+  boysCta: { label: "Join", href: "/join" } as Cta,
+  fitnessCta: { label: "Book a free consult", href: "/free-session" } as Cta,
+  openMenu: "Open menu",
+  closeMenu: "Close",
 };
 
-// The chapter model on the homepage. Leads with the movement, presents the
-// Baylands as Chapter One, teases the horizon. Sits between Movement and
-// Flagship. Motto strip carries "Run · Jump · Climb · Tumble · Wander · Become".
-export const chaptersSection = {
-  eyebrow: "The movement",
-  headline: [
-    [{ text: "The Baylands is " }, { text: "Chapter One.", em: true }],
-  ] as HeadlineLine[],
-  body: "Wild Wanderers is bigger than one marsh. It is a movement of families raising boys outdoors, and every movement starts on some particular piece of ground. Ours starts on the Baylands, the ground Gabe knows best. When the first circle is strong, new chapters can follow, each with its own wild place and its own mentors.",
-  horizonLabel: "Chapters on the horizon",
-  motto: ["Run", "Jump", "Climb", "Tumble", "Wander", "Become"],
-};
-
-export const approach = {
-  eyebrow: "How a day moves",
-  headline: [
-    [{ text: "Four steps, every time." }],
-    [{ text: "Observe. Breathe. Explore. Reflect.", em: true }],
-  ] as HeadlineLine[],
-  steps: [
-    {
-      n: "01",
-      title: "Observe",
-      body: "Stop and look. A bird, a track, the tide, the way his own body feels. Noticing comes before moving.",
-    },
-    {
-      n: "02",
-      title: "Breathe",
-      body: "Practice calm with animal breath. Heron tall, lizard long. Getting steady is a skill, and he can train it.",
-    },
-    {
-      n: "03",
-      title: "Explore",
-      body: "Run, climb, build, wander. He moves hard over real ground, and learns by doing it.",
-    },
-    {
-      n: "04",
-      title: "Reflect",
-      body: "Sit, share, journal. He names what the day taught him, and carries it home.",
-    },
-  ],
-};
-
-export const animalsSection = {
-  eyebrow: "The field guide",
-  headline: [[{ text: "Every animal teaches " }, { text: "a power.", em: true }]] as HeadlineLine[],
-  note: "The animals are memory anchors. Each one gives a boy a handle on character, movement, and staying steady when a day gets hard.",
-  allLink: { label: "Meet all of them", href: "/the-movement" } as Cta,
-};
-
-export const cta = {
-  headline: [
-    [{ text: "Join the first" }],
-    [{ text: "Baylands " }, { text: "circle.", em: true }],
-  ] as HeadlineLine[],
-  body: "The first group is gathering now, and it stays small on purpose. If you want your son to move more, get outside, grow in courage, and build real connection with you beside him, start the conversation.",
-  primary: { label: "Join the first Baylands circle", href: "/join" } as Cta,
-  secondary: { label: "Talk with Gabe", href: "/join" } as Cta,
-};
-
-export const footer = {
+export const siteFooter = {
   wordmark: "Wild Wanderers",
   mission:
-    "An outdoor movement and mentorship program for boys and their dads and mentors. Chapter One gathers on the Baylands.",
-  facts: ["Baylands Nature Preserve, Palo Alto", "Weekly, by season", "Boys 5 to 13"],
-  meta: "Strong hands · soft hearts · on the Baylands",
+    "Outdoor movement and mentorship for boys ages 5–13 on the Baylands trail, and personal training for adults on the Peninsula.",
+  columns: [
+    {
+      title: "Boys program",
+      links: [
+        { label: "Program", href: "/the-program" },
+        { label: "For Dads", href: "/for-dads" },
+        { label: "Why Wild Wanderers", href: "/why-wild-wanderers" },
+        { label: "About", href: "/about" },
+        { label: "Join", href: "/join" },
+      ],
+    },
+    {
+      title: "Fitness",
+      links: [
+        { label: "Overview", href: "/fitness" },
+        { label: "Training Options", href: "/fitness/training-options" },
+        { label: "About Gabe", href: "/fitness/about" },
+        { label: "Saturday Popups", href: "/fitness/saturday" },
+        { label: "Book a free consult", href: "/free-session" },
+      ],
+    },
+  ],
+  basics: {
+    title: "Boys program basics",
+    items: ["Boys 5–13", "Baylands trail, East Palo Alto to Palo Alto", "After school, 4:00–6:00 PM"],
+  },
+  motto: "Strong hands, soft hearts.",
   credit: "A SOBO build",
-};
-
-// ---------------------------------------------------------------------------
-// Ring 2. These sections are not in the mock and several are GATED on Gabe's
-// transcript. Copy is on-voice placeholder; no fabricated specifics (exact
-// ages, real bio claims, testimonials). Swap his truth in when it lands.
-// ---------------------------------------------------------------------------
-
-// Ages are the confirmed bands from the program page (5 to 13 overall).
-export const agesStages = {
-  eyebrow: "Who it's for",
-  headline: [
-    [{ text: "Start where he is." }],
-    [{ text: "Grow from there.", em: true }],
-  ] as HeadlineLine[],
-  lead: "Three stages on one trail. He steps in where he fits and moves on when he is ready.",
-  stages: [
-    {
-      label: "Ages 5 to 7",
-      name: "Notice",
-      body: "First taste of the trail. Low stakes, plenty of wonder. He learns to slow down and notice what is in front of him.",
-    },
-    {
-      label: "Ages 8 to 10",
-      name: "Practice",
-      body: "The four steps become habit. He builds skill, takes small risks, and finds his footing with the group.",
-    },
-    {
-      label: "Ages 11 to 13",
-      name: "Belong",
-      body: "He carries some of the load. He looks out for the younger ones, leads a stretch of trail, and learns what it is to show up for the others.",
-    },
-  ],
-};
-
-// What a season gives a boy. Outcomes, not features, and never deficit talk:
-// nothing here frames a boy as broken, only as growing.
-export const forBoys = {
-  eyebrow: "For boys",
-  headline: [
-    [{ text: "Strong bodies. Soft hearts." }],
-    [{ text: "Wide eyes.", em: true }],
-  ] as HeadlineLine[],
-  lead: "A boy who walks with us is working on the same few things every week, until they belong to him.",
-  outcomes: [
-    {
-      title: "Confidence in his body",
-      body: "He learns what he can lift, climb, and outrun, and starts to trust it.",
-    },
-    {
-      title: "Comfort outdoors",
-      body: "Weather, mud, and open sky stop being a big deal.",
-    },
-    {
-      title: "A steady inside",
-      body: "Breath he can reach for when the day gets loud.",
-    },
-    {
-      title: "Courage and healthy risk",
-      body: "The hard, good thing, sized to the boy and the day.",
-    },
-    {
-      title: "Belonging with other boys",
-      body: "Friendship built on shared miles, not shared screens.",
-    },
-    {
-      title: "Respect for nature and others",
-      body: "He learns to read the marsh, and to look out for the boy beside him.",
-    },
-  ],
-};
-
-// The fellowship is live. Dads and mentors are participants, never spectators,
-// and the invitation stays warm, not guilt-heavy.
-export const forDads = {
-  eyebrow: "For dads and mentors",
-  flag: "Now gathering",
-  headline: [
-    [{ text: "He does not do this " }, { text: "alone.", em: true }],
-  ] as HeadlineLine[],
-  body: "Fathers and mentors are not spectators here. You walk the same trail, try the same breath, take the same wrong turns, and let him watch you handle it. No wilderness resume required. Presence is the work, and most men find the circle is good for them too.",
-  cta: { label: "Walk with us", href: "/for-dads" } as Cta,
-};
-
-// Portrait still GATED on a real photo; the ridgeline fallback stands in. Bio
-// stays honest: no invented credentials, family as roots and never the face.
-export const meetGabe = {
-  eyebrow: "Meet Gabe",
-  headline: [
-    [{ text: "Built by a father" }],
-    [{ text: "on the trail.", em: true }],
-  ] as HeadlineLine[],
-  body: "Gabe built Wild Wanderers with his own sons first, on the same Baylands trails where he grew up. The program brings together what he has spent years living: movement, real food, breath, time outside, and the daily work of being a dad. Now he is inviting a first circle of families to walk it with him.",
-  more: { label: "Read his story", href: "/about" } as Cta,
-  photoCaption: "A portrait from the Baylands is on the way.",
 };

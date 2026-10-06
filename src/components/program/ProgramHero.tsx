@@ -5,7 +5,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { hero } from "@/content/home";
+import { programCopy } from "@/content/pages";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Button from "@/components/ui/Button";
 import RichText from "@/components/ui/RichText";
@@ -24,22 +24,22 @@ const FILM_SVG =
   "<rect width='100' height='100' filter='url(#f)'/></svg>";
 const FILM_URL = `url("data:image/svg+xml,${encodeURIComponent(FILM_SVG)}")`;
 
+const hero = programCopy.hero;
+
 /**
- * Hero. Full-bleed photo with the headline over open space on the left, exactly
- * as the mock frames it, sized up and pushed nearer the edge. The global Nav
- * sits over this section transparently.
+ * The boys program hero: the former homepage hero, moved here when the
+ * homepage went light. Full-bleed photo with the headline over open space on
+ * the left. The global Nav sits over this section transparently.
  *
- * Motion (Phase 2): a slow ambient ken-burns on the photo (~1.0 to 1.06 over
- * 20s, time-based, breathing), the photo drifting slower than the text on
- * scroll, the headline revealing line by line with the Fraunces weight settling
- * on load, and the scroll cue fading as the hero leaves. Phase 3 will hang the
- * horizon and sun off this same scene. All gated behind reduced motion.
+ * Motion: a slow ambient ken-burns on the photo (~1.0 to 1.06 over 20s,
+ * time-based, breathing), the photo drifting slower than the text on scroll,
+ * and the headline revealing line by line with the Fraunces weight settling
+ * on load. All gated behind reduced motion.
  */
-export default function Hero() {
+export default function ProgramHero() {
   const root = useRef<HTMLElement>(null);
   const photoDrift = useRef<HTMLDivElement>(null);
   const kenBurns = useRef<HTMLDivElement>(null);
-  const cue = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -59,13 +59,6 @@ export default function Hero() {
         ease: "none",
         scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: true },
       });
-
-      // Scroll cue fades out over the first stretch of the scroll.
-      gsap.to(cue.current, {
-        opacity: 0,
-        ease: "none",
-        scrollTrigger: { trigger: root.current, start: "top top", end: "30% top", scrub: true },
-      });
     },
     { scope: root },
   );
@@ -74,7 +67,7 @@ export default function Hero() {
     <section
       ref={root}
       id="hero"
-      className="relative flex h-[100svh] min-h-[620px] w-full flex-col justify-center overflow-hidden"
+      className="relative flex min-h-[max(620px,92svh)] w-full flex-col justify-center overflow-hidden"
     >
       {/* Photo: overscan wrapper -> scroll drift -> ken-burns -> image, so the
           two transforms never fight and the drift never reveals an edge. */}
@@ -115,7 +108,7 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 z-[5]"
         style={{
           background:
-            "linear-gradient(90deg,rgba(16,24,17,.66) 0%,rgba(16,24,17,.30) 32%,rgba(16,24,17,0) 58%)",
+            "linear-gradient(90deg,rgba(16,24,17,.72) 0%,rgba(16,24,17,.36) 36%,rgba(16,24,17,0) 62%)",
         }}
       />
       <div
@@ -129,8 +122,8 @@ export default function Hero() {
           so the copy sits on the photo's bright sky without it. */}
       <div className="pointer-events-none absolute inset-0 z-[5] bg-[rgba(16,24,17,0.32)] sm:hidden" />
 
-      {/* Copy. Larger and bolder than the mock, sitting nearer the edge. */}
-      <div className="relative z-10 max-w-[880px] px-6 sm:px-10 lg:px-[60px]">
+      {/* Copy, sitting nearer the edge. */}
+      <div className="relative z-10 max-w-[880px] px-[clamp(24px,4vw,60px)] pb-[110px] pt-[140px]">
         <Eyebrow className="mb-6 block text-bone/90">{hero.eyebrow}</Eyebrow>
         <SplitReveal
           as="h1"
@@ -148,23 +141,10 @@ export default function Hero() {
             <Button variant="primary" href={hero.primary.href} arrow>
               {hero.primary.label}
             </Button>
-            <Button variant="ghost" href={hero.secondary.href} arrow className="text-bone">
-              {hero.secondary.label}
-            </Button>
           </div>
         </Reveal>
       </div>
 
-      {/* Scroll cue, fading as the hero leaves. */}
-      <div
-        ref={cue}
-        className="absolute bottom-10 left-6 z-10 flex items-center gap-3 sm:left-10 lg:left-[60px]"
-      >
-        <span className="h-px w-[46px] bg-gradient-to-r from-bone/75 to-transparent" />
-        <span className="font-sans text-[10.5px] uppercase tracking-[0.32em] text-bone/75">
-          {hero.scrollCue}
-        </span>
-      </div>
     </section>
   );
 }

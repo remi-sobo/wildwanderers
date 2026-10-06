@@ -1,53 +1,67 @@
 "use server";
 
+import { headers } from "next/headers";
 import { Resend } from "resend";
+import { joinCopy } from "@/content/pages";
+import { insertInquiry, ipFrom, rateLimited } from "@/lib/inquiries";
 
-export type JoinState = {
-  status: "idle" | "success" | "error";
-  message?: string;
+export type JoinValues = { name: string; email: string; about: string; company: string };
+
+export type JoinResult = {
+  ok: boolean;
+  error?: string;
   errors?: Partial<Record<"name" | "email" | "about", string>>;
-  values?: { name: string; email: string; about: string };
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// Bounds match the check constraints on lead_inquiries.
+const MAX_NAME = 120;
+const MAX_EMAIL = 254;
+const MAX_MESSAGE = 1000;
+const RETRY = "Something went wrong. Try again in a moment.";
 
 /**
- * Join inquiry. A simple typed Server Action (spec section 11): validate, then
- * notify on every channel that is configured. Two independent ways to hear about
- * an inquiry: Resend (email) and a Slack incoming webhook. Each is gated on its
- * own env var, so either, both, or neither can be on. With nothing configured
- * (local or preview) it succeeds without sending, so the form is fully usable
- * before secrets land. Channels run best-effort: as long as one configured
- * channel gets through, the family sees success. No data is stored here; this is
- * a notification, not a CRM.
+ * The boys program interest form. It lands in the same place as the free
+ * consult: one row in lead_inquiries through the shared insert path, with
+ * interest 'boys_program' and "about your son" as the message, so Gabe sees
+ * every family in the app's inbox and the speed-to-lead alert fires. No new
+ * table.
+ *
+ * The existing Resend and Slack notices still go out, best effort, when their
+ * env vars are set; they never decide the outcome. The stored row does.
  */
-export async function submitInquiry(
-  _prev: JoinState,
-  formData: FormData,
-): Promise<JoinState> {
-  const name = String(formData.get("name") ?? "").trim();
-  const email = String(formData.get("email") ?? "").trim();
-  const about = String(formData.get("about") ?? "").trim();
-  // Honeypot: real people leave this empty.
-  const trap = String(formData.get("company") ?? "").trim();
+export async function submitJoin(values: JoinValues): Promise<JoinResult> {
+  const name = String(values.name ?? "").trim();
+  const email = String(values.email ?? "").trim();
+  const about = String(values.about ?? "").trim();
 
-  const errors: JoinState["errors"] = {};
-  if (!name) errors.name = "Please tell us your name.";
-  if (!email) errors.email = "We need an email to write back.";
-  else if (!EMAIL_RE.test(email)) errors.email = "That email looks off, mind checking it?";
-  if (about.length > 4000) errors.about = "That is a lot. Mind trimming it a little?";
+  // Honeypot: real people leave this empty. Accept silently.
+  if (String(values.company ?? "").trim()) return { ok: true };
 
-  if (Object.keys(errors).length > 0) {
-    return { status: "error", errors, values: { name, email, about } };
+  const errors: JoinResult["errors"] = {};
+  if (!name || name.length > MAX_NAME) errors.name = joinCopy.form.errors.name;
+  if (!email || email.length > MAX_EMAIL || !EMAIL_RE.test(email)) errors.email = joinCopy.form.errors.email;
+  if (about.length > MAX_MESSAGE) errors.about = "That is a lot. Mind trimming it a little?";
+  if (Object.keys(errors).length > 0) return { ok: false, errors };
+
+  if (rateLimited(ipFrom(await headers()))) {
+    return { ok: false, error: "One moment, that is a few too many tries. Try again shortly." };
   }
 
-  // Silently accept bot submissions without notifying.
-  if (trap) return { status: "success" };
+  const result = await insertInquiry(
+    { name, email, phone: null, interest: "boys_program", message: about || null, preferred_times: null },
+    "join",
+  );
+  if (result === "error") return { ok: false, error: RETRY };
 
+  // A fresh inquiry also goes to the email and Slack channels, if configured.
+  if (result === "stored") await notify(name, email, about);
+
+  return { ok: true };
+}
+
+async function notify(name: string, email: string, about: string): Promise<void> {
   const summary = `Name: ${name}\nEmail: ${email}\n\n${about || "(no message)"}`;
-
-  // One task per configured channel. Each throws on its own failure; we only
-  // surface an error to the family if every configured channel fails.
   const channels: Promise<void>[] = [];
 
   const apiKey = process.env.RESEND_API_KEY;
@@ -55,13 +69,11 @@ export async function submitInquiry(
     channels.push(
       (async () => {
         const resend = new Resend(apiKey);
-        const to = process.env.JOIN_INBOX ?? "hello@wildwanderers.com";
-        const from = process.env.JOIN_FROM ?? "Wild Wanderers <onboarding@resend.dev>";
         const { error } = await resend.emails.send({
-          from,
-          to,
+          from: process.env.JOIN_FROM ?? "Wild Wanderers <onboarding@resend.dev>",
+          to: process.env.JOIN_INBOX ?? "hello@wildwanderers.com",
           replyTo: email,
-          subject: `New trail inquiry from ${name}`,
+          subject: `New boys program inquiry from ${name}`,
           text: summary,
         });
         if (error) throw new Error(error.message);
@@ -69,8 +81,6 @@ export async function submitInquiry(
     );
   }
 
-  // Slack incoming webhook: a second, independent way to hear about an inquiry,
-  // straight to a channel (and your phone). Dormant until SLACK_WEBHOOK_URL is set.
   const slackUrl = process.env.SLACK_WEBHOOK_URL;
   if (slackUrl) {
     channels.push(
@@ -79,28 +89,15 @@ export async function submitInquiry(
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify({
-            text: `:evergreen_tree: *New trail inquiry from ${name}*\n*Email:* ${email}\n\n${about || "_(no message)_"}`,
+            text: `:evergreen_tree: *New boys program inquiry from ${name}*\n*Email:* ${email}\n\n${about || "_(no message)_"}`,
           }),
+          signal: AbortSignal.timeout(4000),
         });
         if (!res.ok) throw new Error(`Slack webhook responded ${res.status}`);
       })(),
     );
   }
 
-  // Nothing configured (local or preview): accept so the experience is whole.
-  if (channels.length === 0) {
-    console.info(`[join] inquiry from ${name} <${email}> (no notify channel configured)`);
-    return { status: "success" };
-  }
-
   const results = await Promise.allSettled(channels);
-  if (!results.some((r) => r.status === "fulfilled")) {
-    return {
-      status: "error",
-      message: "Something went wrong sending that. Please try again in a moment.",
-      values: { name, email, about },
-    };
-  }
-
-  return { status: "success" };
+  if (results.some((r) => r.status === "rejected")) console.warn("[join] a notify channel failed");
 }

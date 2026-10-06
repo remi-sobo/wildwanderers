@@ -1,126 +1,101 @@
 "use client";
 
-import { useActionState } from "react";
-import { submitInquiry, type JoinState } from "./actions";
-import { joinPage } from "@/content/pages";
+import { useState } from "react";
+import { submitJoin } from "./actions";
+import { joinCopy } from "@/content/pages";
+import { EMAIL_RE, Field, FormCard, Honeypot, Optional, SubmitButton, TextArea } from "@/components/forms/fields";
 
-const initial: JoinState = { status: "idle" };
+const f = joinCopy.form;
 
-const fieldBase =
-  "mt-2 w-full rounded-xl border bg-bone px-4 py-3 font-sans text-[15px] text-ink outline-none transition-colors placeholder:text-ink/35 focus-visible:border-amber focus-visible:ring-2 focus-visible:ring-amber/40";
+type Values = { name: string; email: string; about: string; company: string };
 
 /**
- * The join inquiry form. Uses useActionState against the typed Server Action,
- * with inline validation errors, a pending state on the amber submit, and a
- * warm success state that replaces the form. Progressive enhancement: it posts
- * even before JS hydrates.
+ * The boys program interest form. It calls the submitJoin Server Action,
+ * which stores the inquiry in lead_inquiries as interest 'boys_program'.
+ * Inline validation shows only after the first submit attempt; a success
+ * state replaces the form in place.
  */
 export default function JoinForm() {
-  const [state, action, pending] = useActionState(submitInquiry, initial);
-  const f = joinPage.form;
+  const [v, setV] = useState<Values>({ name: "", email: "", about: "", company: "" });
+  const [tried, setTried] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [done, setDone] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
 
-  if (state.status === "success") {
-    return (
-      <div className="rounded-[20px] border border-bark/15 bg-bone p-8 sm:p-10">
-        <div className="font-sans text-[11px] font-semibold uppercase tracking-[0.24em] text-amber-deep">
-          Sent
-        </div>
-        <h3 className="mt-3 font-display text-[clamp(1.75rem,3vw,32px)] font-semibold text-forest-deep">
-          {f.success.headline}
-        </h3>
-        <p className="mt-3 font-sans text-[15px] leading-[1.6] text-[#5A5142]">{f.success.body}</p>
-      </div>
-    );
+  const set = (k: keyof Values) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setV((prev) => ({ ...prev, [k]: e.target.value }));
+
+  const nameErr = tried && !v.name.trim() ? f.errors.name : undefined;
+  const emailErr = tried && !EMAIL_RE.test(v.email.trim()) ? f.errors.email : undefined;
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (sending) return;
+    setTried(true);
+    setServerError(null);
+    if (!v.name.trim() || !EMAIL_RE.test(v.email.trim())) return;
+
+    setSending(true);
+    try {
+      const res = await submitJoin(v);
+      if (res.ok) setDone(true);
+      else setServerError(res.error ?? Object.values(res.errors ?? {})[0] ?? null);
+    } catch {
+      setServerError("Something went wrong. Try again in a moment.");
+    } finally {
+      setSending(false);
+    }
   }
 
-  const v = state.values;
-  const err = state.errors ?? {};
-
   return (
-    <form action={action} className="rounded-[20px] border border-bark/15 bg-bone p-8 sm:p-10">
-      {/* Honeypot, visually hidden from people. */}
-      <div aria-hidden className="absolute left-[-9999px]" tabIndex={-1}>
-        <label>
-          Company
-          <input name="company" tabIndex={-1} autoComplete="off" />
-        </label>
-      </div>
-
-      <div className="grid gap-5">
-        <div>
-          <label htmlFor="name" className="font-sans text-[13px] font-semibold text-ink">
-            Your name
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            defaultValue={v?.name}
-            autoComplete="name"
-            aria-invalid={!!err.name}
-            className={`${fieldBase} ${err.name ? "border-amber-deep" : "border-bark/20"}`}
-          />
-          {err.name && <p className="mt-1.5 font-sans text-[12.5px] text-amber-deep">{err.name}</p>}
+    <FormCard>
+      {done ? (
+        <div role="status">
+          <div className="font-sans text-[11px] font-semibold uppercase tracking-[0.24em] text-amber-deep">
+            {f.success.eyebrow}
+          </div>
+          <h3 className="mt-3 font-display text-[clamp(26px,3vw,32px)] font-semibold text-forest-deep">
+            {f.success.headline}
+          </h3>
+          <p className="mt-3 font-sans text-[15px] leading-[1.6] text-[#5A5142]">{f.success.body}</p>
         </div>
-
-        <div>
-          <label htmlFor="email" className="font-sans text-[13px] font-semibold text-ink">
-            Email
-          </label>
-          <input
-            id="email"
-            name="email"
+      ) : (
+        <form onSubmit={onSubmit} noValidate className="grid gap-5">
+          <Honeypot value={v.company} onChange={(company) => setV((prev) => ({ ...prev, company }))} />
+          <Field id="join-name" label={f.nameLabel} autoComplete="name" value={v.name} onChange={set("name")} error={nameErr} />
+          <Field
+            id="join-email"
+            label={f.emailLabel}
             type="email"
-            defaultValue={v?.email}
             autoComplete="email"
-            aria-invalid={!!err.email}
-            className={`${fieldBase} ${err.email ? "border-amber-deep" : "border-bark/20"}`}
+            value={v.email}
+            onChange={set("email")}
+            error={emailErr}
           />
-          {err.email && <p className="mt-1.5 font-sans text-[12.5px] text-amber-deep">{err.email}</p>}
-        </div>
-
-        <div>
-          <label htmlFor="about" className="font-sans text-[13px] font-semibold text-ink">
-            About your boy <span className="font-normal text-ink/45">(optional)</span>
-          </label>
-          <textarea
-            id="about"
-            name="about"
+          <TextArea
+            id="join-about"
+            label={
+              <>
+                {f.aboutLabel} <Optional>{f.optional}</Optional>
+              </>
+            }
             rows={4}
-            defaultValue={v?.about}
-            placeholder="His age, what he loves, what you are hoping for."
-            aria-invalid={!!err.about}
-            className={`${fieldBase} resize-y ${err.about ? "border-amber-deep" : "border-bark/20"}`}
+            maxLength={1000}
+            placeholder={f.aboutPlaceholder}
+            value={v.about}
+            onChange={set("about")}
           />
-          {err.about && <p className="mt-1.5 font-sans text-[12.5px] text-amber-deep">{err.about}</p>}
-        </div>
-
-        {state.message && (
-          <p className="font-sans text-[13px] text-amber-deep">{state.message}</p>
-        )}
-
-        <button
-          type="submit"
-          disabled={pending}
-          className="group/btn relative isolate inline-flex items-center gap-2 self-start overflow-hidden rounded-full bg-amber px-[30px] py-4 font-sans text-[15px] font-semibold text-ink shadow-[0_12px_34px_rgba(120,68,16,0.34)] transition-opacity disabled:opacity-70"
-        >
-          <span
-            aria-hidden="true"
-            className="absolute inset-0 -z-[1] origin-left scale-x-0 bg-amber-deep transition-transform duration-300 ease-out group-hover/btn:scale-x-100"
-          />
-          <span className="relative z-[1] inline-flex items-center gap-2">
-            {pending ? "Sending..." : "Send my note"}
-            <span
-              aria-hidden="true"
-              className="transition-transform duration-300 ease-out group-hover/btn:translate-x-1"
-            >
-              &rarr;
-            </span>
-          </span>
-        </button>
-
-        <p className="font-sans text-[12.5px] leading-[1.55] text-ink/50">{f.note}</p>
-      </div>
-    </form>
+          {serverError && (
+            <p role="alert" className="font-sans text-[13px] text-[#b4472e]">
+              {serverError}
+            </p>
+          )}
+          <div className="mt-1">
+            <SubmitButton pending={sending}>{sending ? f.sending : f.submit}</SubmitButton>
+          </div>
+          <p className="font-sans text-[12.5px] leading-[1.55] text-[#7A7264]">{f.note}</p>
+        </form>
+      )}
+    </FormCard>
   );
 }
