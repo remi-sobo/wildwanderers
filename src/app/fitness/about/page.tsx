@@ -10,7 +10,6 @@ import PageHero from "@/components/site/PageHero";
 import ClosingCta from "@/components/site/ClosingCta";
 import Reveal from "@/components/motion/Reveal";
 import FitnessTabs from "@/components/fitness/FitnessTabs";
-import GabeFlag from "@/components/fitness/GabeFlag";
 
 export const metadata: Metadata = {
   title: "About Gabe · Wild Wanderers Fitness",
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * Fitness About Gabe: his qualifications (flagged until confirmed), what he
+ * Fitness About Gabe: his qualifications, what he
  * coaches, how he works, the scope note, and the six-month process. No
  * testimonials: placeholder social proof never ships.
  */
@@ -48,7 +47,6 @@ export default function FitnessAboutPage() {
                 <div key={b.title}>
                   <h2 className="font-display text-[clamp(24px,2.6vw,30px)] font-medium text-forest-deep">{b.title}</h2>
                   <p className="mt-2.5 max-w-[540px] font-sans text-[16px] leading-[1.65] text-[#4A4234]">{b.body}</p>
-                  {"flag" in b && <GabeFlag className="mt-2">{b.flag}</GabeFlag>}
                 </div>
               ))}
               <div className="border-t border-bark/20 pt-5">

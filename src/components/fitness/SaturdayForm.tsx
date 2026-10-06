@@ -70,8 +70,7 @@ export default function SaturdayForm() {
           {ok.headline(doneName)}
         </h3>
         <p className="mt-3 font-sans text-[15px] leading-[1.6] text-[#5A5142]">
-          {ok.body}{" "}
-          <span className="font-semibold text-amber-deep">{ok.flag}</span>
+          {ok.body}
         </p>
         <button
           type="button"

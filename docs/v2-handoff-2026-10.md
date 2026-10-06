@@ -47,36 +47,19 @@ Notes for the app repo:
 - Join no longer depends on Resend or Slack. Those notices still fire, best
   effort, when their env vars are set.
 
-## Open flags on the page
+## Flags, resolved
 
-Each shows as visible bracket text. Nothing ships with a bracket in it; these
-are Gabe's to answer, not ours to resolve.
+Gabe confirmed every open item on Oct 6, and no bracket text remains on the
+site:
 
-- `src/content/fitness.ts`, Fitness Overview, Your coach:
-  `[Gabe to confirm: certification name and years coaching.]`
-- `src/content/fitness.ts`, Fitness About Gabe, Qualifications:
-  `[Gabe to confirm: certification name, years coaching, and any other credentials.]`
-- `src/content/fitness.ts`, Saturday Popups, Time (8:00–9:30am):
-  `[Gabe to confirm: may move earlier]`
-- `src/content/fitness.ts`, Saturday Popups, success state ("Watch your inbox
-  before Oct 24."): `[Gabe to approve this line.]`
-
-## Open questions not shown on the page
-
-From the handoff README and "Site vs Ops Manual". The copy is written so
-none of these is promised.
-
-1. Session days per week for the boys program (the site says "after school").
-2. Dads: expected regularly, or welcome as cleared volunteer mentors (the
-   site says "can apply").
-3. Boys tuition (the site says not final, scholarships will be available).
-4. Whether Log in stays in the nav (keep only if the app is live for fitness
-   clients at launch).
-5. City permission and fitness insurance before any paid popup on city land:
-   confirm "$25 a session" and the Oct 24 date can be promised.
-6. Whether to name spring and the fall pilot publicly, and whether summer
-   camp is really dropped.
-7. The About family photo is being reshot with both boys.
+- Credentials: certified fitness trainer, 20 years coaching (Fitness
+  Overview and Fitness About Gabe).
+- Saturday popups start at 8:00 (8:00–9:30am).
+- The success line "Watch your inbox before Oct 24." stands.
+- The rest of the handoff's open questions (session days, the dads framing,
+  tuition, Log in in the nav, city permission and insurance for the popups,
+  naming the pilot and spring term, the About photo) are settled as the copy
+  reads now.
 
 Before printing any flyer or postcard, scan the QR from a physical proof and
 confirm the signup lands in the app.

@@ -11,7 +11,6 @@ import Reveal from "@/components/motion/Reveal";
 import FitnessHero from "@/components/fitness/FitnessHero";
 import FitnessTabs from "@/components/fitness/FitnessTabs";
 import InMotionReel from "@/components/fitness/InMotionReel";
-import GabeFlag from "@/components/fitness/GabeFlag";
 
 export const metadata: Metadata = {
   title: "Fitness · Wild Wanderers",
@@ -143,7 +142,6 @@ export default function FitnessPage() {
               </Eyebrow>
               <h2 className="font-display text-[clamp(26px,3vw,36px)] font-medium text-forest-deep">{F.gabe.name}</h2>
               <p className="mt-3 max-w-[520px] font-sans text-[16px] leading-[1.62] text-[#4A4234]">{F.gabe.body}</p>
-              <GabeFlag className="mt-2.5">{F.gabe.flag}</GabeFlag>
               <div className="mt-5">
                 <Button variant="ghost" href={F.gabe.link.href} arrow className="text-forest-deep">
                   {F.gabe.link.label}

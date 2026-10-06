@@ -20,8 +20,8 @@ import type { Cta, HeadlineLine } from "@/content/home";
 // Four tabs now: Overview, Training Options (replaces Offers), About Gabe, and
 // Saturday Popups. Decided Oct 5: no fitness prices anywhere on the site; the
 // only number is the $25 Saturday popup. The testimonial section is gone.
-// Visible "[Gabe to confirm: ...]" flags are placeholders for Gabe to resolve
-// before launch; nothing ships with a bracket in it.
+// Gabe confirmed the open items Oct 6: certified, 20 years coaching, and the
+// popups start at 8.
 // ===========================================================================
 
 export const fitnessTabItems = [
@@ -100,8 +100,7 @@ export const fitnessCopy = {
   gabe: {
     eyebrow: "Your coach",
     name: "Gabe Brewer",
-    body: "Certified fitness trainer based on the Peninsula. Gabe coaches strength, movement, and everyday habits, in person and outdoors.",
-    flag: "[Gabe to confirm: certification name and years coaching.]",
+    body: "Certified fitness trainer based on the Peninsula, with 20 years of coaching. Gabe coaches strength, movement, and everyday habits, in person and outdoors.",
     link: { label: "About Gabe", href: "/fitness/about" } as Cta,
     photo: "/photos/gabe-sierra-selfie.jpg",
     photoAlt: "Gabe smiling on a high Sierra slope",
@@ -150,8 +149,7 @@ export const fitnessAboutCopy = {
   blocks: [
     {
       title: "Qualifications and experience",
-      body: "Gabe is a certified fitness trainer. He grew up as an athlete and has worked as a trainer for years.",
-      flag: "[Gabe to confirm: certification name, years coaching, and any other credentials.]",
+      body: "Gabe is a certified fitness trainer. He grew up as an athlete and has been coaching for 20 years.",
     },
     {
       title: "What he coaches",
@@ -192,11 +190,11 @@ export const saturdayCopy = {
   },
   datesTitle: "Dates",
   details: [
-    { label: "Time", value: "8:00–9:30am", flag: "[Gabe to confirm: may move earlier]" },
-    { label: "Level", value: "All levels. Every exercise can be scaled.", flag: "" },
-    { label: "Price", value: "$25 per session. Bring two friends and yours is free.", flag: "" },
-    { label: "Dates", value: "Oct 24, then every two weeks: Nov 7, Nov 21, Dec 5.", flag: "" },
-    { label: "Location", value: "Outdoors on the Peninsula. Only ever shared by email.", flag: "" },
+    { label: "Time", value: "8:00–9:30am" },
+    { label: "Level", value: "All levels. Every exercise can be scaled." },
+    { label: "Price", value: "$25 per session. Bring two friends and yours is free." },
+    { label: "Dates", value: "Oct 24, then every two weeks: Nov 7, Nov 21, Dec 5." },
+    { label: "Location", value: "Outdoors on the Peninsula. Only ever shared by email." },
   ],
   howTitle: "How the pop-up list works",
   howSteps: [
@@ -228,7 +226,6 @@ export const saturdayCopy = {
     // "You're on the list, {first name}."
     headline: (firstName: string) => `You're on the list, ${firstName}.`,
     body: "Watch your inbox before Oct 24.",
-    flag: "[Gabe to approve this line.]",
     reset: "Add someone else",
   },
 };

@@ -47,7 +47,6 @@ export default function SaturdayPage() {
                     <dt className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-deep">{x.label}</dt>
                     <dd className="font-sans text-[15px] leading-[1.55] text-[#4A4234]">
                       {x.value}
-                      {x.flag && <span className="font-semibold text-amber-deep"> {x.flag}</span>}
                     </dd>
                   </div>
                 ))}
