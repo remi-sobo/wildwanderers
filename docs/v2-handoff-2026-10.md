@@ -41,9 +41,8 @@ Notes for the app repo:
   migrations need to carry it (Saturday spec, commit 1).
 - An email already on the list from the Trailhead door keeps source
   `trailhead`; anon can insert but not update.
-- The pop-up form collects name and phone (per the spec's form) but the list
-  stores email and source only. Name personalizes the success line; phone is
-  validated and dropped. If Gabe wants either kept, the table needs columns.
+- The pop-up form stores name and phone with the email (the app's pop-up roll
+  call migration added the columns). Neither is required by the table.
 - Join no longer depends on Resend or Slack. Those notices still fire, best
   effort, when their env vars are set.
 

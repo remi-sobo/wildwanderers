@@ -12,9 +12,9 @@ import { createReadOnlyClient, supabaseConfigured } from "@/lib/supabase/read-on
 // 23505, which is a success to the visitor. An email already on the list from
 // the Trailhead door keeps its original source (anon cannot update rows).
 //
-// Name and phone are validated but not stored: library_subscribers holds
-// email and source only (WW Saturday Page Spec). The name personalizes the
-// success line client-side.
+// Name and phone are stored with the email so the app's pop-up list and roll
+// call show who signed up. anon's insert grant is limited to org_id, email,
+// source, name, and phone (app migration 20261019000002).
 
 export const runtime = "nodejs";
 
@@ -120,7 +120,7 @@ export async function POST(request: Request) {
     // Insert only; no .select(), so nothing is read back.
     const { error } = await supabase
       .from("library_subscribers")
-      .insert({ org_id: orgId, email, source: "saturday" });
+      .insert({ org_id: orgId, email, source: "saturday", name, phone: phone || null });
 
     if (error && error.code !== "23505") {
       console.error("[fitness/saturday-signup] insert failed:", error.code);
