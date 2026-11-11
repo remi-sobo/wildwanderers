@@ -58,3 +58,12 @@ Gabe's first-person voice leads on the public site.
 Spec or plan before code. Phase the work. One change per commit, reversible.
 Run `npm run build` before every commit and keep it green. Show me the plan and
 the diff before committing.
+
+## Working efficiently
+
+- Match the effort to the job. A small, scoped change needs no plan and no subagents. For anything touching more than three files, list the files and the change in each before editing.
+- Finding code: when the answer needs more than a few file reads, use the built-in Explore agent and ask for paths plus a short summary.
+- Checks: hand lint, types, tests and builds to the `checker` agent. It reports failures only.
+- Review: run the `reviewer` agent once on the diff before opening a PR.
+- No agent teams or parallel workflows unless Remi asks for them.
+- Keep reports short: what changed, what was verified, what is still open.
